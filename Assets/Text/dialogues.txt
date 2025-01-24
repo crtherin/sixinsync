@@ -1,0 +1,9 @@
+[
+	{
+		id: "1_test",
+		name: "test",
+		description: "",
+		opening: ["test_hello"],
+		closing: ["test_bye"]
+	}
+]
