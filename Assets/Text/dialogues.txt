@@ -1,62 +1,62 @@
 [
   {
-    "id": 1,
-    "name": "test",
-    "description": "",
-    "icon": "test_icon",
-    "opening": [
-      "test_hello"
-    ],
-    "closing": [
-      "test_bye"
-    ]
+	"id": 1,
+	"name": "test",
+	"description": "",
+	"icon": "test_icon",
+	"opening": [
+	  "test_hello"
+	],
+	"closing": [
+	  "test_bye"
+	]
   },
   {
-    "id": 2,
-    "name": "Genghis Khan",
-    "description": "I am the ruler of all who ride horses and the one who forged the greatest empire the world has ever known. I united the Mongols, conquered the lands of many peoples, and led them to greatness. Through blood, sweat, and strategy, I have earned my place as the leader of nations. I am not just a conqueror, but a builder of empires and a creator of new paths for history.",
-    "icon": "test_icon",
-    "opening": [
-      "I am Genghis Khan, the storm that shapes the world, what might you bring before me?",
-      "The earth trembles beneath the hooves of my warriors, what is it that you can deliver to me?",
-      "Bubble tea, for I have united the peoples of many lands, your teas must be worthy of the empire I command."
-    ],
-    "closing": [
-      "May your path be swift, for the winds of fortune are ever-changing.",
-      "I must go now, but remember: even the greatest empires fall, as all things must.",
-      "Until we meet again, may your strength match that of the steppe beneath our feet."
-    ]
+	"id": 2,
+	"name": "Genghis Khan",
+	"description": "I am the ruler of all who ride horses and the one who forged the greatest empire the world has ever known. I united the Mongols, conquered the lands of many peoples, and led them to greatness. Through blood, sweat, and strategy, I have earned my place as the leader of nations. I am not just a conqueror, but a builder of empires and a creator of new paths for history.",
+	"icon": "res://Assets/Portraits/Suz_Tzu.png",
+	"opening": [
+	  "I am Genghis Khan, the storm that shapes the world, what might you bring before me?",
+	  "The earth trembles beneath the hooves of my warriors, what is it that you can deliver to me?",
+	  "Bubble tea, for I have united the peoples of many lands, your teas must be worthy of the empire I command."
+	],
+	"closing": [
+	  "May your path be swift, for the winds of fortune are ever-changing.",
+	  "I must go now, but remember: even the greatest empires fall, as all things must.",
+	  "Until we meet again, may your strength match that of the steppe beneath our feet."
+	]
   },
   {
-    "id": 3,
-    "name": "Sun Tzu",
-    "description": "",
-    "icon": "",
-    "opening": [
-      "'An army fights on their stomach. Feed them well and they will fight well' - The art of war",
-      "'A happier soldier is an effective soldier. Bubbles make soldiers happy' - The art of war",
-      "'Protecting logistics hubs is of utmost importance. Don't forget to fortify the bubble tea stand' - The art of war"
-    ],
-    "closing": [
-      "We are well fed now, we will fight with honor",
-      "I lost 3 543 470 soldiers defending this stand. It was worth it!",
-      "The Ching Dinasty wants our bubble tea. I will die before that happens"
-    ]
+	"id": 3,
+	"name": "Sun Tzu",
+	"description": "",
+	"icon": "",
+	"opening": [
+	  "'An army fights on their stomach. Feed them well and they will fight well' - The art of war",
+	  "'A happier soldier is an effective soldier. Bubbles make soldiers happy' - The art of war",
+	  "'Protecting logistics hubs is of utmost importance. Don't forget to fortify the bubble tea stand' - The art of war"
+	],
+	"closing": [
+	  "We are well fed now, we will fight with honor",
+	  "I lost 3 543 470 soldiers defending this stand. It was worth it!",
+	  "The Ching Dinasty wants our bubble tea. I will die before that happens"
+	]
   },
   {
-    "id": 3,
-    "name": "Aphrodite",
-    "description": "Aphrodite would stand before you, her eyes glinting with a playful, knowing sparkle. Her golden hair falls around her like a soft halo, framing a face that’s impossibly beautiful, lips slightly parted, as though she’s about to say something that could make your heart race. She moves with such grace, every step deliberate, teasing, like she knows you’re watching—and she likes it. There’s an effortless confidence in the way she holds herself, as if the world bends around her beauty, and you can’t help but feel drawn in. When her gaze meets yours, it’s like she’s daring you to surrender to the heat between you, and you’re not sure if you want to resist or give in completely.",
-    "icon": "test",
-    "opening": [
-      "I’ll take the sweetest one you have... but I’m already sweet enough, don’t you think?",
-      "How about you make it extra special, just like the way I like to be treated?",
-      "Don’t worry, I’ll sip this slowly... but I can’t promise the same for the way I’ll be making you feel."
-    ],
-    "closing": [
-      "Now, let's see if this is as sweet as you’re making me feel.",
-      "I’ll enjoy this... but I have a feeling you’ll be on my mind even more than the tea.",
-      "I love a good treat—just like I love a little fun conversation... care to join me?"
-    ]
+	"id": 3,
+	"name": "Aphrodite",
+	"description": "Aphrodite would stand before you, her eyes glinting with a playful, knowing sparkle. Her golden hair falls around her like a soft halo, framing a face that’s impossibly beautiful, lips slightly parted, as though she’s about to say something that could make your heart race. She moves with such grace, every step deliberate, teasing, like she knows you’re watching—and she likes it. There’s an effortless confidence in the way she holds herself, as if the world bends around her beauty, and you can’t help but feel drawn in. When her gaze meets yours, it’s like she’s daring you to surrender to the heat between you, and you’re not sure if you want to resist or give in completely.",
+	"icon": "test",
+	"opening": [
+	  "I’ll take the sweetest one you have... but I’m already sweet enough, don’t you think?",
+	  "How about you make it extra special, just like the way I like to be treated?",
+	  "Don’t worry, I’ll sip this slowly... but I can’t promise the same for the way I’ll be making you feel."
+	],
+	"closing": [
+	  "Now, let's see if this is as sweet as you’re making me feel.",
+	  "I’ll enjoy this... but I have a feeling you’ll be on my mind even more than the tea.",
+	  "I love a good treat—just like I love a little fun conversation... care to join me?"
+	]
   }
 ]
