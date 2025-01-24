@@ -3,7 +3,9 @@
 		id: "1_test",
 		name: "test",
 		description: "",
+		icon: "test_icon",
 		opening: ["test_hello"],
 		closing: ["test_bye"]
-	}
+	},
+	
 ]
