@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=2 format=3 uid="uid://cmbg6io8quw2j"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -7,8 +9,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3ulu4")
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,13 +21,44 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginBackground" type="MarginContainer" parent="PanelBackground"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="VBoxBackground" type="VBoxContainer" parent="PanelBackground/MarginBackground"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
+[node name="HBoxGameArea" type="HBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelQuest" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelCup" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxCharArea" type="VBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelStats" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="PanelChar" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="PanelItems" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2

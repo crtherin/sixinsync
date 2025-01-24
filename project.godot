@@ -12,3 +12,7 @@ config_version=5
 
 config/name="GGJ25"
 config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+Global="*res://main/global.gd"
