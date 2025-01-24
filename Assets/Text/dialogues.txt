@@ -1,11 +1,30 @@
 [
-	{
-		id: "1_test",
-		name: "test",
-		description: "",
-		icon: "test_icon",
-		opening: ["test_hello"],
-		closing: ["test_bye"]
-	},
-	
+  {
+    "id": 1,
+    "name": "test",
+    "description": "",
+    "icon": "test_icon",
+    "opening": [
+      "test_hello"
+    ],
+    "closing": [
+      "test_bye"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Genghis Khan",
+    "description": "I am the ruler of all who ride horses and the one who forged the greatest empire the world has ever known. I united the Mongols, conquered the lands of many peoples, and led them to greatness. Through blood, sweat, and strategy, I have earned my place as the leader of nations. I am not just a conqueror, but a builder of empires and a creator of new paths for history.",
+    "icon": "test_icon",
+    "opening": [
+      "I am Genghis Khan, the storm that shapes the world, what might you bring before me?",
+      "The earth trembles beneath the hooves of my warriors, what is it that you can deliver to me?",
+      "Bubble tea, for I have united the peoples of many lands, your teas must be worthy of the empire I command."
+    ],
+    "closing": [
+      "May your path be swift, for the winds of fortune are ever-changing.",
+      "I must go now, but remember: even the greatest empires fall, as all things must.",
+      "Until we meet again, may your strength match that of the steppe beneath our feet."
+    ]
+  }
 ]
