@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cmbg6io8quw2j"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelBackground" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginBackground" type="MarginContainer" parent="PanelBackground"]
+layout_mode = 2
+
+[node name="VBoxBackground" type="VBoxContainer" parent="PanelBackground/MarginBackground"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
+layout_mode = 2
+
+[node name="PanelItems" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
+layout_mode = 2
