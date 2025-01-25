@@ -190,5 +190,21 @@
 	"The balance is perfect—sometimes, it is the details that determine the difference between success and failure.",
 	"In this simple drink, I find a fleeting peace—yet, I know all too well that creation and its consequences are never far from my mind."
   ]
+},
+{
+  "id": 13,
+  "name": "Vlad Tepes",
+  "description": "I am Vlad Țepeș, defender of my land and scourge of the wicked. My hands are stained with blood, but only to protect my people and uphold justice. If my deeds were cruel, they were necessary evils in a world of greater horrors. Judge me not by my methods, but by my purpose.",
+  "icon": "res://Assets/Portraits/VladTepes.png",
+  "opening": [
+	"I thirst for the blood of my enemies, but bubble tea will do just as well.",
+	"Nothing brings me as much joy as scewering my enemies in spikes, except for the pops of bubble tea.",
+	"I once ordered a man's execution because he had dropped a bubble tea cup. Thread carefully!"
+  ],
+  "closing": [
+	"Aaaagh, magnificent! A thirst well quenched.",
+	"Many have died for this drink, but it was well worth it.",
+	"I pity those that passed without ever experiencing this exquisite flavor"
+  ]
 }
 ]
