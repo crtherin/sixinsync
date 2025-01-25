@@ -1,10 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://mfufabuiws4r"]
 
-[ext_resource type="Script" path="res://resources/Mumble/mumble.gd" id="1_j2juf"]
+[ext_resource type="Script" path="res://resources/Mumble/mumble_manager.gd" id="1_ci74o"]
 
 [node name="MumbleManager" type="Node"]
-script = ExtResource("1_j2juf")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+script = ExtResource("1_ci74o")
+path = "res://Assets/Sounds/MorseCode/"

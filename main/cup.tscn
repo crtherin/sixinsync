@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Texture2D" uid="uid://d38ch8nephsk8" path="res://Assets/Cup/Pahar .png" id="1_8ma8i"]
+[ext_resource type="Texture2D" uid="uid://8773x3m2ljxs" path="res://Assets/Textures/Pahar Semi-final.png" id="2_8ydkj"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]
@@ -14,16 +14,16 @@ offset_bottom = 448.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ob8vf")
 script = ExtResource("2_ple3i")
 
-[node name="LayerTea" type="TextureRect" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 6
-
 [node name="LayerMilk" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LayerTea" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
 expand_mode = 1
 stretch_mode = 6
 
@@ -43,6 +43,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
 [node name="LayerCup" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_8ma8i")
+texture = ExtResource("2_8ydkj")
 expand_mode = 1
 stretch_mode = 6
