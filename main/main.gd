@@ -24,6 +24,8 @@ var gameRunning = false
 var customerLabel
 var timerLabel
 var goldLabel
+
+var round : int = 0
 #endregion
 
 #region OnReady Variables
@@ -168,8 +170,23 @@ func get_items() -> Array[Item]:
 #endregion
 
 #region Signal Callbacks
-func _on_cup_dropped_on_customer() -> void:
+func _on_cup_dropped_on_customer(isOk: bool) -> void:
 	print("Dropped on customer")
+	print(isOk)
+	if isOk:
+		Global.gold_change_event(30)
+		round += 1
+		if (round % 3 == 0):
+			print("Charon came and took 100 gold!")
+			Global.gold_change_event(-100)
+		else:
+			set_next_customer()
+			
+		
+		
+	else: 
+		Global.warning_message_event("Wrong BUBBLE TEA!")
+	
 
 
 func _on_cup_dropped_on_trash() -> void:
