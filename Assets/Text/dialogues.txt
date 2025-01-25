@@ -12,14 +12,14 @@
 	"closing": [
 	  "This is very good! Thank You!",
 	  "For I, a mere human, this is the golden liquid",
-	  "Tis but the greatesth of refreshments"
+	  "Tis but the greatest of refreshments"
 	]
   },
   {
 	"id": 2,
 	"name": "Genghis Khan",
 	"description": "I am the ruler of all who ride horses and the one who forged the greatest empire the world has ever known. I united the Mongols, conquered the lands of many peoples, and led them to greatness. Through blood, sweat, and strategy, I have earned my place as the leader of nations. I am not just a conqueror, but a builder of empires and a creator of new paths for history.",
-	"icon": "res://Assets/Portraits/Suz_Tzu.png",
+	"icon": "res://Assets/Portraits/GenghisKhan.png",
 	"opening": [
 	  "I am Genghis Khan, the storm that shapes the world, what might you bring before me?",
 	  "The earth trembles beneath the hooves of my warriors, what is it that you can deliver to me?",
@@ -34,7 +34,7 @@
   {
 	"id": 3,
 	"name": "Sun Tzu",
-	"description": "",
+	"description": "Know the enemy and know yourself in a hundred battles you will never be in peril",
 	"icon": "res://Assets/Portraits/Suz_Tzu.png",
 	"opening": [
 	  "'An army fights on their stomach. Feed them well and they will fight well' - The art of war",
@@ -44,7 +44,7 @@
 	"closing": [
 	  "We are well fed now, we will fight with honor",
 	  "I lost 3 543 470 soldiers defending this stand. It was worth it!",
-	  "The Ching Dinasty wants our bubble tea. I will die before that happens"
+	  "The Ching Dynasty wants our bubble tea. I will die before that happens"
 	]
   },
   {

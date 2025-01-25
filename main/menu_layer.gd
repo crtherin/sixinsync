@@ -29,18 +29,22 @@ extends CanvasLayer
 @onready var ButtonResume := %ButtonResume as Button
 @onready var ButtonExit := %ButtonExit as Button
 @onready var LabelMenuWarning := %LabelMenuWarning as Label
+
+@onready var StartMenu := %StartMenu as ColorRect
+@onready var EndMenu := %EndMenu as ColorRect
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
+	StartMenu.visible = true
 	visible = true
 	LabelMenuWarning.visible = false
 	
 	set_pause_screen(true)
 	
 	Global.warning_message_requested.connect(_on_warning_message_requested)
+	Global.game_over.connect(_game_over)
 	
 	for button: Button in [ButtonResume, ButtonExit]:
 		button.pressed.connect(_on_button_pressed.bind(button))
@@ -69,9 +73,27 @@ func set_pause_screen(state: bool) -> void:
 	else:
 		tween.tween_property(ColorMenuBackground, ^"modulate:a", 0.0, 0.25).from(1.0)
 		tween.tween_callback(ColorMenuBackground.hide)
+		
+func set_start_screen(state: bool) -> void:	
+	Global.is_paused = state
+	get_tree().paused = state
+	set_pause_screen(state)
+	
+	var tween: Tween = create_tween()
+	
+	tween.tween_property(StartMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
+	tween.tween_callback(StartMenu.hide)
 #endregion
 
 #region Private Methods
+func _on_button_start_pressed():
+	set_start_screen(false);
+	
+func _on_button_exit_pressed():
+	_on_button_pressed(ButtonExit)
+	
+func _on_button_retry_pressed():
+	get_tree().reload_current_scene()
 #endregion
 
 #region Static Methods
@@ -106,6 +128,13 @@ func _on_button_pressed(button: Button) -> void:
 	match button:
 		ButtonResume: set_pause_screen(false)
 		ButtonExit: get_tree().quit()
+
+func _game_over():
+	Global.is_paused = true
+	get_tree().paused = true
+	EndMenu.visible = true
+	var tween: Tween = create_tween()
+	tween.tween_property(EndMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
 #endregion
 
 #region SubClasses
