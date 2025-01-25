@@ -1,4 +1,4 @@
-#@tool
+@tool
 class_name Item
 extends TextureRect
 
@@ -10,11 +10,11 @@ signal dropped
 #endregion
 
 #region Constants
+const GROUP: StringName = &"item"
 #endregion
 
 #region Export Variables
-@export var title: String
-@export_multiline var description: String
+@export var data: ItemData
 #endregion
 
 #region Public Variables
@@ -38,10 +38,20 @@ var cup: Cup
 #region Virtual Methods
 func _ready() -> void:
 	set_physics_process(false)
-	gui_input.connect(_on_gui_input)
 	
-	LabelTitle.text = title
-	LabelDescription.text = description
+	if data == null:
+		return
+	
+	texture = data.item_texture
+	self_modulate = data.item_modulate
+	LabelTitle.text = data.title
+	LabelDescription.text = data.description
+	
+	if Engine.is_editor_hint():
+		return
+	
+	add_to_group(GROUP)
+	gui_input.connect(_on_gui_input)
 	
 	get_window().size_changed.connect(_on_window_size_changed)
 	
@@ -70,6 +80,8 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 #region Public Methods
+func bring_to_front() -> void:
+	Array(get_tree().get_nodes_in_group(GROUP), TYPE_OBJECT, &"TextureRect", Item).map(func(item: Item) -> void: item.z_index = int (item == self))
 #endregion
 
 #region Private Methods
@@ -98,6 +110,8 @@ func _on_gui_input(event: InputEvent) -> void:
 		if mouse_button_event.pressed:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
+					bring_to_front()
+					
 					is_pressed = true
 					PanelTooltip.visible = false
 		
@@ -105,9 +119,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
 					if cup.get_global_rect().has_point(get_global_mouse_position()):
-						var tween: Tween = create_tween()
-						
-						tween.tween_property(self, ^"global_position", initial_position, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+						create_tween().tween_property(self, ^"global_position", initial_position, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 						dropped.emit()
 					
 					else:
@@ -122,6 +134,7 @@ func _on_gui_input(event: InputEvent) -> void:
 func _on_mouse_detection(entered: bool) -> void:
 	if entered and not is_pressed:
 		PanelTooltip.visible = true
+		bring_to_front()
 		
 		await get_tree().process_frame
 		

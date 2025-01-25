@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_cpw3x")
 type = 0
-texture = ExtResource("2_sjanf")
+item_texture = ExtResource("2_sjanf")
 title = "Generic Item 1"
 description = "A simple test item"
-modulate = Color(0.0709571, 1, 0.0251577, 1)
+item_modulate = Color(0, 1, 0.09163, 1)
+cup_modulate = Color(1, 1, 1, 1)

@@ -9,7 +9,6 @@ extends Node
 #endregion
 
 #region Constants
-const PACK_ITEM: PackedScene = preload("res://main/item.tscn")
 #endregion
 
 #region Export Variables

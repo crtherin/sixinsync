@@ -20,10 +20,12 @@ enum Type {
 
 #region Export Variables
 @export var type: Type = Type.GENERIC_ITEM
-@export var texture: Texture2D
+@export var item_texture: Texture2D
+@export var cup_texture: Texture2D
 @export var title: String
 @export_multiline var description: String
-@export var modulate: Color = Color.WHITE
+@export var item_modulate: Color = Color.WHITE
+@export var cup_modulate: Color = Color.WHITE
 #endregion
 
 #region Public Variables
