@@ -125,6 +125,9 @@ func set_next_customer() -> void:
 	
 	TextureCustomer.texture = load(customer_data.icon)
 	LabelPanelQuestBackground.text = customer_data.opening[0]
+	var customer_label = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
+	customer_label.set_text(customer_data.description)
+	
 	
 	TimerGame.start()
 	gameRunning = true
