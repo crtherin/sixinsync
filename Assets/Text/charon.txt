@@ -1,0 +1,38 @@
+[
+  {
+	"id": 666,
+	"name": "Charon",
+	"description": "The boatman of the Underworld, Charon has spent an eternity leading souls to the afterlife. Since the introduction of ridesharing services made his activities less profitable, Charon now rents out his time as Racketeering-as-a-Service to support his Funko Pop addiction.",
+	"icon": "res://Assets/Portraits/GenghisKhan.png",
+	"initial": [
+	  "Ah, a bubble tea shop in Purgatory. Truly, the afterlife has evolved. Greetings, formerly mortal entrepreneur. I am Charon, ferryman of the damned and —more recently— a consultant in the field of Purgatorial Asset Management. Lovely shop you’ve got here, truly. I’m here to ensure no unfortunate... accidents occur to your tea stand. After all, purgatory can be unpredictable— loose ghosts, wailing souls, stray Cerberus pups... very bad for business.
+
+So here’s the deal: every day, I’ll return to collect a modest protection fee of, say, 10 obols. Consider it a small price for peace of mind. Refuse, and let’s just say I hope you’re good at rowing.
+
+Oh, and one last thing. If, by some divine miracle, you manage to scrape together 100 obols, well... you’ll earn the rare and legendary privilege of dragging me to the trash, banishing me to eternal humiliation. Hilarious, I know. But until then, I’m your humble protector. See you tomorrow, mortal. Oh, and tell Hitler to stop asking for tapioca shaped like swastikas. Even I have standards."
+	],
+	"evening": [
+	  "Evening, mortal! Heard Mao Tse Tung started a revolution over your Oolong Tea prices. Tough crowd. Anyway, %s obols. Let’s keep this place in one piece.",
+	  "Good news: Sun Tzu approves of your Black Tea. Bad news: Alfred Nobel just invented a boba cannon and is testing it on your walls. %s obols, and I’ll make him stop.",
+	  "Time for your daily donation to the Ferryman’s Retirement Fund. %s obols, and your shop stays afloat. Literally.",
+	  "It’s time, mortal. %s obols for peace and quiet—or I’ll let Aphrodite set up a karaoke night.",
+	  "Think of it as a subscription service. Pay %s obols now, and you won’t get the... cancellation fee.",
+	  "I could let you skip today’s payment. But then again, I’d miss the look of fear in your eyes. %s obols.",
+	  "I had a chat with Vlad Tepes earlier. He suggested I take payment in blood. But I’m old-fashioned — %s obols will suffice.",
+	  "You’re still here? Impressive. Most businesses in purgatory collapse after Mussolini starts demanding free samples. %s obols.",
+	  "You can think of me as a silent partner. %s obols a day, and I stay silent. Stop paying, and, well, I won’t.",
+	  "Sun Tzu stopped by and declared your Black Tea to be ‘a strategic masterpiece.’ High Praise. But he also said, ‘Victory is fleeting; payment to Charon is eternal.’ Wise words. Now, let’s see those %s obols.",
+	  "Alfred Nobel seems... inspired by your popping pearls. I caught him muttering something about ‘explosive innovation.’ %s obols, and I’ll keep him from turning your shop into ground zero for his next experiment.",
+	  "Funny thing — Vlad Tepes just asked me if I thought your Blood Tea was fresh enough. Apparently, he’s considering leaving you a negative review because it’s ‘not authentic.’ %s obols, and I’ll keep him from skewering your Yelp rating.",
+	  "Did you know Hitler complained that your Succubus Milk tasted ‘too sinful’? Imagine that. Too sinful for Hitler. Anyway, %s obols, and I’ll make sure he doesn’t try to commission a ‘purer’ alternative.",
+	  "You know, every day I come here, I wonder why you haven’t thrown in the towel. Hitler’s impossible to please, Mao’s trying to unionize your ghost staff, and Vlad’s still asking if he can drink the customers. %s obols, and I’ll keep this lovely chaos from swallowing you whole.",
+	]
+	"victory": [
+	  "Fine! I’ll go! But know this: no one has ever humiliated Charon and gotten away with it! Well... except maybe Hercules. And Orpheus. And now you. Whatever. Good riddance!"
+	],
+	"loss": [
+	  "Mortal, you’ve let me down. But more importantly, you’ve let yourself down. Mostly because you thought selling bubble tea in Purgatory was a sustainable business. Step into the boat, genius."
+	]
+	  
+  }
+]
