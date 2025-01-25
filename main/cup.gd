@@ -1,6 +1,6 @@
 #@tool
-#class_name Global
-extends Node
+class_name Cup
+extends TextureRect
 
 #region Signals
 #endregion
@@ -9,7 +9,7 @@ extends Node
 #endregion
 
 #region Constants
-const PACK_ITEM: PackedScene = preload("res://main/item.tscn")
+const GROUP: StringName = &"cup"
 #endregion
 
 #region Export Variables
@@ -25,6 +25,8 @@ const PACK_ITEM: PackedScene = preload("res://main/item.tscn")
 #endregion
 
 #region Virtual Methods
+func _ready() -> void:
+	add_to_group(GROUP)
 #endregion
 
 #region Public Methods

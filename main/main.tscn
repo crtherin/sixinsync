@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=4 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
+[ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://main/cup.tscn" id="2_iii1x"]
+[ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://main/item.tscn" id="2_voga1"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -19,46 +21,112 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginBackground" type="MarginContainer" parent="PanelBackground"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="VBoxBackground" type="VBoxContainer" parent="PanelBackground/MarginBackground"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 
 [node name="HBoxGameArea" type="HBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="PanelQuest" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="PanelCup" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginCup" type="MarginContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/PanelCup"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="Cup" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/PanelCup/MarginCup" instance=ExtResource("2_iii1x")]
+layout_mode = 2
 
 [node name="VBoxCharArea" type="VBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="PanelStats" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="PanelChar" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="PanelItems" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+mouse_filter = 2
+
+[node name="ItemsContainer" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Item" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
+layout_mode = 1
+offset_left = 1057.0
+offset_top = 13.0
+offset_right = 1121.0
+offset_bottom = 77.0
+title = "AAAAAAAAAa"
+description = "fdgdfgdf
+g
+dfg
+dfgddd"
+
+[node name="Item2" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
+layout_mode = 1
+offset_left = 262.0
+offset_top = 21.0
+offset_right = 326.0
+offset_bottom = 85.0
+
+[node name="Item3" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
+layout_mode = 1
+offset_left = 371.0
+offset_top = 72.0
+offset_right = 435.0
+offset_bottom = 136.0
+
+[node name="Item4" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
+layout_mode = 1
+offset_left = 556.0
+offset_top = 11.0
+offset_right = 620.0
+offset_bottom = 75.0
+
+[node name="Item5" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
+layout_mode = 1
+offset_left = 660.0
+offset_top = 75.0
+offset_right = 724.0
+offset_bottom = 139.0

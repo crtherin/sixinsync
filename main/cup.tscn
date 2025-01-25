@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://17w5iyucsao7"]
+
+[ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://main/sprite.svg" id="1_4chqy"]
+[ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
+
+[node name="Cup" type="TextureRect"]
+offset_right = 186.0
+offset_bottom = 412.0
+texture = ExtResource("1_4chqy")
+expand_mode = 1
+stretch_mode = 6
+script = ExtResource("2_ple3i")
+
+[node name="VBoxLayers" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LayerBubbles" type="TextureRect" parent="VBoxLayers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LayerExtras" type="TextureRect" parent="VBoxLayers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LayerTea" type="TextureRect" parent="VBoxLayers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LayerMilk" type="TextureRect" parent="VBoxLayers"]
+layout_mode = 2
+size_flags_vertical = 3
