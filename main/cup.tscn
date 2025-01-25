@@ -1,72 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://17w5iyucsao7"]
+[gd_scene load_steps=5 format=3 uid="uid://17w5iyucsao7"]
 
 [ext_resource type="Texture2D" uid="uid://d38ch8nephsk8" path="res://Assets/Cup/Pahar .png" id="1_8ma8i"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
-[ext_resource type="Texture2D" uid="uid://fct5q1edcjw1" path="res://Assets/Cup/Tears texture.png" id="3_t05h2"]
-[ext_resource type="Texture2D" uid="uid://b23wdbk67cvx5" path="res://Assets/Cup/Bubbles texture.png" id="4_8pq16"]
-[ext_resource type="Texture2D" uid="uid://djg2uo3mnlgwe" path="res://Assets/Cup/Almond milk texture.png" id="5_5qsiq"]
 
-[node name="Cup" type="TextureRect"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nsjq"]
+
+[node name="Cup" type="PanelContainer"]
 z_index = 1
-offset_right = 186.0
-offset_bottom = 412.0
-expand_mode = 1
-stretch_mode = 6
+offset_right = 320.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ob8vf")
 script = ExtResource("2_ple3i")
 
 [node name="LayerTea" type="TextureRect" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 7.71
-texture = ExtResource("5_5qsiq")
+layout_mode = 2
 expand_mode = 1
 stretch_mode = 6
 
 [node name="LayerMilk" type="TextureRect" parent="."]
 unique_name_in_owner = true
-modulate = Color(0.985897, 0, 1, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_8pq16")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="LayerExtras" type="TextureRect" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 0.960938, 0.984941, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-texture = ExtResource("3_t05h2")
 expand_mode = 1
 stretch_mode = 6
 
 [node name="LayerBubbles" type="TextureRect" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 0.646274, 0.82626, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelExtrasLayers" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
+
+[node name="LayerCup" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
 texture = ExtResource("1_8ma8i")
 expand_mode = 1
+stretch_mode = 6

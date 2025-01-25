@@ -1,6 +1,6 @@
 #@tool
 class_name Cup
-extends TextureRect
+extends PanelContainer
 
 #region Signals
 #endregion
@@ -20,16 +20,22 @@ extends TextureRect
 #region Public Variables
 var is_pressed: bool: set = _set_pressed
 var initial_position: Vector2
+
+var selected_tea: ItemData.Type
+var selected_milk: ItemData.Type
+var selected_bubble: ItemData.Type
+var selected_extras: Array[ItemData.Type]
 #endregion
 
 #region Private Variables
 #endregion
 
 #region OnReady Variables
+@onready var LayerCup := %LayerCup as TextureRect
 @onready var LayerBubbles := %LayerBubbles as TextureRect
-@onready var LayerExtras := %LayerExtras as TextureRect
 @onready var LayerTea := %LayerTea as TextureRect
 @onready var LayerMilk := %LayerMilk as TextureRect
+@onready var PanelExtrasLayers := %PanelExtrasLayers as PanelContainer
 #endregion
 
 #region Virtual Methods
@@ -72,6 +78,40 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 #region Public Methods
+func check_selection() -> bool:
+	if Global.current_quest.tea != selected_tea:
+		return false
+	
+	if Global.current_quest.milk != selected_milk:
+		return false
+	
+	if Global.current_quest.bubble != selected_bubble:
+		return false
+	
+	var extras_valid_count: int = 0
+	
+	for extras: ItemData.Type in selected_extras:
+		if extras in Global.current_quest.extras:
+			extras_valid_count += 1
+	
+	if extras_valid_count != Global.current_quest.extras.size():
+		return false
+	
+	return true
+
+
+func reset() -> void:
+	selected_tea = ItemData.Type.GENERIC_ITEM
+	selected_milk = ItemData.Type.GENERIC_ITEM
+	selected_bubble = ItemData.Type.GENERIC_ITEM
+	selected_extras.clear()
+	
+	LayerTea.texture = null
+	LayerMilk.texture = null
+	LayerBubbles.texture = null
+	
+	for child: Node in PanelExtrasLayers.get_children():
+		child.queue_free()
 #endregion
 
 #region Private Methods
@@ -82,23 +122,43 @@ func _physics_process(_delta: float) -> void:
 
 #region Signal Callbacks
 func _on_item_dropped_in_cup(item: Item) -> void:
-	print("Item: %s, dropped on cup: %d" % item)
+	print("Item: %s, dropped on cup: %s" % [item, item.data.type])
+	
+	var extras_textures: Array[Texture2D]
 	
 	match item.data.type:
 		ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG:
-			print(item.data.type == Global.current_quest.tea)
+			selected_tea = item.data.type
+			LayerTea.texture = item.data.cup_texture
 			
 		ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.BOBA_SERAPHIC:
-			pass
+			selected_bubble = item.data.type
+			LayerBubbles.texture = item.data.cup_texture
 		
 		ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
-			pass
+			selected_milk = item.data.type
+			LayerMilk.texture = item.data.cup_texture
 		
 		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP:
-			pass
+			if not item.data.type in selected_extras:
+				selected_extras.append(item.data.type)
+				extras_textures.append(item.data.cup_texture)
 		
 		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
-			pass
+			if not item.data.type in selected_extras:
+				selected_extras.append(item.data.type)
+				extras_textures.append(item.data.cup_texture)
+	
+	for child: Node in PanelExtrasLayers.get_children():
+		child.queue_free()
+	
+	for cup_texture: Texture2D in extras_textures:
+		var texture_rect: TextureRect = TextureRect.new()
+		
+		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		
+		PanelExtrasLayers.add_child(texture_rect)
 
 
 func _on_gui_input(event: InputEvent) -> void:
