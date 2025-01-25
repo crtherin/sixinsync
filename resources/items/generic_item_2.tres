@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://r5q3vk4ymxhp"]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1_fn43d"]
+[ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://main/sprite.svg" id="2_t0st0"]
+
+[resource]
+script = ExtResource("1_fn43d")
+type = 0
+item_texture = ExtResource("2_t0st0")
+title = "Generic Item 2"
+description = "A simple test item"
+item_modulate = Color(1, 0, 0.185064, 1)
+cup_modulate = Color(1, 1, 1, 1)

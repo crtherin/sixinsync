@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://be11ekbhpy8bm"]
+
+[ext_resource type="Script" path="res://main/item.gd" id="1_qlier"]
+
+[node name="Item" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+mouse_filter = 0
+expand_mode = 1
+stretch_mode = 6
+script = ExtResource("1_qlier")
+
+[node name="PanelTooltip" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="VBoxTooltip" type="VBoxContainer" parent="PanelTooltip"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LabelTitle" type="Label" parent="PanelTooltip/VBoxTooltip"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="LabelDescription" type="Label" parent="PanelTooltip/VBoxTooltip"]
+unique_name_in_owner = true
+layout_mode = 2

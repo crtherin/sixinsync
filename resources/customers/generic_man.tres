@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CustomerData" load_steps=2 format=3 uid="uid://ba1e484l6548g"]
+
+[ext_resource type="Script" path="res://resources/customer_data.gd" id="1_wftt2"]
+
+[resource]
+script = ExtResource("1_wftt2")
+type = 0
+name = ""
