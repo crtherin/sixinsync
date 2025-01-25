@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=47 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://main/cup.tscn" id="2_iii1x"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://Assets/Placeholders/sprite.svg" id="4_u8bic"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="5_kqg30"]
 [ext_resource type="Shader" path="res://resources/shaders/menu_blur.gdshader" id="6_7xfdu"]
+[ext_resource type="Texture2D" uid="uid://cr3ug6ooy3x21" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
 [ext_resource type="Script" path="res://main/menu_layer.gd" id="6_bv12s"]
 [ext_resource type="Texture2D" uid="uid://bhs5rcj3nimvj" path="res://Assets/Items/Black tea.png" id="7_xs27y"]
 [ext_resource type="StyleBox" uid="uid://iysjtsw0a07y" path="res://resources/styles/style_button_hover.tres" id="8_aiorj"]
@@ -292,6 +293,11 @@ layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_rvo85")
 script = ExtResource("4_764ad")
+
+[node name="TextureRect" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
+layout_mode = 2
+texture = ExtResource("6_a7pu4")
+expand_mode = 1
 
 [node name="ItemsContainer" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
 unique_name_in_owner = true
