@@ -14,6 +14,9 @@ signal cup_dropped_on_trash
 
 @warning_ignore("unused_signal")
 signal warning_message_requested(text: String)
+
+@warning_ignore("unused_signal")
+signal game_over
 #endregion
 
 #region Enums

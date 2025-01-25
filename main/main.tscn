@@ -598,6 +598,7 @@ script = ExtResource("6_bv12s")
 
 [node name="StartMenu" type="ColorRect" parent="MenuLayer"]
 unique_name_in_owner = true
+visible = false
 z_index = 3
 material = SubResource("ShaderMaterial_16mr7")
 anchors_preset = 15
@@ -658,6 +659,69 @@ theme_override_styles/pressed = ExtResource("9_7kpmm")
 theme_override_styles/normal = ExtResource("10_q5j0g")
 text = "Exit"
 
+[node name="EndMenu" type="ColorRect" parent="MenuLayer"]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+material = SubResource("ShaderMaterial_16mr7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginMenuBackground" type="MarginContainer" parent="MenuLayer/EndMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxMenuBackground" type="VBoxContainer" parent="MenuLayer/EndMenu/MarginMenuBackground"]
+layout_mode = 2
+
+[node name="LabelMenuTitle" type="Label" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 128
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxMenuButtons" type="VBoxContainer" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 64
+
+[node name="ButtonRetry" type="Button" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6t1mo")
+theme_override_styles/hover = ExtResource("8_aiorj")
+theme_override_styles/pressed = ExtResource("9_7kpmm")
+theme_override_styles/normal = ExtResource("10_q5j0g")
+text = "Retry"
+
+[node name="ButtonExit" type="Button" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6t1mo")
+theme_override_styles/hover = ExtResource("8_aiorj")
+theme_override_styles/pressed = ExtResource("9_7kpmm")
+theme_override_styles/normal = ExtResource("10_q5j0g")
+text = "Exit"
+
 [node name="ColorMenuBackground" type="ColorRect" parent="MenuLayer"]
 unique_name_in_owner = true
 visible = false
@@ -694,7 +758,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 20
 theme_override_font_sizes/font_size = 128
-text = "Work in Progress"
+text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -749,3 +813,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonStart" to="MenuLayer" method="_on_button_start_pressed"]
+[connection signal="pressed" from="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonExit" to="MenuLayer" method="_on_button_exit_pressed"]
+[connection signal="pressed" from="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonRetry" to="MenuLayer" method="_on_button_retry_pressed"]
+[connection signal="pressed" from="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonExit" to="MenuLayer" method="_on_button_exit_pressed"]

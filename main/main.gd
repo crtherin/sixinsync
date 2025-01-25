@@ -19,6 +19,7 @@ var customers_data: Array[Dictionary]
 #endregion
 
 #region Private Variables
+var gameRunning = false
 #endregion
 
 #region OnReady Variables
@@ -58,6 +59,9 @@ func _ready() -> void:
 	
 	set_next_customer()
 
+func _process(delta):
+	if TimerGame.is_stopped() && gameRunning:
+		Global.game_over.emit()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -70,6 +74,7 @@ func _input(event: InputEvent) -> void:
 
 #region Public Methods
 func set_next_customer() -> void:
+	gameRunning = false
 	TimerGame.stop()
 	
 	Global.current_quest.tea = [ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG].pick_random()
@@ -122,6 +127,8 @@ func set_next_customer() -> void:
 	LabelPanelQuestBackground.text = customer_data.opening[0]
 	
 	TimerGame.start()
+	gameRunning = true
+	
 
 
 func get_items() -> Array[Item]:
