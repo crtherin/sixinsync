@@ -29,4 +29,6 @@ theme_override_font_sizes/font_size = 24
 
 [node name="LabelDescription" type="Label" parent="PanelTooltip/VBoxTooltip"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+autowrap_mode = 3
