@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyeengn3tjtqr"]
+
+[ext_resource type="Script" path="res://resources/Mumble/mumble.gd" id="1_k3yic"]
+
+[node name="Mumbeler" type="Node"]
+script = ExtResource("1_k3yic")
