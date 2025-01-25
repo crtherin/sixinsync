@@ -1,6 +1,7 @@
 extends Node
 
 @export var path: String
+@export var speed: float
 var mumblers: Array[Mumbler]
 var _streams: Array[Resource]
 
@@ -14,7 +15,7 @@ func _ready():
 				_streams.append(load(path + file))
 
 func mumble(text:String):
-	var mumbler = Mumbler.getInstance(text, path, _streams)
+	var mumbler = Mumbler.getInstance(text, path, _streams, speed)
 	self.add_child(mumbler)
 	mumbler.stringToMorsePop()
 	mumblers.append(mumbler)

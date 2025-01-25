@@ -5,3 +5,4 @@
 [node name="MumbleManager" type="Node"]
 script = ExtResource("1_ci74o")
 path = "res://Assets/Sounds/MorseCode/"
+speed = 1.0

@@ -13,11 +13,13 @@ func _ready() -> void:
 	_regex = RegEx.new()
 	_regex.compile('([ ./!,()])')
 
-static func getInstance(text: String, path: String, streams: Array[Resource]) -> Mumbler:
+static func getInstance(text: String, path: String, streams: Array[Resource], pich: float) -> Mumbler:
 	var mumbler = Mumbler.new()
 	mumbler._streams = streams
 	mumbler._current_text = text.to_upper()
 	mumbler.player = AudioStreamPlayer.new()
+	mumbler.player.bus = &"Speech"
+	mumbler.player.pitch_scale = pich
 	mumbler.player.finished.connect(mumbler._on_audio_stream_player_finished)
 	mumbler.add_child(mumbler.player)
 	return mumbler		
