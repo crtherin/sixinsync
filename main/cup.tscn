@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Texture2D" uid="uid://8773x3m2ljxs" path="res://Assets/Textures/Pahar Semi-final.png" id="2_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://cjf0rxiheplna" path="res://Assets/Textures/Pahar Semi-final.png" id="2_8ydkj"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]

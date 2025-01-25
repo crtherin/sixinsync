@@ -63,10 +63,14 @@ func _input(event: InputEvent) -> void:
 					if Global.cup_is_dragging:
 						
 						if panel_customer.get_global_rect().has_point(mouse_position):
-							Global.cup_dropped_on_customer.emit()
+							var isOk = check_selection()
+							Global.customer_drop(isOk)
+							if isOk:
+								reset()
 						
 						elif panel_trash.get_global_rect().has_point(mouse_position):
-							Global.cup_dropped_on_trash.emit()
+							#Global.cup_dropped_on_trash.emit()
+							reset()
 					
 					is_pressed = false
 					Global.cup_is_dragging = false
@@ -80,21 +84,34 @@ func _physics_process(_delta: float) -> void:
 #region Public Methods
 func check_selection() -> bool:
 	if Global.current_quest.tea != selected_tea:
+		print("wrong tea")
+		print(selected_tea)
+		print(Global.current_quest.tea)
 		return false
 	
 	if Global.current_quest.milk != selected_milk:
+		print("wrong milk")
+		print(selected_milk)
+		print(Global.current_quest.milk)
 		return false
 	
 	if Global.current_quest.bubble != selected_bubble:
+		print("wrong bublbe")
+		print(selected_bubble)
+		print(Global.current_quest.bubble)
 		return false
 	
-	var extras_valid_count: int = 0
+	var extras_valid_count: int = 1
 	
 	for extras: ItemData.Type in selected_extras:
 		if extras in Global.current_quest.extras:
+			print(extras)
 			extras_valid_count += 1
 	
-	if extras_valid_count != Global.current_quest.extras.size():
+	if extras_valid_count != (Global.current_quest.extras.size() - 3):
+		print("wrong extras")
+		print(extras_valid_count)
+		print(Global.current_quest.extras)
 		return false
 	
 	return true

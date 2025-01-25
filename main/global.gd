@@ -7,7 +7,7 @@ extends Node
 signal item_dropped_in_cup(item: Item)
 
 @warning_ignore("unused_signal")
-signal cup_dropped_on_customer
+signal cup_dropped_on_customer(isOk: bool)
 
 @warning_ignore("unused_signal")
 signal cup_dropped_on_trash
@@ -110,6 +110,15 @@ func newCustomer():
 #region Signal Callbacks
 func gold_change_event(amount):
 	emit_signal("gold_change", amount)
+	
+func customer_drop(isOk):
+	emit_signal("cup_dropped_on_customer", isOk)
+	
+func warning_message_event(text):
+	emit_signal("warning_message_requested", text)
+	
+func game_over_event():
+	emit_signal("game_over")
 #endregion
 
 #region SubClasses
@@ -121,6 +130,10 @@ func setCustomerDone(done: bool):
 	
 func addGold(amount: int):
 	gold += amount
+	if gold < 0:
+		print("game over")
+		game_over_event()
+		
 	print_debug(gold)
 #endregion
 
