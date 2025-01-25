@@ -1,9 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://17w5iyucsao7"]
+[gd_scene load_steps=11 format=3 uid="uid://17w5iyucsao7"]
 
 [ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://main/sprite.svg" id="1_4chqy"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
 
+[sub_resource type="Gradient" id="Gradient_uubqf"]
+offsets = PackedFloat32Array(0.0104712, 1)
+colors = PackedColorArray(0.867188, 0.866043, 0.381469, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avqxv"]
+gradient = SubResource("Gradient_uubqf")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_3uw04"]
+offsets = PackedFloat32Array(0.0104712, 1)
+colors = PackedColorArray(0.867188, 0.361061, 0.596723, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o0yhc"]
+gradient = SubResource("Gradient_3uw04")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_2yv1b"]
+offsets = PackedFloat32Array(0.0104712, 1)
+colors = PackedColorArray(0.719221, 0.827865, 0.867188, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ls3cb"]
+gradient = SubResource("Gradient_2yv1b")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_wic47"]
+offsets = PackedFloat32Array(0.0104712, 1)
+colors = PackedColorArray(0.581274, 0.867188, 0.694082, 1, 0.743017, 1, 0.916324, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1go1s"]
+gradient = SubResource("Gradient_wic47")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
 [node name="Cup" type="TextureRect"]
+z_index = 1
 offset_right = 186.0
 offset_bottom = 412.0
 texture = ExtResource("1_4chqy")
@@ -22,17 +63,33 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="LayerBubbles" type="TextureRect" parent="VBoxLayers"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_avqxv")
+expand_mode = 1
 
 [node name="LayerExtras" type="TextureRect" parent="VBoxLayers"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="LayerTea" type="TextureRect" parent="VBoxLayers"]
-layout_mode = 2
-size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_o0yhc")
+expand_mode = 1
 
 [node name="LayerMilk" type="TextureRect" parent="VBoxLayers"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_ls3cb")
+expand_mode = 1
+
+[node name="LayerTea" type="TextureRect" parent="VBoxLayers"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.71
+texture = SubResource("GradientTexture2D_1go1s")
+expand_mode = 1

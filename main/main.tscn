@@ -1,11 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=10 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://main/cup.tscn" id="2_iii1x"]
 [ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://main/item.tscn" id="2_voga1"]
-[ext_resource type="Resource" uid="uid://552guhpfpjvh" path="res://resources/items/generic_item_1.tres" id="4_opo3x"]
 [ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://main/sprite.svg" id="4_u8bic"]
-[ext_resource type="Resource" uid="uid://r5q3vk4ymxhp" path="res://resources/items/generic_item_2.tres" id="6_r6jvu"]
+[ext_resource type="Script" path="res://resources/item_data.gd" id="5_kqg30"]
+
+[sub_resource type="Resource" id="Resource_i50ov"]
+script = ExtResource("5_kqg30")
+type = 1
+item_texture = ExtResource("4_u8bic")
+title = "Generic Item 1"
+description = "A simple test item"
+item_modulate = Color(0, 1, 0.09163, 1)
+cup_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_ekgdg"]
+script = ExtResource("5_kqg30")
+type = 4
+item_texture = ExtResource("4_u8bic")
+title = "Generic Item 2"
+description = "A simple test item"
+item_modulate = Color(1, 0, 0.185064, 1)
+cup_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_mlc35"]
+script = ExtResource("5_kqg30")
+type = 6
+item_texture = ExtResource("4_u8bic")
+title = "Generic Item 2"
+description = "A simple test item"
+item_modulate = Color(0.68887, 1, 0.852236, 1)
+cup_modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_y3ivt"]
+script = ExtResource("5_kqg30")
+type = 10
+item_texture = ExtResource("4_u8bic")
+title = "Generic Item 2"
+description = "A simple test item"
+item_modulate = Color(0.336903, 0.385961, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -58,26 +93,33 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_bottom = 16
 
-[node name="Cup" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/PanelCup/MarginCup" instance=ExtResource("2_iii1x")]
+[node name="AspectRatioCup" type="AspectRatioContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/PanelCup/MarginCup"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxCharArea" type="VBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
+[node name="Cup" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup" node_paths=PackedStringArray("parent", "panel_customer", "panel_trash") instance=ExtResource("2_iii1x")]
+layout_mode = 2
+parent = NodePath("../..")
+panel_customer = NodePath("../../../../VBoxCustomer/PanelCustomer")
+panel_trash = NodePath("../../../../../PanelItems/ItemsContainer/PanelTrash")
+
+[node name="VBoxCustomer" type="VBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="PanelStats" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
+[node name="PanelStats" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCustomer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PanelChar" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCharArea"]
+[node name="PanelCustomer" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/HBoxGameArea/VBoxCustomer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -92,24 +134,80 @@ mouse_filter = 2
 [node name="ItemsContainer" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Item" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
-self_modulate = Color(0.0709571, 1, 0.0251577, 1)
+[node name="Item" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+self_modulate = Color(0, 1, 0.09163, 1)
 layout_mode = 0
 offset_left = 241.0
 offset_top = 56.0
 offset_right = 305.0
 offset_bottom = 120.0
 texture = ExtResource("4_u8bic")
-data = ExtResource("4_opo3x")
+data = SubResource("Resource_i50ov")
+parent = NodePath("..")
+cup = NodePath("../../../HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
+panel_trash = NodePath("../PanelTrash")
 
-[node name="Item2" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
-self_modulate = Color(1, 0.0623698, 0.0772913, 1)
+[node name="Item2" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+self_modulate = Color(1, 0, 0.185064, 1)
 layout_mode = 0
 offset_left = 439.0
 offset_top = 64.0
 offset_right = 503.0
 offset_bottom = 128.0
 texture = ExtResource("4_u8bic")
-data = ExtResource("6_r6jvu")
+data = SubResource("Resource_ekgdg")
+parent = NodePath("..")
+cup = NodePath("../../../HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
+panel_trash = NodePath("../PanelTrash")
+
+[node name="Item3" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+self_modulate = Color(0.68887, 1, 0.852236, 1)
+layout_mode = 0
+offset_left = 616.0
+offset_top = 24.0
+offset_right = 680.0
+offset_bottom = 88.0
+texture = ExtResource("4_u8bic")
+data = SubResource("Resource_mlc35")
+parent = NodePath("..")
+cup = NodePath("../../../HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
+panel_trash = NodePath("../PanelTrash")
+
+[node name="Item4" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+self_modulate = Color(0.336903, 0.385961, 1, 1)
+layout_mode = 0
+offset_left = 312.0
+offset_top = -8.0
+offset_right = 376.0
+offset_bottom = 56.0
+texture = ExtResource("4_u8bic")
+data = SubResource("Resource_y3ivt")
+parent = NodePath("..")
+cup = NodePath("../../../HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
+panel_trash = NodePath("../PanelTrash")
+
+[node name="PanelTrash" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -144.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="TextureTrash" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer/PanelTrash"]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

@@ -3,7 +3,6 @@ class_name Item
 extends TextureRect
 
 #region Signals
-signal dropped
 #endregion
 
 #region Enums
@@ -15,14 +14,14 @@ const GROUP: StringName = &"item"
 
 #region Export Variables
 @export var data: ItemData
+@export var parent: Control
+@export var cup: Cup
+@export var panel_trash: PanelContainer
 #endregion
 
 #region Public Variables
-var is_pressed: bool: set = _set_is_pressed
+var is_pressed: bool
 var initial_position: Vector2
-
-var parent: Control
-var cup: Cup
 #endregion
 
 #region Private Variables
@@ -37,8 +36,6 @@ var cup: Cup
 
 #region Virtual Methods
 func _ready() -> void:
-	set_physics_process(false)
-	
 	if data == null:
 		return
 	
@@ -58,11 +55,10 @@ func _ready() -> void:
 	for _signal: Signal in [mouse_entered, mouse_exited]:
 		_signal.connect(_on_mouse_detection.bind(_signal == mouse_entered))
 	
-	await get_tree().process_frame
+	for __: int in 2:
+		await get_tree().process_frame
 	
-	initial_position = global_position
-	parent = get_parent() as Control
-	cup = get_tree().get_nodes_in_group(Cup.GROUP)[0] as Cup
+	set_random_position()
 
 
 func _input(event: InputEvent) -> void:
@@ -76,12 +72,22 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	global_position = global_position.lerp(get_global_mouse_position() - size / 2.0, 0.25)
+	if is_pressed and not Engine.is_editor_hint():
+		global_position = global_position.lerp(get_global_mouse_position() - size / 2.0, 0.25)
 #endregion
 
 #region Public Methods
 func bring_to_front() -> void:
 	Array(get_tree().get_nodes_in_group(GROUP), TYPE_OBJECT, &"TextureRect", Item).map(func(item: Item) -> void: item.z_index = int (item == self))
+
+
+func set_random_position() -> void:
+	var viewport_size: Vector2 = get_viewport_rect().size
+	
+	global_position.x = randf_range(0.0, viewport_size.x - size.x - panel_trash.size.x)
+	global_position.y = randf_range(parent.global_position.y, viewport_size.y - size.y)
+	
+	initial_position = global_position
 #endregion
 
 #region Private Methods
@@ -112,23 +118,30 @@ func _on_gui_input(event: InputEvent) -> void:
 				MOUSE_BUTTON_LEFT:
 					bring_to_front()
 					
+					create_tween().tween_property(self, ^"rotation", randf_range(-0.75, 0.75), 0.25)
+					
 					is_pressed = true
 					PanelTooltip.visible = false
+					Global.item_is_dragging = true
 		
 		else:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
 					if cup.get_global_rect().has_point(get_global_mouse_position()):
-						create_tween().tween_property(self, ^"global_position", initial_position, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-						dropped.emit()
+						Global.item_dropped_in_cup.emit(self)
 					
-					else:
-						var viewport_size: Vector2 = get_viewport_rect().size
-						
-						global_position.x = clampf(global_position.x, 0.0, viewport_size.x - size.x)
-						global_position.y = clampf(global_position.y, parent.global_position.y, viewport_size.y - size.y)
-						
-						initial_position = global_position
+					var viewport_size: Vector2 = get_viewport_rect().size
+					var new_position: Vector2 = global_position
+					var tween: Tween = create_tween()
+					
+					new_position.x = clampf(new_position.x, 0.0, viewport_size.x - size.x)
+					new_position.y = clampf(new_position.y, parent.global_position.y, viewport_size.y - size.y)
+					
+					tween.tween_property(self, ^"global_position", new_position, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+					tween.parallel().tween_property(self, ^"rotation", 0.0, 0.25)
+					
+					initial_position = new_position
+					Global.item_is_dragging = false
 
 
 func _on_mouse_detection(entered: bool) -> void:
@@ -153,9 +166,6 @@ func _on_mouse_detection(entered: bool) -> void:
 #endregion
 
 #region Setter Methods
-func _set_is_pressed(arg: bool) -> void:
-	is_pressed = arg
-	set_physics_process(arg)
 #endregion
 
 #region Getter Methods

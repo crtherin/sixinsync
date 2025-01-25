@@ -3,6 +3,14 @@
 extends Node
 
 #region Signals
+@warning_ignore("unused_signal")
+signal item_dropped_in_cup(item: Item)
+
+@warning_ignore("unused_signal")
+signal cup_dropped_on_customer
+
+@warning_ignore("unused_signal")
+signal cup_dropped_on_trash
 #endregion
 
 #region Enums
@@ -15,6 +23,8 @@ extends Node
 #endregion
 
 #region Public Variables
+var item_is_dragging: bool
+var cup_is_dragging: bool
 #endregion
 
 #region Private Variables

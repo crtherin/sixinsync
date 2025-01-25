@@ -28,19 +28,26 @@ extends Control
 @onready var PanelQuest := %PanelQuest as PanelContainer
 @onready var PanelCup := %PanelCup as PanelContainer
 @onready var MarginCup := %MarginCup as MarginContainer
-@onready var VBoxCharArea := %VBoxCharArea as VBoxContainer
+@onready var AspectRatioCup := %AspectRatioCup as AspectRatioContainer
+@onready var VBoxCustomer := %VBoxCustomer as VBoxContainer
 @onready var PanelStats := %PanelStats as PanelContainer
-@onready var PanelChar := %PanelChar as PanelContainer
+@onready var PanelCustomer := %PanelCustomer as PanelContainer
 @onready var PanelItems := %PanelItems as PanelContainer
 @onready var ItemsContainer := %ItemsContainer as Control
+@onready var PanelTrash := %PanelTrash as PanelContainer
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
-	get_items().map(func(item: Item) -> void: item.dropped.connect(_on_item_dropped.bind(item)))
+	Global.cup_dropped_on_customer.connect(_on_cup_dropped_on_customer)
+	Global.cup_dropped_on_trash.connect(_on_cup_dropped_on_trash)
 #endregion
 
 #region Public Methods
+func randomize_item_positions() -> void:
+	pass
+
+
 func get_items() -> Array[Item]:
 	return Array(ItemsContainer.get_children(), TYPE_OBJECT, &"TextureRect", Item)
 #endregion
@@ -52,8 +59,12 @@ func get_items() -> Array[Item]:
 #endregion
 
 #region Signal Callbacks
-func _on_item_dropped(item: Item) -> void:
-	print(item)
+func _on_cup_dropped_on_customer() -> void:
+	print("Dropped on customer")
+
+
+func _on_cup_dropped_on_trash() -> void:
+	print("Dropped on trash")
 #endregion
 
 #region SubClasses
