@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd8m4wcr2ovpt"]
+
+[ext_resource type="PackedScene" uid="uid://b0ci87u0gk1i8" path="res://leo/customer.tscn" id="1_dnqa6"]
+[ext_resource type="PackedScene" uid="uid://drtdy2sml2kdf" path="res://leo/order.tscn" id="2_op475"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Customer" parent="." instance=ExtResource("1_dnqa6")]
+offset_left = 634.0
+offset_right = 634.0
+
+[node name="Order" parent="." instance=ExtResource("2_op475")]
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 6.0
+offset_bottom = 7.0

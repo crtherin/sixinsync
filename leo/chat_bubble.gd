@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 @export var typing_speed: float = 0.50 # Time between letters (seconds)
 @export var visible_duration: float = 2.0 # Bubble stays visible (seconds)

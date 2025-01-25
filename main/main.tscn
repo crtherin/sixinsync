@@ -1,33 +1,35 @@
-[gd_scene load_steps=47 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=49 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://main/cup.tscn" id="2_iii1x"]
-[ext_resource type="Texture2D" uid="uid://2nowiqcsis7y" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="2_ruee8"]
+[ext_resource type="Texture2D" uid="uid://dwx158wta1sc3" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="2_ruee8"]
 [ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://main/item.tscn" id="2_voga1"]
 [ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://resources/styles/style_panel_background.tres" id="3_rvo85"]
 [ext_resource type="Script" path="res://main/game_panel.gd" id="4_764ad"]
-[ext_resource type="Texture2D" uid="uid://hx1q48ubn0qg" path="res://Assets/Placeholders/sprite.svg" id="4_u8bic"]
+[ext_resource type="Texture2D" path="res://main/sprite.svg" id="4_u8bic"]
+[ext_resource type="PackedScene" uid="uid://drtdy2sml2kdf" path="res://leo/order.tscn" id="5_ecns5"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="5_kqg30"]
 [ext_resource type="Shader" path="res://resources/shaders/menu_blur.gdshader" id="6_7xfdu"]
-[ext_resource type="Texture2D" uid="uid://cr3ug6ooy3x21" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
+[ext_resource type="Texture2D" uid="uid://6qijfbmr15de" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
 [ext_resource type="Script" path="res://main/menu_layer.gd" id="6_bv12s"]
-[ext_resource type="Texture2D" uid="uid://bhs5rcj3nimvj" path="res://Assets/Items/Black tea.png" id="7_xs27y"]
+[ext_resource type="PackedScene" uid="uid://b0ci87u0gk1i8" path="res://leo/customer.tscn" id="7_6p11c"]
+[ext_resource type="Texture2D" uid="uid://bv4lyw5p7rpbu" path="res://Assets/Items/Black tea.png" id="7_xs27y"]
 [ext_resource type="StyleBox" uid="uid://iysjtsw0a07y" path="res://resources/styles/style_button_hover.tres" id="8_aiorj"]
 [ext_resource type="StyleBox" uid="uid://b1oqhqq2qdibh" path="res://resources/styles/style_button_pressed.tres" id="9_7kpmm"]
-[ext_resource type="Texture2D" uid="uid://ddioeg428j430" path="res://Assets/Items/Blood.png" id="9_iiu6p"]
-[ext_resource type="Texture2D" uid="uid://cbeo7detejmu6" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
-[ext_resource type="Texture2D" uid="uid://cqfqjlyewpe30" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
+[ext_resource type="Texture2D" uid="uid://bdfrxhr7ghgnk" path="res://Assets/Items/Blood.png" id="9_iiu6p"]
+[ext_resource type="Texture2D" uid="uid://e0ah4bwwxqgy" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
+[ext_resource type="Texture2D" uid="uid://bsbqj6y0spw1h" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
 [ext_resource type="StyleBox" uid="uid://davdid8wor7c3" path="res://resources/styles/style_button_normal.tres" id="10_q5j0g"]
-[ext_resource type="Texture2D" uid="uid://du35kgp65bsht" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
-[ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
-[ext_resource type="Texture2D" uid="uid://dvh13mjwrwcen" path="res://Assets/Items/Ice.png" id="13_1j04h"]
-[ext_resource type="Texture2D" uid="uid://cis2sadgil5dw" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
-[ext_resource type="Texture2D" uid="uid://cqb830hbhpawb" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
-[ext_resource type="Texture2D" uid="uid://2bk204p3qvwj" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
-[ext_resource type="Texture2D" uid="uid://fh863div6yft" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
-[ext_resource type="Texture2D" uid="uid://boepfmpof3l8r" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
-[ext_resource type="Texture2D" uid="uid://cjnmltxew8twn" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
-[ext_resource type="Texture2D" uid="uid://e54t2oknlnfe" path="res://Assets/Items/Tears.png" id="20_4lct8"]
+[ext_resource type="Texture2D" uid="uid://c17igpulj065v" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
+[ext_resource type="Texture2D" uid="uid://lfdgkdnpripe" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
+[ext_resource type="Texture2D" uid="uid://sxd532p1irof" path="res://Assets/Items/Ice.png" id="13_1j04h"]
+[ext_resource type="Texture2D" uid="uid://cn01hi0g58uoh" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
+[ext_resource type="Texture2D" uid="uid://b01kilisd1fh" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
+[ext_resource type="Texture2D" uid="uid://b4weohod264xe" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
+[ext_resource type="Texture2D" uid="uid://gtb2hn3oaho" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
+[ext_resource type="Texture2D" uid="uid://cedwvhh6ofk6n" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
+[ext_resource type="Texture2D" uid="uid://bi8ax8glgqpe6" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
+[ext_resource type="Texture2D" uid="uid://dm21gp5gtqfv1" path="res://Assets/Items/Tears.png" id="20_4lct8"]
 
 [sub_resource type="Resource" id="Resource_06676"]
 script = ExtResource("5_kqg30")
@@ -237,6 +239,9 @@ mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_rvo85")
 script = ExtResource("4_764ad")
 
+[node name="Order" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelQuest" instance=ExtResource("5_ecns5")]
+layout_mode = 2
+
 [node name="PanelCup" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -285,6 +290,9 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_rvo85")
 script = ExtResource("4_764ad")
+
+[node name="Customer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer" instance=ExtResource("7_6p11c")]
+layout_mode = 2
 
 [node name="PanelItems" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground"]
 unique_name_in_owner = true

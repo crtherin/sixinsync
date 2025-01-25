@@ -11,8 +11,12 @@ script = ExtResource("1_j15qv")
 icon_texture = ExtResource("2_enry7")
 
 [node name="OrderBackground" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 0
+offset_left = 31.0
+offset_top = 17.0
+offset_right = 334.0
+offset_bottom = 422.0
 texture = ExtResource("3_5qki4")
 
 [node name="IconCotainer" type="GridContainer" parent="."]
