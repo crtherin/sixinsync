@@ -32,12 +32,15 @@ extends CanvasLayer
 
 @onready var StartMenu := %StartMenu as ColorRect
 @onready var EndMenu := %EndMenu as ColorRect
+
+@onready var TimerGame := %TimerGame as Timer
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	StartMenu.visible = true
+	EndMenu.set_process(false)
 	visible = true
 	LabelMenuWarning.visible = false
 	
@@ -93,7 +96,16 @@ func _on_button_exit_pressed():
 	_on_button_pressed(ButtonExit)
 	
 func _on_button_retry_pressed():
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	Global.is_paused = false
+	get_tree().paused = false
+	var tween: Tween = create_tween()
+	
+	tween.tween_property(EndMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
+	tween.tween_callback(EndMenu.hide)
+	
+	TimerGame.start()
+	
 #endregion
 
 #region Static Methods
@@ -130,8 +142,13 @@ func _on_button_pressed(button: Button) -> void:
 		ButtonExit: get_tree().quit()
 
 func _game_over():
+	var gold = Global.getGold();
+	gold = int(gold%10);
+	print_debug(gold)
+	Global.gold_change_event(-gold)
 	Global.is_paused = true
 	get_tree().paused = true
+	EndMenu.set_process(true)
 	EndMenu.visible = true
 	var tween: Tween = create_tween()
 	tween.tween_property(EndMenu, ^"modulate:a", 1.0, 0.25).from(0.0)

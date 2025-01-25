@@ -20,6 +20,10 @@ var customers_data: Array[Dictionary]
 
 #region Private Variables
 var gameRunning = false
+
+var customerLabel
+var timerLabel
+var goldLabel
 #endregion
 
 #region OnReady Variables
@@ -53,15 +57,34 @@ var gameRunning = false
 #region Virtual Methods
 func _ready() -> void:
 	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.txt", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
+	customerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
+	timerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/TimerLabel")
+	goldLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/GoldLabel")
 	
 	Global.cup_dropped_on_customer.connect(_on_cup_dropped_on_customer)
 	Global.cup_dropped_on_trash.connect(_on_cup_dropped_on_trash)
+	Global.gold_change.connect(_update_gold)
+	
+	showGold()
 	
 	set_next_customer()
+
+ 	
+
+func _update_gold(amount):
+	Global.addGold(amount)
+	showGold()
+
+func showGold():
+	var current = Global.getGold()
+	goldLabel.text = "Gold: " + str(current)
 
 func _process(delta):
 	if TimerGame.is_stopped() && gameRunning:
 		Global.game_over.emit()
+		
+	var timeLeft = int(floor(TimerGame.get_time_left()))
+	timerLabel.text = "Time left: " + str(timeLeft)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -125,8 +148,8 @@ func set_next_customer() -> void:
 	
 	TextureCustomer.texture = load(customer_data.icon)
 	LabelPanelQuestBackground.text = customer_data.opening[0]
-	var customer_label = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
-	customer_label.set_text(customer_data.description)
+	
+	customerLabel.set_text(customer_data.description)
 	
 	
 	TimerGame.start()

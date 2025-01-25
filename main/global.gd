@@ -17,6 +17,9 @@ signal warning_message_requested(text: String)
 
 @warning_ignore("unused_signal")
 signal game_over
+
+@warning_ignore("unused_signal")
+signal gold_change(amount: int)
 #endregion
 
 #region Enums
@@ -47,6 +50,7 @@ var customerDone = false
 var customerArray : Array
 var currentCustomer
 var currentCustomerIndex = 0
+var gold = 100
 #endregion
 
 #region OnReady Variables
@@ -104,6 +108,8 @@ func newCustomer():
 #endregion
 
 #region Signal Callbacks
+func gold_change_event(amount):
+	emit_signal("gold_change", amount)
 #endregion
 
 #region SubClasses
@@ -112,6 +118,10 @@ func newCustomer():
 #region Setter Methods
 func setCustomerDone(done: bool):
 	customerDone = done
+	
+func addGold(amount: int):
+	gold += amount
+	print_debug(gold)
 #endregion
 
 #region Getter Methods
@@ -126,4 +136,7 @@ func getCustomer(id):
 				result = entry
 				
 	return result
+	
+func getGold():
+	return gold
 #endregion
