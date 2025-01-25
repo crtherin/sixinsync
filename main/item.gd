@@ -145,8 +145,13 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_detection(entered: bool) -> void:
+	var tween: Tween = create_tween()
+	
 	if entered and not is_pressed:
+		PanelTooltip.modulate.a = 0.0
 		PanelTooltip.visible = true
+		
+		tween.tween_property(PanelTooltip, ^"modulate:a", 1.0, 0.25)
 		bring_to_front()
 		
 		await get_tree().process_frame
@@ -159,7 +164,8 @@ func _on_mouse_detection(entered: bool) -> void:
 		
 		return
 	
-	PanelTooltip.visible = false
+	tween.tween_property(PanelTooltip, ^"modulate:a", 0.0, 0.25)
+	tween.tween_callback(PanelTooltip.hide)
 #endregion
 
 #region SubClasses

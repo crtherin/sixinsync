@@ -35,6 +35,8 @@ extends Control
 @onready var PanelItems := %PanelItems as PanelContainer
 @onready var ItemsContainer := %ItemsContainer as Control
 @onready var PanelTrash := %PanelTrash as PanelContainer
+
+@onready var MenuLayer := %MenuLayer as Menu
 #endregion
 
 #region Virtual Methods
@@ -44,10 +46,6 @@ func _ready() -> void:
 #endregion
 
 #region Public Methods
-func randomize_item_positions() -> void:
-	pass
-
-
 func get_items() -> Array[Item]:
 	return Array(ItemsContainer.get_children(), TYPE_OBJECT, &"TextureRect", Item)
 #endregion

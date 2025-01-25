@@ -11,6 +11,9 @@ signal cup_dropped_on_customer
 
 @warning_ignore("unused_signal")
 signal cup_dropped_on_trash
+
+@warning_ignore("unused_signal")
+signal warning_message_requested(text: String)
 #endregion
 
 #region Enums
@@ -23,6 +26,7 @@ signal cup_dropped_on_trash
 #endregion
 
 #region Public Variables
+var is_paused: bool
 var item_is_dragging: bool
 var cup_is_dragging: bool
 

@@ -77,7 +77,7 @@ func _physics_process(_delta: float) -> void:
 
 #region Public Methods
 func reset() -> void:
-	for layer: TextureRect in [LayerBubbles, LayerExtras, LayerMilk]:
+	for layer: TextureRect in [LayerTea, LayerBubbles, LayerExtras, LayerMilk]:
 		layer.visible = false
 		#layer.texture = null
 		layer.modulate = Color.WHITE
@@ -94,30 +94,52 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 	print("Item: %s, dropped on cup" % item)
 	
 	match item.data.type:
-		ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING:
-			LayerBubbles.visible = true
-			#LayerBubbles.texture = item.data.cup_texture
-			LayerBubbles.modulate = item.data.cup_modulate
-		
 		ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG:
 			LayerTea.visible = true
 			#LayerTea.texture = item.data.cup_texture
 			LayerTea.modulate = item.data.cup_modulate
 		
-		ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
-			LayerMilk.visible = true
-			#LayerMilk.texture = item.data.cup_texture
-			LayerMilk.modulate = item.data.cup_modulate
-		
-		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP: 
-			LayerExtras.visible = true
-			#LayerExtras.texture = item.data.cup_texture
-			LayerExtras.modulate = item.data.cup_modulate
-		
-		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
-			LayerExtras.visible = true
-			#LayerExtras.texture = item.data.cup_texture
-			LayerExtras.modulate = item.data.cup_modulate
+		_:
+			if not LayerTea.visible:
+				Global.warning_message_requested.emit("TEA NOT ADDED!")
+				return
+			
+			match item.data.type:
+				ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING:
+					if LayerBubbles.visible:
+						Global.warning_message_requested.emit("BOBA ALREADY ADDED!")
+						return
+					
+					LayerBubbles.visible = true
+					#LayerBubbles.texture = item.data.cup_texture
+					LayerBubbles.modulate = item.data.cup_modulate
+				
+				ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
+					if LayerMilk.visible:
+						Global.warning_message_requested.emit("MILK ALREADY ADDED!")
+						return
+					
+					LayerMilk.visible = true
+					#LayerMilk.texture = item.data.cup_texture
+					LayerMilk.modulate = item.data.cup_modulate
+				
+				ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP:
+					if LayerExtras.visible:
+						Global.warning_message_requested.emit("EXTRAS ALREADY ADDED!")
+						return
+					 
+					LayerExtras.visible = true
+					#LayerExtras.texture = item.data.cup_texture
+					LayerExtras.modulate = item.data.cup_modulate
+				
+				ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
+					if LayerExtras.visible:
+						Global.warning_message_requested.emit("EXTRAS ALREADY ADDED!")
+						return
+					
+					LayerExtras.visible = true
+					#LayerExtras.texture = item.data.cup_texture
+					LayerExtras.modulate = item.data.cup_modulate
 
 
 func _on_gui_input(event: InputEvent) -> void:

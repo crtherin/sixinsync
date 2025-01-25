@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://co0r1hxg5p4hw"]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1_b4e1b"]
+[ext_resource type="Texture2D" uid="uid://ds5jqqgvr4j23" path="res://Assets/Placeholders/Sugar 1.png" id="1_cs861"]
+
+[resource]
+script = ExtResource("1_b4e1b")
+type = 10
+item_texture = ExtResource("1_cs861")
+title = "Sugar"
+description = "is sugar yum"
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
