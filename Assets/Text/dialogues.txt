@@ -35,7 +35,7 @@
 	"id": 3,
 	"name": "Sun Tzu",
 	"description": "",
-	"icon": "",
+	"icon": "res://Assets/Portraits/Suz_Tzu.png",
 	"opening": [
 	  "'An army fights on their stomach. Feed them well and they will fight well' - The art of war",
 	  "'A happier soldier is an effective soldier. Bubbles make soldiers happy' - The art of war",
@@ -51,7 +51,7 @@
 	"id": 4,
 	"name": "Aphrodite",
 	"description": "Aphrodite would stand before you, her eyes glinting with a playful, knowing sparkle. Her golden hair falls around her like a soft halo, framing a face that’s impossibly beautiful, lips slightly parted, as though she’s about to say something that could make your heart race. She moves with such grace, every step deliberate, teasing, like she knows you’re watching—and she likes it. There’s an effortless confidence in the way she holds herself, as if the world bends around her beauty, and you can’t help but feel drawn in. When her gaze meets yours, it’s like she’s daring you to surrender to the heat between you, and you’re not sure if you want to resist or give in completely.",
-	"icon": "test",
+	"icon": "res://Assets/Portraits/Aphrodite.png",
 	"opening": [
 	  "I’ll take the sweetest one you have... but I’m already sweet enough, don’t you think?",
 	  "How about you make it extra special, just like the way I like to be treated?",
@@ -67,7 +67,7 @@
   "id": 5,
   "name": "Napoléon Bonaparte",
   "description": "I am not bound by the limitations of men. I am a force of nature, destined to shape the world in my image. My victories are not mere chance, but the result of unwavering will, bold vision, and the courage to defy the odds. I do not seek power for its own sake, but to bring order to chaos, to lead where others falter, and to carve my name into the annals of history.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/Napoleon.png",
   "opening": [
 	"I demand the finest boba tea—no mediocrity, only the best will satisfy my greatness.",
 	"Make it strong, like my resolve on the battlefield, with just the right balance of sweetness to reflect my triumphs",
@@ -83,7 +83,7 @@
   "id": 6,
   "name": "Adolf Hitler",
   "description": "I am an artist, rejected by the world that should have embraced my genius. I see greatness within me, yet I am constantly overlooked, misunderstood, and denied. I will find my place, no matter the cost.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/Hitler.png",
   "opening": [
 	"I require the finest boba tea, as I only accept perfection—nothing less will suffice.",
 	"Make it blond, to remind me of the empire I once had.",
@@ -99,7 +99,7 @@
   "id": 7,
   "name": "Hercules",
   "description": "\"I am the son of Zeus, blessed with strength beyond measure, but also burdened by trials that no mortal or god should endure. My hands have shaped the fate of monsters and kingdoms alike, yet I am a man of both victory and suffering. I have completed the impossible, but my heart remains heavy with the weight of my deeds and the price of my legacy.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/Hercules.png",
   "opening": [
 	"I have faced monsters, conquered realms, and earned my place among the gods—yet today, I seek the humble pleasure of this drink.",
 	"Ah, the strength of this tea cannot compare to the labors I've endured, but it is a welcome change.",
@@ -115,7 +115,7 @@
   "id": 8,
   "name": "Iosif Stalin",
   "description": "I am the architect of the Soviet Union’s strength, the hammer that shaped the future of a nation. Through will, cunning, and relentless action, I forged an empire from the ashes of revolution. I am the defender of socialism, and my actions, though misunderstood, are the necessary steps toward a glorious future—no sacrifice is too great for the state.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/Stalin.png",
   "opening": [
 	"Bring me the strongest tea—no softness, no sweetness. I did not rule with weakness, and I will not accept it now.",
 	"The boba must be plentiful; I am accustomed to abundance, even if this place seeks to strip it away",
@@ -131,7 +131,7 @@
   "id": 9,
   "name": "Benito Mussolini",
   "description": "I am the Duce, the leader who gave Italy its true identity, who resurrected a once-great nation from the ashes of defeat. Through my will and my vision, I forged a new destiny for my people. I am not a mere politician; I am the embodiment of the Italian spirit, unyielding, proud, and powerful. To follow me is to embrace the future; to question me is to deny greatness itself.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/Mussolini.png",
   "opening": [
 	"I require a drink that matches the strength and power of the Italian spirit—make it bold, make it unforgettable.",
 	"The boba must be plentiful; excess is the mark of greatness, and I am not accustomed to anything less.",
@@ -147,7 +147,7 @@
   "id": 10,
   "name": "Leonardo da Vinci",
   "description": "I am an observer of the world, an artist and a scientist, bound neither by convention nor by time. My mind is a vessel for discovery, and my hand seeks to capture the wonders of the world—whether through the brush, the compass, or the pen. I am both man and idea, forever striving to understand, to create, to perfect.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/DaVinci.png",
   "opening": [
 	"I seek a drink that blends the harmony of flavors, much as I seek to blend art with science.",
 	"The boba must be balanced, like the proportions I study in the human form—nothing too overpowering.",
@@ -163,7 +163,7 @@
   "id": 11,
   "name": "Mao Tse Tung",
   "description": "I am the voice of the people, the architect of China’s future. I led the revolution that cast off the shackles of imperialism and feudalism, and with the wisdom of Marxism-Leninism, I have guided China to stand tall in the world. The struggle continues, for the revolution is never finished. I am both the product and the force of history—unyielding, ever-moving, and forever shaping the destiny of my people.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/MaoTseTung.png",
   "opening": [
 	"Bring me the tea that satisfies the needs of the people—simple, but strong, just like the revolution.",
 	"Let the tea arrive swiftly, for time is a precious resource in the struggle for progress.",
@@ -179,7 +179,7 @@
   "id": 12,
   "name": "Alfred Nobel",
   "description": "I am a man of invention, a creator of tools that could either build or destroy. I shaped the world with my hands, but I am also haunted by the consequences of my creations. In the end, I sought to leave behind a legacy of peace, a symbol of how one can strive for goodness even after the darkest of paths.",
-  "icon": "test",
+  "icon": "res://Assets/Portraits/AlfredNobel.png",
   "opening": [
 	"I seek a drink that balances boldness and subtlety, much like my inventions—powerful, yet refined.",
 	"May this tea bring me a moment of peace, for in my life, both creation and destruction are intertwined.",
