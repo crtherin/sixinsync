@@ -8,6 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Portrait" type="TextureButton" parent="."]
+layout_mode = 0
 offset_right = 515.0
 offset_bottom = 515.0
 ignore_texture_size = true
@@ -32,6 +33,7 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="Reset" type="Button" parent="."]
+layout_mode = 0
 offset_left = 474.0
 offset_top = 615.0
 offset_right = 514.0

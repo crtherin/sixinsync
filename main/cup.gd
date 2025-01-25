@@ -38,8 +38,6 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	get_window().size_changed.connect(_on_window_size_changed)
 	
-	#reset()
-	
 	await get_tree().process_frame
 	
 	initial_position = global_position
@@ -63,7 +61,6 @@ func _input(event: InputEvent) -> void:
 						
 						elif panel_trash.get_global_rect().has_point(mouse_position):
 							Global.cup_dropped_on_trash.emit()
-							reset()
 					
 					is_pressed = false
 					Global.cup_is_dragging = false
@@ -75,11 +72,6 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 #region Public Methods
-func reset() -> void:
-	for layer: TextureRect in [LayerTea, LayerBubbles, LayerExtras, LayerMilk]:
-		layer.visible = false
-		#layer.texture = null
-		layer.modulate = Color.WHITE
 #endregion
 
 #region Private Methods
@@ -90,55 +82,23 @@ func reset() -> void:
 
 #region Signal Callbacks
 func _on_item_dropped_in_cup(item: Item) -> void:
-	print("Item: %s, dropped on cup" % item)
+	print("Item: %s, dropped on cup: %d" % item)
 	
 	match item.data.type:
 		ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG:
-			LayerTea.visible = true
-			#LayerTea.texture = item.data.cup_texture
-			LayerTea.modulate = item.data.cup_modulate
-		
-		_:
-			if not LayerTea.visible:
-				Global.warning_message_requested.emit("TEA NOT ADDED!")
-				return
+			print(item.data.type == Global.current_quest.tea)
 			
-			match item.data.type:
-				ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING:
-					if LayerBubbles.visible:
-						Global.warning_message_requested.emit("BOBA ALREADY ADDED!")
-						return
-					
-					LayerBubbles.visible = true
-					#LayerBubbles.texture = item.data.cup_texture
-					LayerBubbles.modulate = item.data.cup_modulate
-				
-				ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
-					if LayerMilk.visible:
-						Global.warning_message_requested.emit("MILK ALREADY ADDED!")
-						return
-					
-					LayerMilk.visible = true
-					#LayerMilk.texture = item.data.cup_texture
-					LayerMilk.modulate = item.data.cup_modulate
-				
-				ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP:
-					if LayerExtras.visible:
-						Global.warning_message_requested.emit("EXTRAS ALREADY ADDED!")
-						return
-					 
-					LayerExtras.visible = true
-					#LayerExtras.texture = item.data.cup_texture
-					LayerExtras.modulate = item.data.cup_modulate
-				
-				ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
-					if LayerExtras.visible:
-						Global.warning_message_requested.emit("EXTRAS ALREADY ADDED!")
-						return
-					
-					LayerExtras.visible = true
-					#LayerExtras.texture = item.data.cup_texture
-					LayerExtras.modulate = item.data.cup_modulate
+		ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.BOBA_SERAPHIC:
+			pass
+		
+		ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
+			pass
+		
+		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP:
+			pass
+		
+		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
+			pass
 
 
 func _on_gui_input(event: InputEvent) -> void:
