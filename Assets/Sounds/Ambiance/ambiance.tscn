@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://x0lhdyewgdih"]
+
+[ext_resource type="AudioStream" uid="uid://d300paf4oec7c" path="res://Assets/Sounds/Ambiance/base.wav" id="1_53jx4"]
+[ext_resource type="Script" path="res://main/drone.gd" id="2_fcq8v"]
+[ext_resource type="Script" path="res://main/oneshots.gd" id="3_l3qao"]
+[ext_resource type="AudioStream" uid="uid://bru4b1361memd" path="res://Assets/Sounds/Ambiance/Clock.WAV" id="4_x30sy"]
+
+[node name="Ambiance" type="Node"]
+
+[node name="BaseAmbiance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_53jx4")
+autoplay = true
+
+[node name="Drone" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_fcq8v")
+min_delay = 15.0
+max_delay = 30.0
+
+[node name="Oneshots" type="AudioStreamPlayer" parent="."]
+script = ExtResource("3_l3qao")
+min_delay = 5.0
+max_delay = 10.0
+
+[node name="Clock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x30sy")
