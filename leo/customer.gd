@@ -12,14 +12,6 @@ func _ready():
 			print("Name:", entry.get("name", "Unknown"))
 			print("Descr:", entry.get("description", "?"))
 			
-func getCustomer(id):
-	var result
-	if json_data:
-		for entry in json_data:
-			if entry.get("id") == id:
-				result = entry
-				
-	return result
 
 # Function to load and parse the JSON file
 func load_json(file_path: String) -> Array:
