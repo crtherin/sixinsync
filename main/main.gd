@@ -56,7 +56,7 @@ var goldLabel
 
 #region Virtual Methods
 func _ready() -> void:
-	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.txt", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
+	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.json", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
 	customerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
 	timerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/TimerLabel")
 	goldLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/GoldLabel")

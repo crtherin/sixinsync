@@ -64,7 +64,7 @@ var gold = 100
 
 #region Private Methods
 func _ready():
-	var file_path = "res://Assets/Text/dialogues.txt"  # Path to the JSON file
+	var file_path = "res://Assets/Text/dialogues.json"  # Path to the JSON file
 	var json_data = load_json(file_path)
 	if json_data:
 		customerArray = json_data
