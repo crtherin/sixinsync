@@ -26,7 +26,6 @@ var initial_position: Vector2
 #endregion
 
 #region OnReady Variables
-@onready var VBoxLayers := %VBoxLayers as VBoxContainer
 @onready var LayerBubbles := %LayerBubbles as TextureRect
 @onready var LayerExtras := %LayerExtras as TextureRect
 @onready var LayerTea := %LayerTea as TextureRect
@@ -39,7 +38,7 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	get_window().size_changed.connect(_on_window_size_changed)
 	
-	reset()
+	#reset()
 	
 	await get_tree().process_frame
 	

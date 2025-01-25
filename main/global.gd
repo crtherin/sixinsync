@@ -30,6 +30,13 @@ var is_paused: bool
 var item_is_dragging: bool
 var cup_is_dragging: bool
 
+var current_quest: Dictionary = {
+	"tea": -1,
+	"milk": -1,
+	"bubble": -1,
+	"extras": [],
+}
+
 var customerDone = false
 #endregion
 
