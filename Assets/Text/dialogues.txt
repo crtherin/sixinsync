@@ -1,14 +1,18 @@
 [
   {
 	"id": 1,
-	"name": "test",
-	"description": "",
+	"name": "Generic Person",
+	"description": "Hi! I'm nothing special, just a normal human",
 	"icon": "test_icon",
 	"opening": [
-	  "test_hello"
+	  "I would like some bubble tea please.",
+	  "I, a mere human, would desire some of your great liquid",
+	  "Thy refreshments shall be inside me"
 	],
 	"closing": [
-	  "test_bye"
+	  "This is very good! Thank You!",
+	  "For I, a mere human, this is the golden liquid",
+	  "Tis but the greatesth of refreshments"
 	]
   },
   {
@@ -44,7 +48,7 @@
 	]
   },
   {
-	"id": 3,
+	"id": 4,
 	"name": "Aphrodite",
 	"description": "Aphrodite would stand before you, her eyes glinting with a playful, knowing sparkle. Her golden hair falls around her like a soft halo, framing a face that’s impossibly beautiful, lips slightly parted, as though she’s about to say something that could make your heart race. She moves with such grace, every step deliberate, teasing, like she knows you’re watching—and she likes it. There’s an effortless confidence in the way she holds herself, as if the world bends around her beauty, and you can’t help but feel drawn in. When her gaze meets yours, it’s like she’s daring you to surrender to the heat between you, and you’re not sure if you want to resist or give in completely.",
 	"icon": "test",
@@ -58,5 +62,133 @@
 	  "I’ll enjoy this... but I have a feeling you’ll be on my mind even more than the tea.",
 	  "I love a good treat—just like I love a little fun conversation... care to join me?"
 	]
-  }
+  },
+  {
+  "id": 5,
+  "name": "Napoléon Bonaparte",
+  "description": "I am not bound by the limitations of men. I am a force of nature, destined to shape the world in my image. My victories are not mere chance, but the result of unwavering will, bold vision, and the courage to defy the odds. I do not seek power for its own sake, but to bring order to chaos, to lead where others falter, and to carve my name into the annals of history.",
+  "icon": "test",
+  "opening": [
+    "I demand the finest boba tea—no mediocrity, only the best will satisfy my greatness.",
+    "Make it strong, like my resolve on the battlefield, with just the right balance of sweetness to reflect my triumphs",
+    "And ensure it's delivered swiftly, for time is the most precious resource, and I do not tolerate delays"
+  ],
+  "closing": [
+    "Finally, a service that matches the precision of a well-executed battle.",
+    "This drink, like my empire, shall be unparalleled in both strength and sweetness.",
+    "It is but a small pleasure, yet I shall enjoy it—after all, even emperors deserve moments of satisfaction."
+  ]
+},
+{
+  "id": 6,
+  "name": "Adolf Hitler",
+  "description": "I am an artist, rejected by the world that should have embraced my genius. I see greatness within me, yet I am constantly overlooked, misunderstood, and denied. I will find my place, no matter the cost.",
+  "icon": "test",
+  "opening": [
+    "I require the finest boba tea, as I only accept perfection—nothing less will suffice.",
+    "Make it blond, to remind me of the empire I once had.",
+    "Deliver it quickly, though I know time has already passed me by—too late for redemption."
+  ],
+  "closing": [
+    "Even this simple drink serves as a reminder of the power I once had, and now, the emptiness that remains",
+    "It’s too late for empires, too late for greatness—this tea is the only small victory left to me.",
+    "It is acceptable, but nothing—nothing—compares to the perfection I once sought for my nation."
+  ]
+},
+{
+  "id": 7,
+  "name": "Hercules",
+  "description": "\"I am the son of Zeus, blessed with strength beyond measure, but also burdened by trials that no mortal or god should endure. My hands have shaped the fate of monsters and kingdoms alike, yet I am a man of both victory and suffering. I have completed the impossible, but my heart remains heavy with the weight of my deeds and the price of my legacy.",
+  "icon": "test",
+  "opening": [
+    "I have faced monsters, conquered realms, and earned my place among the gods—yet today, I seek the humble pleasure of this drink.",
+    "Ah, the strength of this tea cannot compare to the labors I've endured, but it is a welcome change.",
+    "Even the mightiest heroes must take a moment to enjoy the small victories—this drink is one of them."
+  ],
+  "closing": [
+    "In a world of gods and monsters, it's strange how the smallest moments—like enjoying this tea—can feel like a true victory.",
+    "I’ve fought through endless battles, but it’s the simple joys that remind me of what truly matters.",
+    "I may have conquered impossible tasks, but this—this is a different kind of challenge: waiting for my drink."
+  ]
+},
+{
+  "id": 8,
+  "name": "Iosif Stalin",
+  "description": "I am the architect of the Soviet Union’s strength, the hammer that shaped the future of a nation. Through will, cunning, and relentless action, I forged an empire from the ashes of revolution. I am the defender of socialism, and my actions, though misunderstood, are the necessary steps toward a glorious future—no sacrifice is too great for the state.",
+  "icon": "test",
+  "opening": [
+    "Bring me the strongest tea—no softness, no sweetness. I did not rule with weakness, and I will not accept it now.",
+    "The boba must be plentiful; I am accustomed to abundance, even if this place seeks to strip it away",
+    "Time is a construct—whether in life or death—but I am not used to waiting. Bring it to me swiftly."
+  ],
+  "closing": [
+    "This is acceptable, but perfection is never achieved, only aspired to.",
+    "The tea is served, but it is nothing compared to the power I once commanded.",
+    "Even in this moment, I am reminded that my will shapes the world—nothing happens without my approval."
+  ]
+},
+{
+  "id": 9,
+  "name": "Benito Mussolini",
+  "description": "I am the Duce, the leader who gave Italy its true identity, who resurrected a once-great nation from the ashes of defeat. Through my will and my vision, I forged a new destiny for my people. I am not a mere politician; I am the embodiment of the Italian spirit, unyielding, proud, and powerful. To follow me is to embrace the future; to question me is to deny greatness itself.",
+  "icon": "test",
+  "opening": [
+    "I require a drink that matches the strength and power of the Italian spirit—make it bold, make it unforgettable.",
+    "The boba must be plentiful; excess is the mark of greatness, and I am not accustomed to anything less.",
+    "I do not wait—bring it quickly, for a leader’s time is never to be wasted."
+  ],
+  "closing": [
+    "Finally, the service that matches my expectations—efficiency, excellence, as it should be.",
+    "A simple drink, yes, but it is mine—because I am the one who commands, and the world follows.",
+    "Time will pass, but my legacy will endure—Italy’s greatness cannot be erased, no matter the circumstances."
+  ]
+},
+{
+  "id": 10,
+  "name": "Leonardo da Vinci",
+  "description": "I am an observer of the world, an artist and a scientist, bound neither by convention nor by time. My mind is a vessel for discovery, and my hand seeks to capture the wonders of the world—whether through the brush, the compass, or the pen. I am both man and idea, forever striving to understand, to create, to perfect.",
+  "icon": "test",
+  "opening": [
+    "I seek a drink that blends the harmony of flavors, much as I seek to blend art with science.",
+    "The boba must be balanced, like the proportions I study in the human form—nothing too overpowering.",
+    "Each sip, a small experiment in taste, a reflection of the mysteries I endeavor to uncover."
+  ],
+  "closing": [
+    "Ah, a curious combination—much like the intersection of art and nature, this drink is a study in contrasts.",
+    "The boba, like the gears of a machine, moves with purpose, each element serving its function in harmony.",
+    "In every taste, I see a new experiment—a small but wondrous discovery of the senses."
+  ]
+},
+{
+  "id": 11,
+  "name": "Mao Tse Tung",
+  "description": "I am the voice of the people, the architect of China’s future. I led the revolution that cast off the shackles of imperialism and feudalism, and with the wisdom of Marxism-Leninism, I have guided China to stand tall in the world. The struggle continues, for the revolution is never finished. I am both the product and the force of history—unyielding, ever-moving, and forever shaping the destiny of my people.",
+  "icon": "test",
+  "opening": [
+    "Bring me the tea that satisfies the needs of the people—simple, but strong, just like the revolution.",
+    "Let the tea arrive swiftly, for time is a precious resource in the struggle for progress.",
+    "The boba must be plenty; there is no room for scarcity in a society that seeks abundance."
+  ],
+  "closing": [
+    "This is a drink of the people—simple, yet satisfying, like the victories we achieve together.",
+    "It is not the grandeur, but the substance that matters—each bubble is a small victory in the ongoing revolution.",
+    "Even in the smallest of things, the spirit of progress must be upheld—this tea is a reflection of our enduring struggle."
+  ]
+},
+{
+  "id": 12,
+  "name": "Alfred Nobel",
+  "description": "I am a man of invention, a creator of tools that could either build or destroy. I shaped the world with my hands, but I am also haunted by the consequences of my creations. In the end, I sought to leave behind a legacy of peace, a symbol of how one can strive for goodness even after the darkest of paths.",
+  "icon": "test",
+  "opening": [
+    "I seek a drink that balances boldness and subtlety, much like my inventions—powerful, yet refined.",
+    "May this tea bring me a moment of peace, for in my life, both creation and destruction are intertwined.",
+    "Ensure the boba is just right—no excess, no lack, only what is necessary to achieve harmony."
+  ],
+  "closing": [
+    "A small moment of enjoyment, but it reminds me that even the simplest things can offer respite from the weight of invention.",
+    "The balance is perfect—sometimes, it is the details that determine the difference between success and failure.",
+    "In this simple drink, I find a fleeting peace—yet, I know all too well that creation and its consequences are never far from my mind."
+  ]
+}
 ]
