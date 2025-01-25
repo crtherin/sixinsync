@@ -22,6 +22,8 @@ const GROUP: StringName = &"item"
 #region Public Variables
 var is_pressed: bool
 var initial_position: Vector2
+var grab_stream: AudioStreamWAV
+var drop_on_cup_stream: AudioStreamWAV
 #endregion
 
 #region Private Variables
@@ -32,6 +34,7 @@ var initial_position: Vector2
 @onready var VBoxTooltip := %VBoxTooltip as VBoxContainer
 @onready var LabelTitle := %LabelTitle as Label
 @onready var LabelDescription := %LabelDescription as Label
+@onready var audioPlayer := $AudioStreamPlayer2D as AudioStreamPlayer2D
 #endregion
 
 #region Virtual Methods
@@ -43,6 +46,9 @@ func _ready() -> void:
 	self_modulate = data.item_modulate
 	LabelTitle.text = data.title
 	LabelDescription.text = data.description
+	
+	grab_stream = load(data.sound_grab)
+	drop_on_cup_stream = load(data.sound_drop_on_cup)
 	
 	if Engine.is_editor_hint():
 		return
@@ -119,7 +125,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					bring_to_front()
 					
 					create_tween().tween_property(self, ^"rotation", randf_range(-0.75, 0.75), 0.25)
-					
+					audioPlayer.set_stream(grab_stream)
+					audioPlayer.play()
 					is_pressed = true
 					PanelTooltip.visible = false
 					Global.item_is_dragging = true
@@ -129,6 +136,8 @@ func _on_gui_input(event: InputEvent) -> void:
 				MOUSE_BUTTON_LEFT:
 					if cup.get_global_rect().has_point(get_global_mouse_position()):
 						Global.item_dropped_in_cup.emit(self)
+						audioPlayer.set_stream(drop_on_cup_stream)
+						audioPlayer.play()
 					
 					var viewport_size: Vector2 = get_viewport_rect().size
 					var new_position: Vector2 = global_position

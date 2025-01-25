@@ -26,6 +26,8 @@ enum Type {
 @export_multiline var description: String
 @export var item_modulate: Color = Color.WHITE
 @export var cup_modulate: Color = Color.WHITE
+@export_file var sound_grab: String = 'res://Assets/Sounds/Item/item_select.wav'
+@export_file var sound_drop_on_cup : String
 #endregion
 
 #region Public Variables

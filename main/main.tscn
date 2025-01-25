@@ -1,35 +1,34 @@
-[gd_scene load_steps=49 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=50 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://main/cup.tscn" id="2_iii1x"]
-[ext_resource type="Texture2D" uid="uid://dwx158wta1sc3" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="2_ruee8"]
+[ext_resource type="Texture2D" uid="uid://bqelp4nkows5h" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="2_ruee8"]
 [ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://main/item.tscn" id="2_voga1"]
 [ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://resources/styles/style_panel_background.tres" id="3_rvo85"]
 [ext_resource type="Script" path="res://main/game_panel.gd" id="4_764ad"]
-[ext_resource type="Texture2D" path="res://main/sprite.svg" id="4_u8bic"]
-[ext_resource type="PackedScene" uid="uid://drtdy2sml2kdf" path="res://leo/order.tscn" id="5_ecns5"]
+[ext_resource type="PackedScene" path="res://leo/order.tscn" id="5_ecns5"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="5_kqg30"]
 [ext_resource type="Shader" path="res://resources/shaders/menu_blur.gdshader" id="6_7xfdu"]
-[ext_resource type="Texture2D" uid="uid://6qijfbmr15de" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
+[ext_resource type="Texture2D" uid="uid://br8wnsly04r41" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
 [ext_resource type="Script" path="res://main/menu_layer.gd" id="6_bv12s"]
 [ext_resource type="PackedScene" uid="uid://b0ci87u0gk1i8" path="res://leo/customer.tscn" id="7_6p11c"]
-[ext_resource type="Texture2D" uid="uid://bv4lyw5p7rpbu" path="res://Assets/Items/Black tea.png" id="7_xs27y"]
+[ext_resource type="Texture2D" uid="uid://bffvtqy7e22un" path="res://Assets/Items/Black tea.png" id="7_xs27y"]
 [ext_resource type="StyleBox" uid="uid://iysjtsw0a07y" path="res://resources/styles/style_button_hover.tres" id="8_aiorj"]
 [ext_resource type="StyleBox" uid="uid://b1oqhqq2qdibh" path="res://resources/styles/style_button_pressed.tres" id="9_7kpmm"]
-[ext_resource type="Texture2D" uid="uid://bdfrxhr7ghgnk" path="res://Assets/Items/Blood.png" id="9_iiu6p"]
-[ext_resource type="Texture2D" uid="uid://e0ah4bwwxqgy" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
-[ext_resource type="Texture2D" uid="uid://bsbqj6y0spw1h" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
+[ext_resource type="Texture2D" uid="uid://cldwd0y34edfk" path="res://Assets/Items/Blood.png" id="9_iiu6p"]
+[ext_resource type="Texture2D" uid="uid://b1fty1cw6empu" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
+[ext_resource type="Texture2D" uid="uid://dugp6lds702le" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
 [ext_resource type="StyleBox" uid="uid://davdid8wor7c3" path="res://resources/styles/style_button_normal.tres" id="10_q5j0g"]
-[ext_resource type="Texture2D" uid="uid://c17igpulj065v" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
-[ext_resource type="Texture2D" uid="uid://lfdgkdnpripe" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
-[ext_resource type="Texture2D" uid="uid://sxd532p1irof" path="res://Assets/Items/Ice.png" id="13_1j04h"]
-[ext_resource type="Texture2D" uid="uid://cn01hi0g58uoh" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
-[ext_resource type="Texture2D" uid="uid://b01kilisd1fh" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
-[ext_resource type="Texture2D" uid="uid://b4weohod264xe" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
-[ext_resource type="Texture2D" uid="uid://gtb2hn3oaho" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
-[ext_resource type="Texture2D" uid="uid://cedwvhh6ofk6n" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
-[ext_resource type="Texture2D" uid="uid://bi8ax8glgqpe6" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
-[ext_resource type="Texture2D" uid="uid://dm21gp5gtqfv1" path="res://Assets/Items/Tears.png" id="20_4lct8"]
+[ext_resource type="Texture2D" uid="uid://b7we4fm3qargm" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
+[ext_resource type="Texture2D" uid="uid://bvbgum1b3qf28" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
+[ext_resource type="Texture2D" uid="uid://ckpy5f5pqvfxf" path="res://Assets/Items/Ice.png" id="13_1j04h"]
+[ext_resource type="Texture2D" uid="uid://byf6cwut8y0tn" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
+[ext_resource type="Texture2D" uid="uid://dnj30rytvn7s6" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
+[ext_resource type="Texture2D" uid="uid://b84yl443yd1gb" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
+[ext_resource type="Texture2D" uid="uid://due78qmtmnlk0" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
+[ext_resource type="Texture2D" uid="uid://clu2wo8hjokaq" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
+[ext_resource type="Texture2D" uid="uid://oqq204lty7qm" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
+[ext_resource type="Texture2D" uid="uid://bkh08l6m2bkfi" path="res://Assets/Items/Tears.png" id="20_4lct8"]
 
 [sub_resource type="Resource" id="Resource_06676"]
 script = ExtResource("5_kqg30")
@@ -39,6 +38,8 @@ title = "Black Tea"
 description = "Caffeinated war juice that laughs in the face of your weak morning constitution."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_hwbyv"]
 script = ExtResource("5_kqg30")
@@ -48,8 +49,11 @@ title = "Green Tea"
 description = "Hipster leaf water masquerading as a health elixir."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_x1mcm"]
+resource_name = "res://Assets/Sounds/Item/drop_liquid.wav.import"
 script = ExtResource("5_kqg30")
 type = 5
 item_texture = ExtResource("11_uu5rh")
@@ -57,6 +61,8 @@ title = "Oolong Tea"
 description = "The tea that couldn't decide if it wanted to be black or green, so it became an identity crisis in a cup."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_mu4l8"]
 script = ExtResource("5_kqg30")
@@ -66,6 +72,8 @@ title = "Boba Popping"
 description = "Flavor grenades waiting to explode in your unsuspecting mouth."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 
 [sub_resource type="Resource" id="Resource_l6451"]
 script = ExtResource("5_kqg30")
@@ -75,15 +83,22 @@ title = "Boba Tapioca"
 description = "Chewy sugar nuggets born from the depths of root vegetable torture."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
+
+[sub_resource type="Resource" id="Resource_npiea"]
+metadata/__load_path__ = "res://main/sprite.svg"
 
 [sub_resource type="Resource" id="Resource_w4mwo"]
 script = ExtResource("5_kqg30")
 type = 3
-item_texture = ExtResource("4_u8bic")
+item_texture = SubResource("Resource_npiea")
 title = "Seraphic Spheres Boba"
 description = "Heavenly orbs that sing hymns and judge your drink selection."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 
 [sub_resource type="Resource" id="Resource_lvbqu"]
 script = ExtResource("5_kqg30")
@@ -93,6 +108,8 @@ title = "Diary Milk"
 description = "Cow's personal fluid, squeezed with industrial enthusiasm."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_yfr8b"]
 script = ExtResource("5_kqg30")
@@ -102,6 +119,8 @@ title = "Almond Milk"
 description = "Liquid made by whispering sweet nothings to nuts."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_blxrq"]
 script = ExtResource("5_kqg30")
@@ -111,6 +130,8 @@ title = "Succubus Milk"
 description = "Demonic milk with an otherworldly essence, potentially soul-stealing."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_v54or"]
 script = ExtResource("5_kqg30")
@@ -120,6 +141,8 @@ title = "Ice"
 description = "Frozen water's existential crisis."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 
 [sub_resource type="Resource" id="Resource_o48e5"]
 script = ExtResource("5_kqg30")
@@ -129,15 +152,22 @@ title = "Sweetener"
 description = "Chemical promises of guilt-free indulgence."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
+
+[sub_resource type="Resource" id="Resource_4j5g5"]
+metadata/__load_path__ = "res://main/sprite.svg"
 
 [sub_resource type="Resource" id="Resource_mteei"]
 script = ExtResource("5_kqg30")
 type = 13
-item_texture = ExtResource("4_u8bic")
+item_texture = SubResource("Resource_4j5g5")
 title = "Fruit Syrup"
 description = "Chemical promises of guilt-free indulgence."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_1hkci"]
 script = ExtResource("5_kqg30")
@@ -147,6 +177,8 @@ title = "Fruit Pieces"
 description = "Nature's chopped confetti."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 
 [sub_resource type="Resource" id="Resource_xns5c"]
 script = ExtResource("5_kqg30")
@@ -156,6 +188,8 @@ title = "Tears"
 description = "Liquid manifestation of emotional bankruptcy, now available in beverage form."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="Resource" id="Resource_pl324"]
 script = ExtResource("5_kqg30")
@@ -165,6 +199,8 @@ title = "Sugar"
 description = "Crystallized joy and dental destruction."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_sugar1.wav"
 
 [sub_resource type="Resource" id="Resource_yvba3"]
 script = ExtResource("5_kqg30")
@@ -174,6 +210,8 @@ title = "Blood"
 description = "Vampire's midnight snack, now served chilled."
 item_modulate = Color(1, 1, 1, 1)
 cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_16mr7"]
 shader = ExtResource("6_7xfdu")
@@ -264,6 +302,7 @@ layout_mode = 2
 
 [node name="Cup" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup" node_paths=PackedStringArray("parent", "panel_customer", "panel_trash") instance=ExtResource("2_iii1x")]
 layout_mode = 2
+texture = null
 parent = NodePath("../..")
 panel_customer = NodePath("../../../../VBoxCustomer/PanelCustomer")
 panel_trash = NodePath("../../../../../../PanelItems/ItemsContainer/PanelTrash")
@@ -384,7 +423,6 @@ panel_trash = NodePath("../PanelTrash")
 [node name="ItemBobaSeraphic" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-texture = ExtResource("4_u8bic")
 data = SubResource("Resource_w4mwo")
 parent = NodePath("..")
 cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
@@ -438,7 +476,6 @@ panel_trash = NodePath("../PanelTrash")
 [node name="ItemExtrasFruitSyrup" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-texture = ExtResource("4_u8bic")
 data = SubResource("Resource_mteei")
 parent = NodePath("..")
 cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/Cup")
