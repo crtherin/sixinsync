@@ -12,7 +12,7 @@
 	"closing": [
 	  "This is very good! Thank You!",
 	  "For I, a mere human, this is the golden liquid",
-	  "Tis but the greatesth of refreshments"
+	  "Tis but the greatest of refreshments"
 	]
   },
   {
@@ -44,7 +44,7 @@
 	"closing": [
 	  "We are well fed now, we will fight with honor",
 	  "I lost 3 543 470 soldiers defending this stand. It was worth it!",
-	  "The Ching Dinasty wants our bubble tea. I will die before that happens"
+	  "The Ching Dynasty wants our bubble tea. I will die before that happens"
 	]
   },
   {
