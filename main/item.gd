@@ -173,7 +173,7 @@ func _on_mouse_detection(entered: bool) -> void:
 		var viewport_size: Vector2 = get_viewport_rect().size
 		
 		PanelTooltip.global_position.x = clampf(mouse_position.x, size.x, viewport_size.x - PanelTooltip.size.x)
-		PanelTooltip.global_position.y = clampf(mouse_position.y, size.y, viewport_size.y - PanelTooltip.size.y)
+		PanelTooltip.global_position.y = clampf(mouse_position.y - 150.0, size.y, viewport_size.y - PanelTooltip.size.y)
 		
 		return
 	

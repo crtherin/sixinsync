@@ -40,6 +40,7 @@ const CURSOR_CLOSED: Texture2D = preload("res://Assets/CursorIcon/Hand_Closed.pn
 #endregion
 
 #region Export Variables
+var charonTaxTotal : int = 0
 #endregion
 
 #region Public Variables
@@ -58,10 +59,10 @@ var customerDone = false
 #endregion
 
 #region Private Variables
-var customerArray : Array
+var customerArray : Dictionary
 var currentCustomer
 var currentCustomerIndex = 0
-var gold = 100
+var gold = 0
 #endregion
 
 #region OnReady Variables
@@ -75,17 +76,17 @@ var gold = 100
 
 #region Private Methods
 func _ready():
-	var file_path = "res://Assets/Text/dialogues.json"  # Path to the JSON file
+	var file_path = "res://Assets/Text/charon.json"  # Path to the JSON file
 	var json_data = load_json(file_path)
 	if json_data:
 		customerArray = json_data
-		currentCustomer = customerArray[currentCustomerIndex]
+		#currentCustomer = customerArray[currentCustomerIndex]
 		#for entry in json_data:
 			#print("Name:", entry.get("name", "Unknown"))
 			#print("Descr:", entry.get("description", "?"))
 			
 # Function to load and parse the JSON file
-func load_json(file_path: String) -> Array:
+func load_json(file_path: String) -> Dictionary:
 	# Open the file for reading
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
@@ -96,7 +97,7 @@ func load_json(file_path: String) -> Array:
 		var json_parser = JSON.new()
 		var json_result = json_parser.parse(json_string)
 		if json_result == OK:
-			if typeof(json_parser.data) == TYPE_ARRAY:
+			if typeof(json_parser.data) == TYPE_DICTIONARY:
 				return json_parser.data  # Access the parsed data as a Dictionary
 			else:
 				print("JSON is not an array")
@@ -104,7 +105,7 @@ func load_json(file_path: String) -> Array:
 			print("Error parsing JSON:", json_parser.error_message)
 	else:
 		print("File does not exist:", file_path)
-	return []
+	return {}
 	
 func resetCustomer():
 	setCustomerDone(false)
@@ -151,25 +152,23 @@ func setCustomerDone(done: bool):
 	
 func addGold(amount: int):
 	gold += amount
-	if gold < 1:
-		print("game over")
-		game_over_event()
+	
 		
 	print_debug(gold)
 #endregion
 
 #region Getter Methods
 func getCurrentCustomer():
-	return currentCustomer
+	return customerArray
 
-func getCustomer(id):
-	var result
-	if customerArray:
-		for entry in customerArray:
-			if entry.get("id") == id:
-				result = entry
-				
-	return result
+#func getCustomer(id):
+	#var result
+	#if customerArray:
+		#for entry in customerArray:
+			#if entry.get("id") == id:
+				#result = entry
+				#
+	#return result
 	
 func getGold():
 	return gold
