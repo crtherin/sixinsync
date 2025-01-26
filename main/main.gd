@@ -255,7 +255,7 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 		if (round_value % charonRound == 0):
 			print("Charon came and took 100 gold!")
 			charonEventCounter += 1
-			Global.charonTaxTotal = ((charonEventCounter-1) * 3) + randi_range(15, 20)
+			Global.charonTaxTotal = -((charonEventCounter-1) * 3) + randi_range(15, 20)
 			setCharonRound()
 			Global.charon_event()
 			Global.gold_change_event(Global.charonTaxTotal)
