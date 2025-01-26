@@ -1,4 +1,4 @@
-[
+
   {
 	"id": 666,
 	"name": "Charon",
@@ -26,13 +26,12 @@ Oh, and one last thing. If, by some divine miracle, you manage to scrape togethe
 	  "Funny thing — Vlad Tepes just asked me if I thought your Blood Tea was fresh enough. Apparently, he’s considering leaving you a negative review because it’s ‘not authentic.’ %s obols, and I’ll keep him from skewering your Yelp rating.",
 	  "Did you know Hitler complained that your Succubus Milk tasted ‘too sinful’? Imagine that. Too sinful for Hitler. Anyway, %s obols, and I’ll make sure he doesn’t try to commission a ‘purer’ alternative.",
 	  "You know, every day I come here, I wonder why you haven’t thrown in the towel. Hitler’s impossible to please, Mao’s trying to unionize your ghost staff, and Vlad’s still asking if he can drink the customers. %s obols, and I’ll keep this lovely chaos from swallowing you whole.",
-	]
+	],
 	"victory": [
-	  "Fine! I’ll go! But know this: no one has ever humiliated Charon and gotten away with it! Well... except maybe Hercules. And Orpheus. And now you. Whatever. Good riddance!"
+	  "Fine! I’ll go! But know this: no one has ever humiliated Charon and gotten away with it! Well... except maybe Hercules. And Orpheus. And now you. Whatever. Good riddance!",
 	],
 	"loss": [
 	  "Mortal, you’ve let me down. But more importantly, you’ve let yourself down. Mostly because you thought selling bubble tea in Purgatory was a sustainable business. Step into the boat, genius."
 	]
 	  
   }
-]

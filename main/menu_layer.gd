@@ -86,6 +86,7 @@ func set_charon_screen(state: bool) -> void:
 	Global.is_paused = state
 	get_tree().paused = state
 	
+	
 	if state:
 		CharonMenu.visible = true
 		tween.tween_property(CharonMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
@@ -128,6 +129,12 @@ func _on_button_retry_pressed():
 	TimerGame.start()
 
 func _charon():
+	var label = get_node("CharonMenu/MarginMenuBackground/VBoxMenuBackground/LabelMenuTitle2")
+	var rand = RandomNumberGenerator.new()
+	var index = rand.randi_range(0,13)
+	var text = Global.getCurrentCustomer().evening[index] % [Global.charonTaxTotal]
+	text.replace
+	label.text = text
 	set_charon_screen(true)
 #endregion
 
@@ -173,13 +180,7 @@ func _time_out():
 	print_debug(gold)
 	Global.gold_change_event(-gold)
 	
-	Global.is_paused = true
-	get_tree().paused = true
-	EndMenu.set_process(true)
-	EndMenu.visible = true
-	
-	var tween: Tween = create_tween()
-	tween.tween_property(EndMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
+	Global.warning_message_event("You lost the customer")
 
 func _game_over():
 	Global.is_paused = true

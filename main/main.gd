@@ -26,6 +26,9 @@ var timerLabel
 var goldLabel
 
 var round_value : int = 0
+var obolInCup: int = 0
+var charonEventCounter : int = 0
+
 
 var charonRound
 var rand
@@ -71,6 +74,7 @@ func _ready() -> void:
 	
 	Global.cup_dropped_on_customer.connect(_on_cup_dropped_on_customer)
 	Global.cup_dropped_on_trash.connect(_on_cup_dropped_on_trash)
+	Global.item_dropped_in_cup.connect(_on_item_dropped_in_cup)
 	Global.gold_change.connect(_update_gold)
 	Global.game_start.connect(_start_game)
 	
@@ -78,6 +82,7 @@ func _ready() -> void:
 	setCharonRound()
 	
 	showGold()
+	
 	
 	#set_next_customer()
 
@@ -87,6 +92,7 @@ func _ready() -> void:
 func _process(_delta):
 	if TimerGame.is_stopped() && gameRunning:
 		Global.time_out.emit()
+		round_value += 1
 		
 	var timeLeft = int(floor(TimerGame.get_time_left()))
 	timerLabel.text = "Time left: " + str(timeLeft)
@@ -104,7 +110,7 @@ func _input(event: InputEvent) -> void:
 #region Public Methods
 func showGold():
 	var current = Global.getGold()
-	goldLabel.text = "Gold: " + str(current)
+	goldLabel.text = "Obol: " + str(current)
 	
 	
 func set_next_customer() -> void:
@@ -167,6 +173,8 @@ func set_next_customer() -> void:
 	gameRunning = true
 	
 	#Global.game_over.emit()
+	#Global.charon_event()
+	
 	
 	for item: Item in get_items():
 		item.set_random_position()
@@ -186,7 +194,7 @@ func get_items() -> Array[Item]:
 
 #region Private Methods
 func setCharonRound():
-	charonRound = rand.randi_range(4,6)
+	charonRound = rand.randi_range(3,5)
 #endregion
 
 #region Static Methods
@@ -205,13 +213,16 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 	print(isOk)
 	
 	if isOk:
-		Global.gold_change_event(35)
+		obolInCup+=(randi() % 4)
+		update_counter(obolInCup)
 		round_value += 1
 		if (round_value % charonRound == 0):
 			print("Charon came and took 100 gold!")
+			charonEventCounter += 1
+			Global.charonTaxTotal = ((charonEventCounter-1) * 2) + randi_range(12, 14)
 			setCharonRound()
 			Global.charon_event()
-			Global.gold_change_event(-100)
+			Global.gold_change_event(Global.charonTaxTotal)
 		else:
 			set_next_customer()
 				
@@ -221,7 +232,24 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 
 
 func _on_cup_dropped_on_trash() -> void:
+	obolInCup = 0
 	print("Dropped on trash")
+	
+func _on_item_dropped_in_cup(item: Item) -> void:
+
+	match item.data.type:
+		ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND:
+			obolInCup+=2
+			
+		ItemData.Type.BOBA_SERAPHIC, ItemData.Type.TEA_OOLONG, ItemData.Type.MILK_SUCCUBUS:
+			obolInCup+=3
+		
+		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP, ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
+			obolInCup+=1
+
+func update_counter(int) -> void:
+	Global.gold_change_event(obolInCup)
+	obolInCup=0
 #endregion
 
 #region SubClasses
