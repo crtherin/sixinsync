@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://tu7xq4si1lly"]
+
+[ext_resource type="FontFile" uid="uid://61texrumb06q" path="res://Assets/Fonts/CS Roger Double.otf" id="1_vcug0"]
+
+[resource]
+base_font = ExtResource("1_vcug0")

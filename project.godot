@@ -21,3 +21,11 @@ Global="*res://main/global.gd"
 [display]
 
 window/size/mode=3
+
+[dotnet]
+
+project/assembly_name="GGJ25"
+
+[gui]
+
+theme/custom_font="res://Assets/Fonts/rogerinner.tres"
