@@ -26,6 +26,9 @@ signal game_start
 
 @warning_ignore("unused_signal")
 signal gold_change(amount: int)
+
+@warning_ignore("unused_signal")
+signal charon()
 #endregion
 
 #region Enums
@@ -133,6 +136,10 @@ func time_out_event():
 		
 func game_start_event():
 	emit_signal("game_start")
+	
+		
+func charon_event():
+	emit_signal("charon")
 #endregion
 
 #region SubClasses

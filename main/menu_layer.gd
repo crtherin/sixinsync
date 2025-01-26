@@ -24,7 +24,6 @@ extends CanvasLayer
 @onready var ColorMenuBackground := %ColorMenuBackground as ColorRect
 @onready var MarginMenuBackground := %MarginMenuBackground as MarginContainer
 @onready var VBoxMenuBackground := %VBoxMenuBackground as VBoxContainer
-@onready var LabelMenuTitle := %LabelMenuTitle as Label
 @onready var VBoxMenuButtons := %VBoxMenuButtons as VBoxContainer
 @onready var ButtonResume := %ButtonResume as Button
 @onready var ButtonExit := %ButtonExit as Button
@@ -33,6 +32,7 @@ extends CanvasLayer
 @onready var StartMenu := %StartMenu as ColorRect
 @onready var EndMenu := %EndMenu as ColorRect
 @onready var GameOverMenu := %GameOverMenu as ColorRect
+@onready var CharonMenu := %CharonMenu as ColorRect
 
 @onready var TimerGame := %TimerGame as Timer
 #endregion
@@ -50,6 +50,7 @@ func _ready() -> void:
 	Global.warning_message_requested.connect(_on_warning_message_requested)
 	Global.game_over.connect(_game_over)
 	Global.time_out.connect(_time_out)
+	Global.charon.connect(_charon)
 	
 	for button: Button in [ButtonResume, ButtonExit]:
 		button.pressed.connect(_on_button_pressed.bind(button))
@@ -78,6 +79,21 @@ func set_pause_screen(state: bool) -> void:
 	else:
 		tween.tween_property(ColorMenuBackground, ^"modulate:a", 0.0, 0.25).from(1.0)
 		tween.tween_callback(ColorMenuBackground.hide)
+
+func set_charon_screen(state: bool) -> void:
+	var tween: Tween = create_tween()
+	
+	Global.is_paused = state
+	get_tree().paused = state
+	
+	if state:
+		CharonMenu.visible = true
+		tween.tween_property(CharonMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
+	
+	else:
+		tween.tween_property(CharonMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
+		tween.tween_callback(CharonMenu.hide)
+		
 		
 func set_start_screen(state: bool) -> void:	
 	Global.is_paused = state
@@ -110,7 +126,9 @@ func _on_button_retry_pressed():
 	tween.tween_callback(EndMenu.hide)
 	
 	TimerGame.start()
-	
+
+func _charon():
+	set_charon_screen(true)
 #endregion
 
 #region Static Methods
@@ -145,6 +163,9 @@ func _on_button_pressed(button: Button) -> void:
 	match button:
 		ButtonResume: set_pause_screen(false)
 		ButtonExit: get_tree().quit()
+
+func _on_button_resume_pressed() -> void:
+	set_charon_screen(false)
 
 func _time_out():
 	var gold = Global.getGold();

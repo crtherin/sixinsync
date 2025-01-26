@@ -36,6 +36,7 @@ var selected_extras: Array[ItemData.Type]
 @onready var LayerTea := %LayerTea as TextureRect
 @onready var LayerMilk := %LayerMilk as TextureRect
 @onready var PanelExtrasLayers := %PanelExtrasLayers as PanelContainer
+@onready var PanelExtrasLayersBack := %PanelExtrasLayersBack as PanelContainer
 #endregion
 
 #region Virtual Methods
@@ -66,6 +67,7 @@ func _input(event: InputEvent) -> void:
 							var isOk = check_selection()
 							Global.customer_drop(isOk)
 							if isOk:
+								Global.warning_message_event("Well done!")
 								reset()
 						
 						elif panel_trash.get_global_rect().has_point(mouse_position):
@@ -108,10 +110,10 @@ func check_selection() -> bool:
 			print(extras)
 			extras_valid_count += 1
 	
-	if extras_valid_count != (Global.current_quest.extras.size() - 3):
+	if extras_valid_count != Global.current_quest.extras.size() - 1:
 		print("wrong extras")
 		print(extras_valid_count)
-		print(Global.current_quest.extras)
+		print(Global.current_quest.extras, " / ", selected_extras)
 		return false
 	
 	return true
@@ -128,6 +130,9 @@ func reset() -> void:
 	LayerBubbles.texture = null
 	
 	for child: Node in PanelExtrasLayers.get_children():
+		child.queue_free()
+	
+	for child: Node in PanelExtrasLayersBack.get_children():
 		child.queue_free()
 #endregion
 
@@ -156,12 +161,12 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 			selected_milk = item.data.type
 			LayerMilk.texture = item.data.cup_texture
 		
-		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP:
+		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_FRUIT_SYRUP:
 			if not item.data.type in selected_extras:
 				selected_extras.append(item.data.type)
 				extras_textures.append(item.data.cup_texture)
 		
-		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
+		ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
 			if not item.data.type in selected_extras:
 				selected_extras.append(item.data.type)
 				extras_textures.append(item.data.cup_texture)
@@ -169,8 +174,8 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 	for cup_texture: Texture2D in extras_textures:
 		var texture_name: String = String(cup_texture.resource_path.get_file().get_slice(".", 0))
 		
-		#if PanelExtrasLayers.has_node(texture_name):
-			#continue
+		if PanelExtrasLayers.has_node(texture_name) or PanelExtrasLayersBack.has_node(texture_name):
+			continue
 		
 		var texture_rect: TextureRect = TextureRect.new()
 		
@@ -179,7 +184,9 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		texture_rect.texture = cup_texture
 		
-		PanelExtrasLayers.add_child(texture_rect)
+		match texture_name:
+			"Blood Texture", "Tear Texture", "Syrup texture": PanelExtrasLayersBack.add_child(texture_rect)
+			_: PanelExtrasLayers.add_child(texture_rect)
 
 
 func _on_gui_input(event: InputEvent) -> void:

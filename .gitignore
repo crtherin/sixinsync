@@ -15,7 +15,7 @@ data_*/
 mono_crash.*.json
 /Out
 *.tmp
-*.import
+*.png.import
 *.import
 Assets/Portraits/Suz_Tzu.png.import
 *.import
@@ -45,3 +45,4 @@ Assets/Portraits/GenericMan.png.import
 Assets/Portraits/DaVinci.png.import
 Assets/Portraits/Aphrodite.png.import
 Assets/Portraits/AlfredNobel.png.import
+Assets\Portraits\*
