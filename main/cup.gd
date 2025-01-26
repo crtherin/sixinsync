@@ -66,6 +66,7 @@ func _input(event: InputEvent) -> void:
 							var isOk = check_selection()
 							Global.customer_drop(isOk)
 							if isOk:
+								Global.warning_message_event("Well done!")
 								reset()
 						
 						elif panel_trash.get_global_rect().has_point(mouse_position):
