@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=82 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://x0lhdyewgdih" path="res://Assets/Sounds/Ambiance/ambiance.tscn" id="2_gqb0w"]
@@ -20,13 +20,12 @@
 [ext_resource type="StyleBox" uid="uid://b1oqhqq2qdibh" path="res://resources/styles/style_button_pressed.tres" id="9_7kpmm"]
 [ext_resource type="Texture2D" uid="uid://ddioeg428j430" path="res://Assets/Items/Blood.png" id="9_iiu6p"]
 [ext_resource type="Texture2D" uid="uid://cbeo7detejmu6" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
-[ext_resource type="Texture2D" uid="uid://cqfqjlyewpe30" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
 [ext_resource type="StyleBox" uid="uid://davdid8wor7c3" path="res://resources/styles/style_button_normal.tres" id="10_q5j0g"]
 [ext_resource type="Texture2D" uid="uid://bp625715idvhi" path="res://Assets/Banknote/BankNote.png" id="11_76lmx"]
 [ext_resource type="Texture2D" uid="uid://dt7hxy5uu7klo" path="res://Assets/Textures/Black Tea Texture.png" id="11_ba4mn"]
-[ext_resource type="Texture2D" uid="uid://du35kgp65bsht" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
 [ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
 [ext_resource type="Texture2D" uid="uid://dvh13mjwrwcen" path="res://Assets/Items/Ice.png" id="13_1j04h"]
+[ext_resource type="Texture2D" uid="uid://cop5f3xilq1gl" path="res://Assets/Backdrop/Separator.png" id="13_ng1rv"]
 [ext_resource type="Texture2D" uid="uid://bceulinnbrbly" path="res://Assets/Textures/Green Tea Texture.png" id="14_7f8va"]
 [ext_resource type="Texture2D" uid="uid://cis2sadgil5dw" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
 [ext_resource type="Texture2D" uid="uid://cqb830hbhpawb" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
@@ -41,7 +40,6 @@
 [ext_resource type="Texture2D" uid="uid://cm1t15lj0l88m" path="res://Assets/Items/BOB1.png" id="24_hdrjn"]
 [ext_resource type="Texture2D" uid="uid://cjunfy3seyi1d" path="res://Assets/Textures/Almond Milk Texture.png" id="25_5hyn8"]
 [ext_resource type="Texture2D" uid="uid://clkv2818uqhvc" path="res://Assets/Textures/BOB3.png" id="26_7k34x"]
-[ext_resource type="Texture2D" uid="uid://d2k6utjdaur6o" path="res://Assets/Items/Spherical Perals.png" id="26_pdo8l"]
 [ext_resource type="Texture2D" uid="uid://vwt1kh02vsdp" path="res://Assets/Textures/Succubus.png" id="27_surbd"]
 [ext_resource type="Texture2D" uid="uid://o1e2n4np3uru" path="res://Assets/Items/BOB3.png" id="27_vqbxk"]
 [ext_resource type="Texture2D" uid="uid://b5h3qw6u77e0n" path="res://Assets/Textures/BOB2.png" id="29_rxew0"]
@@ -51,9 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://cvdrk57yn47qt" path="res://Assets/Textures/Syrup texture.png" id="32_slfrm"]
 [ext_resource type="Texture2D" uid="uid://dk855st5cu6cw" path="res://Assets/Textures/fruits texture.png" id="33_42q17"]
 [ext_resource type="Texture2D" uid="uid://33e6i3dr8c1c" path="res://Assets/Items/Fruit SYrup.png" id="35_qrmoo"]
-[ext_resource type="Texture2D" uid="uid://cpy8leixt1opp" path="res://Assets/Textures/Tear Texture.png" id="35_yk4up"]
 [ext_resource type="Texture2D" uid="uid://r7u2eiqgghi4" path="res://Assets/Textures/SugarTexture.png" id="37_3w8s2"]
 [ext_resource type="Texture2D" uid="uid://cvd0qopg3lm1o" path="res://Assets/Textures/Blood Texture.png" id="39_hwwl8"]
+[ext_resource type="Texture2D" uid="uid://hj5rlaq61dp5" path="res://Assets/Textures/Tear Texture4.png" id="44_s2pwx"]
 [ext_resource type="Shader" path="res://resources/shaders/fire.gdshader" id="46_75of5"]
 [ext_resource type="Texture2D" uid="uid://cgeggsnqbr7q" path="res://Assets/Boba, Blood and Bankruptcy (1).png" id="48_8306v"]
 [ext_resource type="Texture2D" uid="uid://cw1d471ilg3uf" path="res://Assets/Portraits/charon.png" id="51_f7rxi"]
@@ -254,7 +252,7 @@ sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 script = ExtResource("5_kqg30")
 type = 15
 item_texture = ExtResource("20_4lct8")
-cup_texture = ExtResource("35_yk4up")
+cup_texture = ExtResource("44_s2pwx")
 title = "Tears"
 description = "Liquid manifestation of emotional bankruptcy, now available in beverage form."
 item_modulate = Color(1, 1, 1, 1)
@@ -304,6 +302,11 @@ script = ExtResource("1_3ulu4")
 [node name="MumbleManager" parent="." instance=ExtResource("2_p07ov")]
 
 [node name="Ambiance" parent="." instance=ExtResource("2_gqb0w")]
+
+[node name="TimerTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+autostart = true
 
 [node name="TimerGame" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -471,6 +474,7 @@ theme_override_constants/separation = 10
 alignment = 1
 
 [node name="TimerLabel" type="Label" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "assssssssss"
@@ -483,6 +487,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="GoldLabel" type="Label" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "231123213"
@@ -536,7 +541,27 @@ script = ExtResource("4_764ad")
 
 [node name="TextureRect" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("6_a7pu4")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect2" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/Control"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -183.0
+offset_right = -147.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+texture = ExtResource("13_ng1rv")
 expand_mode = 1
 
 [node name="ItemsContainer" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems"]
@@ -564,8 +589,9 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sdo3y")
 
 [node name="TextureTrash" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer/PanelTrash"]
+unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 0
 texture = ExtResource("8_qqval")
 expand_mode = 1
 stretch_mode = 5
@@ -603,7 +629,7 @@ panel_trash = NodePath("../PanelTrash")
 [node name="ItemBobaPopping" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
-texture = ExtResource("10_hf3ye")
+texture = ExtResource("24_hdrjn")
 stretch_mode = 5
 data = SubResource("Resource_mu4l8")
 parent = NodePath("..")
@@ -613,7 +639,7 @@ panel_trash = NodePath("../PanelTrash")
 [node name="ItemBobaTapioca" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
-texture = ExtResource("11_px0oo")
+texture = ExtResource("27_vqbxk")
 stretch_mode = 5
 data = SubResource("Resource_l6451")
 parent = NodePath("..")
@@ -623,7 +649,7 @@ panel_trash = NodePath("../PanelTrash")
 [node name="ItemBobaSeraphic" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
-texture = ExtResource("26_pdo8l")
+texture = ExtResource("30_e2jrh")
 stretch_mode = 5
 data = SubResource("Resource_w4mwo")
 parent = NodePath("..")

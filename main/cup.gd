@@ -185,7 +185,8 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 		texture_rect.texture = cup_texture
 		
 		match texture_name:
-			"Blood Texture", "Tear Texture", "Syrup texture": PanelExtrasLayersBack.add_child(texture_rect)
+			
+			"Blood Texture", "Tear Texture4", "Syrup texture": PanelExtrasLayersBack.add_child(texture_rect)
 			_: PanelExtrasLayers.add_child(texture_rect)
 
 

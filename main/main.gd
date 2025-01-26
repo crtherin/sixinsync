@@ -37,6 +37,7 @@ var rand
 
 #region OnReady Variables
 @onready var TimerGame := %TimerGame as Timer
+@onready var TimerTimer := %TimerTimer as Timer
 @onready var PanelBackground := %PanelBackground as PanelContainer
 @onready var MarginBackground := %MarginBackground as MarginContainer
 @onready var VBoxBackground := %VBoxBackground as VBoxContainer
@@ -60,6 +61,9 @@ var rand
 @onready var PanelItems := %PanelItems as PanelContainer
 @onready var ItemsContainer := %ItemsContainer as Control
 @onready var PanelTrash := %PanelTrash as PanelContainer
+@onready var TimerLabel := %TimerLabel as Label
+@onready var GoldLabel := %GoldLabel as Label
+@onready var TextureTrash := %TextureTrash as TextureRect
 
 @onready var MenuLayer := %MenuLayer as Menu
 #endregion
@@ -67,6 +71,8 @@ var rand
 #region Virtual Methods
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(Global.CURSOR_OPEN)
+	
+	TimerTimer.timeout.connect(_on_TimerTimer_timeout)
 	
 	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.json", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
 	customerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
@@ -85,18 +91,29 @@ func _ready() -> void:
 	showGold()
 	
 	
+	for _signal: Signal in [TextureTrash.mouse_entered, TextureTrash.mouse_exited]:
+		_signal.connect(_on_TextureTrash_mouse_detection.bind(_signal == TextureTrash.mouse_entered))
+	
 	#set_next_customer()
 
- 	
+const TRASH_CLOSED: Texture2D = preload("res://Assets/TrashCan/Cos_Inchis_V2.png")
+const TRASH_OPENED: Texture2D = preload("res://Assets/TrashCan/Cos_deschis_V2.png")
+
+func _on_TextureTrash_mouse_detection(entered: bool) -> void:
+	TextureTrash.texture = TRASH_OPENED if entered else TRASH_CLOSED
 
 
 func _process(_delta):
 	if TimerGame.is_stopped() && gameRunning:
 		Global.time_out.emit()
 		round_value += 1
+		set_next_customer()
 		
 	var timeLeft = int(floor(TimerGame.get_time_left()))
+	
 	timerLabel.text = "Time left: " + str(timeLeft)
+	
+	
 
 
 func _input(event: InputEvent) -> void:
@@ -202,11 +219,29 @@ func setCharonRound():
 #endregion
 
 #region Signal Callbacks
+func _on_TimerTimer_timeout() -> void:
+	var tween: Tween = create_tween()
+	
+	tween.tween_property(TimerLabel, ^"scale", Vector2.ONE * 1.25, 0.25)
+	tween.parallel().tween_property(TimerLabel, ^"modulate", Color.ORANGE_RED if TimerGame.time_left < 30 else Color.YELLOW, 0.25)
+	
+	tween.tween_property(TimerLabel, ^"scale", Vector2.ONE, 0.25)
+	tween.parallel().tween_property(TimerLabel, ^"modulate", Color.WHITE, 0.25)
+
 func _start_game():
 	set_next_customer()
 
 func _update_gold(amount):
 	Global.addGold(amount)
+	
+	var tween: Tween = create_tween()
+	
+	tween.tween_property(GoldLabel, ^"scale", Vector2.ONE * 1.25, 0.25)
+	tween.parallel().tween_property(GoldLabel, ^"modulate", Color.ORANGE_RED if amount < 0 else Color.GREEN, 0.25)
+	
+	tween.tween_property(GoldLabel, ^"scale", Vector2.ONE, 0.25)
+	tween.parallel().tween_property(GoldLabel, ^"modulate", Color.WHITE, 0.25)
+	
 	showGold()
 
 func _on_cup_dropped_on_customer(isOk: bool) -> void:
