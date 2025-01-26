@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=84 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://x0lhdyewgdih" path="res://Assets/Sounds/Ambiance/ambiance.tscn" id="2_gqb0w"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cbeo7detejmu6" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
 [ext_resource type="Texture2D" uid="uid://cqfqjlyewpe30" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
 [ext_resource type="StyleBox" uid="uid://davdid8wor7c3" path="res://resources/styles/style_button_normal.tres" id="10_q5j0g"]
+[ext_resource type="Texture2D" uid="uid://bp625715idvhi" path="res://Assets/Banknote/BankNote.png" id="11_76lmx"]
 [ext_resource type="Texture2D" uid="uid://dt7hxy5uu7klo" path="res://Assets/Textures/Black Tea Texture.png" id="11_ba4mn"]
 [ext_resource type="Texture2D" uid="uid://du35kgp65bsht" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
 [ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
@@ -32,17 +33,20 @@
 [ext_resource type="Texture2D" uid="uid://dd6foxq0fevf0" path="res://Assets/Textures/Oolong Tea Texture.png" id="16_ep5ar"]
 [ext_resource type="Texture2D" uid="uid://2bk204p3qvwj" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
 [ext_resource type="Texture2D" uid="uid://fh863div6yft" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
-[ext_resource type="Texture2D" uid="uid://cseh02cpmyajl" path="res://Assets/Textures/White Tapioca Bubbles Texture.png" id="18_xmr2d"]
 [ext_resource type="Texture2D" uid="uid://boepfmpof3l8r" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
 [ext_resource type="Texture2D" uid="uid://cjnmltxew8twn" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
 [ext_resource type="Texture2D" uid="uid://e54t2oknlnfe" path="res://Assets/Items/Tears.png" id="20_4lct8"]
-[ext_resource type="Texture2D" uid="uid://x8pl8so80nbi" path="res://Assets/Textures/Black Tapioca Texture.png" id="20_x0upy"]
-[ext_resource type="Texture2D" uid="uid://cle0f2y1n55e7" path="res://Assets/Textures/Sphericals Perls Texture.png" id="21_0t71f"]
+[ext_resource type="Texture2D" uid="uid://j21ngxe41y0u" path="res://Assets/Textures/BOB1.png" id="23_8qit0"]
 [ext_resource type="Texture2D" uid="uid://v7rw7juje7s0" path="res://Assets/Textures/Regular Milk Texture V1.png" id="23_lplmf"]
+[ext_resource type="Texture2D" uid="uid://cm1t15lj0l88m" path="res://Assets/Items/BOB1.png" id="24_hdrjn"]
 [ext_resource type="Texture2D" uid="uid://cjunfy3seyi1d" path="res://Assets/Textures/Almond Milk Texture.png" id="25_5hyn8"]
+[ext_resource type="Texture2D" uid="uid://clkv2818uqhvc" path="res://Assets/Textures/BOB3.png" id="26_7k34x"]
 [ext_resource type="Texture2D" uid="uid://d2k6utjdaur6o" path="res://Assets/Items/Spherical Perals.png" id="26_pdo8l"]
 [ext_resource type="Texture2D" uid="uid://vwt1kh02vsdp" path="res://Assets/Textures/Succubus.png" id="27_surbd"]
+[ext_resource type="Texture2D" uid="uid://o1e2n4np3uru" path="res://Assets/Items/BOB3.png" id="27_vqbxk"]
+[ext_resource type="Texture2D" uid="uid://b5h3qw6u77e0n" path="res://Assets/Textures/BOB2.png" id="29_rxew0"]
 [ext_resource type="Texture2D" uid="uid://cb8qen8rjrmob" path="res://Assets/Textures/Ice Cube Textures.png" id="29_v680q"]
+[ext_resource type="Texture2D" uid="uid://ds0u1wmehxltr" path="res://Assets/Items/BOB2.png" id="30_e2jrh"]
 [ext_resource type="Texture2D" uid="uid://dpd3bd7gxk1bm" path="res://Assets/Textures/Sweetener Texture.png" id="31_ouqaw"]
 [ext_resource type="Texture2D" uid="uid://cvdrk57yn47qt" path="res://Assets/Textures/Syrup texture.png" id="32_slfrm"]
 [ext_resource type="Texture2D" uid="uid://dk855st5cu6cw" path="res://Assets/Textures/fruits texture.png" id="33_42q17"]
@@ -129,8 +133,8 @@ sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"
 [sub_resource type="Resource" id="Resource_mu4l8"]
 script = ExtResource("5_kqg30")
 type = 2
-item_texture = ExtResource("10_hf3ye")
-cup_texture = ExtResource("18_xmr2d")
+item_texture = ExtResource("24_hdrjn")
+cup_texture = ExtResource("23_8qit0")
 title = "Boba Popping"
 description = "Flavor grenades waiting to explode in your unsuspecting mouth."
 item_modulate = Color(1, 1, 1, 1)
@@ -141,8 +145,8 @@ sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 [sub_resource type="Resource" id="Resource_l6451"]
 script = ExtResource("5_kqg30")
 type = 1
-item_texture = ExtResource("11_px0oo")
-cup_texture = ExtResource("20_x0upy")
+item_texture = ExtResource("27_vqbxk")
+cup_texture = ExtResource("26_7k34x")
 title = "Boba Tapioca"
 description = "Chewy sugar nuggets born from the depths of root vegetable torture."
 item_modulate = Color(1, 1, 1, 1)
@@ -153,8 +157,8 @@ sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"
 [sub_resource type="Resource" id="Resource_w4mwo"]
 script = ExtResource("5_kqg30")
 type = 3
-item_texture = ExtResource("26_pdo8l")
-cup_texture = ExtResource("21_0t71f")
+item_texture = ExtResource("30_e2jrh")
+cup_texture = ExtResource("29_rxew0")
 title = "Seraphic Spheres Boba"
 description = "Heavenly orbs that sing hymns and judge your drink selection."
 item_modulate = Color(1, 1, 1, 1)
@@ -369,9 +373,9 @@ script = ExtResource("4_764ad")
 [node name="MarginQuest" type="MarginContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelQuest"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 28
 theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 32
 
 [node name="PanelQuestBackground" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelQuest/MarginQuest"]
@@ -383,9 +387,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_4vksm")
 [node name="MarginPanelQuestBackground" type="MarginContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelQuest/MarginQuest/PanelQuestBackground"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 60
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 70
 
 [node name="VboxPanelQuestBackground" type="VBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelQuest/MarginQuest/PanelQuestBackground/MarginPanelQuestBackground"]
@@ -407,7 +411,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 3
 script = ExtResource("8_lx7in")
-typing_speed = 0.025
+typing_speed = 0.01
 label = NodePath(".")
 mumbleManager = NodePath("../../../../../../../../../../../MumbleManager")
 
@@ -422,14 +426,15 @@ script = ExtResource("4_764ad")
 [node name="MarginCup" type="MarginContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="AspectRatioCup" type="AspectRatioContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup/MarginCup"]
 unique_name_in_owner = true
 layout_mode = 2
+stretch_mode = 3
 
 [node name="CupBackgroundGradient" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup"]
 layout_mode = 2
@@ -462,18 +467,33 @@ layout_mode = 2
 
 [node name="HBoxStats" type="HBoxContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="TimerLabel" type="Label" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "assssssssss"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="GoldLabel" type="Label" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "231123213"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+texture = ExtResource("11_76lmx")
+expand_mode = 1
 
 [node name="PanelCustomer" type="PanelContainer" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer"]
 unique_name_in_owner = true
@@ -534,10 +554,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -144.0
-offset_top = -144.0
-offset_right = -16.0
-offset_bottom = -16.0
+offset_left = -158.0
+offset_top = -182.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
@@ -551,7 +571,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="ItemTeaBlack" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("7_xs27y")
 stretch_mode = 5
@@ -561,7 +581,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemTeaGreen" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("10_6aoxy")
 stretch_mode = 5
@@ -571,7 +591,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemTeaOolong" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("11_uu5rh")
 stretch_mode = 5
@@ -581,7 +601,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemBobaPopping" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("10_hf3ye")
 stretch_mode = 5
@@ -591,7 +611,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemBobaTapioca" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("11_px0oo")
 stretch_mode = 5
@@ -601,7 +621,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemBobaSeraphic" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("26_pdo8l")
 stretch_mode = 5
@@ -611,7 +631,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemMilkDiary" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("14_v25u3")
 stretch_mode = 5
@@ -621,7 +641,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemMilkAlmond" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("15_b7tqs")
 stretch_mode = 5
@@ -631,7 +651,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemMilkSuccubus" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("16_s3qa4")
 stretch_mode = 5
@@ -641,7 +661,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasIce" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("13_1j04h")
 stretch_mode = 5
@@ -651,7 +671,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasSweetener" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("18_yrfon")
 stretch_mode = 5
@@ -661,7 +681,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasFruitSyrup" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("35_qrmoo")
 stretch_mode = 5
@@ -671,7 +691,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasFruitPieces" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("19_0ysxf")
 stretch_mode = 5
@@ -681,7 +701,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasTears" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("20_4lct8")
 stretch_mode = 5
@@ -691,7 +711,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasSugar" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("18_1uwul")
 stretch_mode = 5
@@ -701,7 +721,7 @@ cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/Aspect
 panel_trash = NodePath("../PanelTrash")
 
 [node name="ItemExtrasBlood" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
-custom_minimum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("9_iiu6p")
 stretch_mode = 5

@@ -17,9 +17,9 @@ enum Type {
 
 #region Constants
 const TEXTURES: Dictionary[Type, Texture2D] = {
-	Type.BOBA_TAPIOCA: preload("res://Assets/Items/Tapioca Pearls.png"),
-	Type.BOBA_POPPING: preload("res://Assets/Items/Blue Popping.png"),
-	Type.BOBA_SERAPHIC: preload("res://Assets/Items/Spherical Perals.png"),
+	Type.BOBA_TAPIOCA: preload("res://Assets/Items/BOB3.png"),
+	Type.BOBA_POPPING: preload("res://Assets/Items/BOB1.png"),
+	Type.BOBA_SERAPHIC: preload("res://Assets/Items/BOB2.png"),
 	Type.TEA_BLACK: preload("res://Assets/Items/Black tea.png"),
 	Type.TEA_GREEN: preload("res://Assets/Items/Green tea.png"),
 	Type.TEA_OOLONG: preload("res://Assets/Items/Oolong tea.png"),

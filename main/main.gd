@@ -136,7 +136,7 @@ func set_next_customer() -> void:
 	for type: ItemData.Type in all_required_types:
 		var texture_rect: TextureRect = TextureRect.new()
 		
-		texture_rect.custom_minimum_size = Vector2.ONE * 100.0
+		texture_rect.custom_minimum_size = Vector2.ONE * 120.0
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture_rect.texture = ItemData.TEXTURES[type]
