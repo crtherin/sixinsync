@@ -152,9 +152,7 @@ func setCustomerDone(done: bool):
 	
 func addGold(amount: int):
 	gold += amount
-	if gold < 1:
-		print("game over")
-		game_over_event()
+	
 		
 	print_debug(gold)
 #endregion

@@ -27,6 +27,7 @@ var goldLabel
 
 var round_value : int = 0
 var obolInCup: int = 0
+var obolsLost: int
 var charonEventCounter : int = 0
 
 
@@ -219,15 +220,25 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 		if (round_value % charonRound == 0):
 			print("Charon came and took 100 gold!")
 			charonEventCounter += 1
-			Global.charonTaxTotal = ((charonEventCounter-1) * 2) + randi_range(12, 14)
+			Global.charonTaxTotal = ((charonEventCounter-1) * 3) + randi_range(15, 20)
 			setCharonRound()
 			Global.charon_event()
 			Global.gold_change_event(Global.charonTaxTotal)
+			if Global.gold < 0:
+				var resumebutton = get_node("$MenuLayer/CharonMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonResume")
+				resumebutton.set_process(false);
+				await get_tree().create_timer(5).timeout 
+				var charonmenu = get_node("%CharonMenu")
+				charonmenu.visible = false
+				Global.game_over_event()
 		else:
 			set_next_customer()
 				
 	else: 
 		Global.warning_message_event("Wrong BUBBLE TEA!")
+		obolsLost = (obolInCup/4)+2
+		Global.gold_change_event(-obolsLost)
+		Global.warning_message_event("Lost " + str(obolsLost) + " obols!")
 	
 
 
