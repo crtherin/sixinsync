@@ -127,7 +127,7 @@ func set_next_customer() -> void:
 	for child: Node in GridPanelQuestBackground.get_children():
 		child.queue_free()
 	
-	var all_required_types: Array = Global.current_quest.extras
+	var all_required_types: Array = Global.current_quest.extras.duplicate()
 	
 	all_required_types.append(Global.current_quest.tea)
 	all_required_types.append(Global.current_quest.milk)

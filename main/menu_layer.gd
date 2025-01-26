@@ -24,7 +24,6 @@ extends CanvasLayer
 @onready var ColorMenuBackground := %ColorMenuBackground as ColorRect
 @onready var MarginMenuBackground := %MarginMenuBackground as MarginContainer
 @onready var VBoxMenuBackground := %VBoxMenuBackground as VBoxContainer
-@onready var LabelMenuTitle := %LabelMenuTitle as Label
 @onready var VBoxMenuButtons := %VBoxMenuButtons as VBoxContainer
 @onready var ButtonResume := %ButtonResume as Button
 @onready var ButtonExit := %ButtonExit as Button

@@ -22,35 +22,35 @@
 [ext_resource type="Texture2D" uid="uid://dc1w235r3kscv" path="res://Assets/Items/Green tea.png" id="10_6aoxy"]
 [ext_resource type="Texture2D" uid="uid://skawmk6nxjgs" path="res://Assets/Items/Blue Popping.png" id="10_hf3ye"]
 [ext_resource type="StyleBox" uid="uid://davdid8wor7c3" path="res://resources/styles/style_button_normal.tres" id="10_q5j0g"]
-[ext_resource type="Texture2D" uid="uid://cicw481nsis67" path="res://Assets/Textures/Black Tea Texture.png" id="11_ba4mn"]
-[ext_resource type="Texture2D" uid="uid://jualppgb8yhc" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
-[ext_resource type="Texture2D" uid="uid://cwqub33vspm6u" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
-[ext_resource type="Texture2D" uid="uid://dctsuhoykaaak" path="res://Assets/Items/Ice.png" id="13_1j04h"]
-[ext_resource type="Texture2D" uid="uid://csmpe7gdrgabg" path="res://Assets/Textures/Green Tea Texture.png" id="14_7f8va"]
-[ext_resource type="Texture2D" uid="uid://ktpqljas3wtn" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
-[ext_resource type="Texture2D" uid="uid://br4dx8qhtyqs3" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
-[ext_resource type="Texture2D" uid="uid://bvpkov6raq25o" path="res://Assets/Textures/Oolong Tea Texture.png" id="16_ep5ar"]
-[ext_resource type="Texture2D" uid="uid://1tui6m4o885o" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
-[ext_resource type="Texture2D" uid="uid://7wi4flm2r540" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
-[ext_resource type="Texture2D" uid="uid://dmxk2222fc3a7" path="res://Assets/Textures/White Tapioca Bubbles Texture.png" id="18_xmr2d"]
-[ext_resource type="Texture2D" uid="uid://cwwawdkgrickc" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
-[ext_resource type="Texture2D" uid="uid://cyi1kmn0040y2" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
-[ext_resource type="Texture2D" uid="uid://c7mhqwsj5nxjb" path="res://Assets/Items/Tears.png" id="20_4lct8"]
-[ext_resource type="Texture2D" uid="uid://3msfqbd7qqie" path="res://Assets/Textures/Black Tapioca Texture.png" id="20_x0upy"]
-[ext_resource type="Texture2D" uid="uid://c0k662r2gtwns" path="res://Assets/Textures/Sphericals Perls Texture.png" id="21_0t71f"]
-[ext_resource type="Texture2D" uid="uid://b48uh6e4s3g0c" path="res://Assets/Textures/Regular Milk Texture V1.png" id="23_lplmf"]
-[ext_resource type="Texture2D" uid="uid://jfr6vtdtg7it" path="res://Assets/Textures/Almond Milk Texture.png" id="25_5hyn8"]
-[ext_resource type="Texture2D" uid="uid://xonk148mp6cx" path="res://Assets/Items/Spherical Perals.png" id="26_pdo8l"]
-[ext_resource type="Texture2D" uid="uid://d2bpqdkbc2eod" path="res://Assets/Textures/Succubus.png" id="27_surbd"]
-[ext_resource type="Texture2D" uid="uid://dfnnhoiwdrnmo" path="res://Assets/Textures/Ice Cube Textures.png" id="29_v680q"]
-[ext_resource type="Texture2D" uid="uid://dkbuanl5ny1ak" path="res://Assets/Textures/Sweetener Texture.png" id="31_ouqaw"]
-[ext_resource type="Texture2D" uid="uid://bw3rkflpuww8l" path="res://Assets/Textures/Syrup texture.png" id="32_slfrm"]
-[ext_resource type="Texture2D" uid="uid://yjue5a1lohyn" path="res://Assets/Textures/fruits texture.png" id="33_42q17"]
-[ext_resource type="Texture2D" uid="uid://f1d5od2fn5aq" path="res://Assets/Items/Fruit SYrup.png" id="35_qrmoo"]
-[ext_resource type="Texture2D" uid="uid://blx802q7b7gct" path="res://Assets/Textures/Tear Texture.png" id="35_yk4up"]
-[ext_resource type="Texture2D" uid="uid://bmq0ned6jai0x" path="res://Assets/Textures/SugarTexture.png" id="37_3w8s2"]
-[ext_resource type="Texture2D" uid="uid://coqyv02wxbbft" path="res://Assets/Textures/Blood Texture.png" id="39_hwwl8"]
-[ext_resource type="Texture2D" uid="uid://dgf4n1byh26qy" path="res://Assets/Portraits/charon.png" id="51_f7rxi"]
+[ext_resource type="Texture2D" uid="uid://dt7hxy5uu7klo" path="res://Assets/Textures/Black Tea Texture.png" id="11_ba4mn"]
+[ext_resource type="Texture2D" uid="uid://du35kgp65bsht" path="res://Assets/Items/Tapioca Pearls.png" id="11_px0oo"]
+[ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="11_uu5rh"]
+[ext_resource type="Texture2D" uid="uid://dvh13mjwrwcen" path="res://Assets/Items/Ice.png" id="13_1j04h"]
+[ext_resource type="Texture2D" uid="uid://bceulinnbrbly" path="res://Assets/Textures/Green Tea Texture.png" id="14_7f8va"]
+[ext_resource type="Texture2D" uid="uid://cis2sadgil5dw" path="res://Assets/Items/Regular milk.png" id="14_v25u3"]
+[ext_resource type="Texture2D" uid="uid://cqb830hbhpawb" path="res://Assets/Items/Almond milk.png" id="15_b7tqs"]
+[ext_resource type="Texture2D" uid="uid://dd6foxq0fevf0" path="res://Assets/Textures/Oolong Tea Texture.png" id="16_ep5ar"]
+[ext_resource type="Texture2D" uid="uid://2bk204p3qvwj" path="res://Assets/Items/Sucubus.png" id="16_s3qa4"]
+[ext_resource type="Texture2D" uid="uid://fh863div6yft" path="res://Assets/Items/Sugar.png" id="18_1uwul"]
+[ext_resource type="Texture2D" uid="uid://cseh02cpmyajl" path="res://Assets/Textures/White Tapioca Bubbles Texture.png" id="18_xmr2d"]
+[ext_resource type="Texture2D" uid="uid://boepfmpof3l8r" path="res://Assets/Items/Sweetener.png" id="18_yrfon"]
+[ext_resource type="Texture2D" uid="uid://cjnmltxew8twn" path="res://Assets/Items/Fruits.png" id="19_0ysxf"]
+[ext_resource type="Texture2D" uid="uid://e54t2oknlnfe" path="res://Assets/Items/Tears.png" id="20_4lct8"]
+[ext_resource type="Texture2D" uid="uid://x8pl8so80nbi" path="res://Assets/Textures/Black Tapioca Texture.png" id="20_x0upy"]
+[ext_resource type="Texture2D" uid="uid://cle0f2y1n55e7" path="res://Assets/Textures/Sphericals Perls Texture.png" id="21_0t71f"]
+[ext_resource type="Texture2D" uid="uid://v7rw7juje7s0" path="res://Assets/Textures/Regular Milk Texture V1.png" id="23_lplmf"]
+[ext_resource type="Texture2D" uid="uid://cjunfy3seyi1d" path="res://Assets/Textures/Almond Milk Texture.png" id="25_5hyn8"]
+[ext_resource type="Texture2D" uid="uid://d2k6utjdaur6o" path="res://Assets/Items/Spherical Perals.png" id="26_pdo8l"]
+[ext_resource type="Texture2D" uid="uid://vwt1kh02vsdp" path="res://Assets/Textures/Succubus.png" id="27_surbd"]
+[ext_resource type="Texture2D" uid="uid://cb8qen8rjrmob" path="res://Assets/Textures/Ice Cube Textures.png" id="29_v680q"]
+[ext_resource type="Texture2D" uid="uid://dpd3bd7gxk1bm" path="res://Assets/Textures/Sweetener Texture.png" id="31_ouqaw"]
+[ext_resource type="Texture2D" uid="uid://cvdrk57yn47qt" path="res://Assets/Textures/Syrup texture.png" id="32_slfrm"]
+[ext_resource type="Texture2D" uid="uid://dk855st5cu6cw" path="res://Assets/Textures/fruits texture.png" id="33_42q17"]
+[ext_resource type="Texture2D" uid="uid://33e6i3dr8c1c" path="res://Assets/Items/Fruit SYrup.png" id="35_qrmoo"]
+[ext_resource type="Texture2D" uid="uid://cpy8leixt1opp" path="res://Assets/Textures/Tear Texture.png" id="35_yk4up"]
+[ext_resource type="Texture2D" uid="uid://r7u2eiqgghi4" path="res://Assets/Textures/SugarTexture.png" id="37_3w8s2"]
+[ext_resource type="Texture2D" uid="uid://cvd0qopg3lm1o" path="res://Assets/Textures/Blood Texture.png" id="39_hwwl8"]
+[ext_resource type="Texture2D" uid="uid://cgeggsnqbr7q" path="res://Assets/Boba, Blood and Bankruptcy (1).png" id="48_8306v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vksm"]
 texture = ExtResource("5_5xd03")
@@ -69,7 +69,8 @@ metadata/_snap_enabled = true
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xx7mh"]
 texture = SubResource("GradientTexture2D_rgj58")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4kcq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdo3y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Resource" id="Resource_06676"]
 script = ExtResource("5_kqg30")
@@ -513,7 +514,7 @@ offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_t4kcq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdo3y")
 
 [node name="TextureTrash" type="TextureRect" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer/PanelTrash"]
 layout_mode = 2
@@ -696,6 +697,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="MarginMenuBackground" type="MarginContainer" parent="MenuLayer/StartMenu"]
 layout_mode = 1
@@ -709,19 +711,18 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxMenuBackground" type="VBoxContainer" parent="MenuLayer/StartMenu/MarginMenuBackground"]
+[node name="VBoxMenuBackground" type="HBoxContainer" parent="MenuLayer/StartMenu/MarginMenuBackground"]
 layout_mode = 2
+alignment = 1
 
-[node name="LabelMenuTitle" type="Label" parent="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground"]
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 20
-theme_override_font_sizes/font_size = 128
-text = "GAME TITLE"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("48_8306v")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxMenuButtons" type="VBoxContainer" parent="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground"]
 layout_mode = 2
@@ -759,6 +760,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="MarginMenuBackground" type="MarginContainer" parent="MenuLayer/EndMenu"]
 layout_mode = 1
@@ -772,19 +774,18 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxMenuBackground" type="VBoxContainer" parent="MenuLayer/EndMenu/MarginMenuBackground"]
+[node name="VBoxMenuBackground" type="HBoxContainer" parent="MenuLayer/EndMenu/MarginMenuBackground"]
 layout_mode = 2
+alignment = 1
 
-[node name="LabelMenuTitle" type="Label" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground"]
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 20
-theme_override_font_sizes/font_size = 64
-text = "Out of time! -25% gold"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("48_8306v")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxMenuButtons" type="VBoxContainer" parent="MenuLayer/EndMenu/MarginMenuBackground/VBoxMenuBackground"]
 layout_mode = 2
@@ -822,6 +823,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="MarginMenuBackground" type="MarginContainer" parent="MenuLayer/GameOverMenu"]
 layout_mode = 1
@@ -835,19 +837,18 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxMenuBackground" type="VBoxContainer" parent="MenuLayer/GameOverMenu/MarginMenuBackground"]
+[node name="VBoxMenuBackground" type="HBoxContainer" parent="MenuLayer/GameOverMenu/MarginMenuBackground"]
 layout_mode = 2
+alignment = 1
 
-[node name="LabelMenuTitle" type="Label" parent="MenuLayer/GameOverMenu/MarginMenuBackground/VBoxMenuBackground"]
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/GameOverMenu/MarginMenuBackground/VBoxMenuBackground"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 20
-theme_override_font_sizes/font_size = 128
-text = "GAME OVER"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("48_8306v")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxMenuButtons" type="VBoxContainer" parent="MenuLayer/GameOverMenu/MarginMenuBackground/VBoxMenuBackground"]
 layout_mode = 2
@@ -885,6 +886,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="MarginMenuBackground" type="MarginContainer" parent="MenuLayer/ColorMenuBackground"]
 unique_name_in_owner = true
@@ -899,21 +901,19 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxMenuBackground" type="VBoxContainer" parent="MenuLayer/ColorMenuBackground/MarginMenuBackground"]
+[node name="VBoxMenuBackground" type="HBoxContainer" parent="MenuLayer/ColorMenuBackground/MarginMenuBackground"]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
 
-[node name="LabelMenuTitle" type="Label" parent="MenuLayer/ColorMenuBackground/MarginMenuBackground/VBoxMenuBackground"]
-unique_name_in_owner = true
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/ColorMenuBackground/MarginMenuBackground/VBoxMenuBackground"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 20
-theme_override_font_sizes/font_size = 128
-text = "Pause"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("48_8306v")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxMenuButtons" type="VBoxContainer" parent="MenuLayer/ColorMenuBackground/MarginMenuBackground/VBoxMenuBackground"]
 unique_name_in_owner = true
@@ -1010,12 +1010,8 @@ text = "Fine!"
 [node name="LabelMenuWarning" type="Label" parent="MenuLayer"]
 unique_name_in_owner = true
 visible = false
-anchors_preset = -1
-anchor_top = 0.333
-anchor_right = 1.0
-anchor_bottom = 0.333
-offset_top = -45.784
-offset_bottom = 42.216
+offset_right = 1152.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
