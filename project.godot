@@ -28,4 +28,4 @@ project/assembly_name="GGJ25"
 
 [gui]
 
-theme/custom_font="res://Assets/Fonts/rogerinner.tres"
+theme/custom_font="res://Assets/Fonts/americantypewriterfont.tres"

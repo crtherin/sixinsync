@@ -103,14 +103,14 @@ func check_selection() -> bool:
 		print(Global.current_quest.bubble)
 		return false
 	
-	var extras_valid_count: int = 1
+	var extras_valid_count: int = 0
 	
 	for extras: ItemData.Type in selected_extras:
 		if extras in Global.current_quest.extras:
 			print(extras)
 			extras_valid_count += 1
 	
-	if extras_valid_count != Global.current_quest.extras.size() - 1:
+	if extras_valid_count != Global.current_quest.extras.size():
 		print("wrong extras")
 		print(extras_valid_count)
 		print(Global.current_quest.extras, " / ", selected_extras)
