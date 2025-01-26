@@ -15,6 +15,9 @@ extends PanelContainer
 @export var parent: MarginContainer
 @export var panel_customer: PanelContainer
 @export var panel_trash: PanelContainer
+@export var vfx_splah: Splash
+@export var vfx_done: Splash
+@export var vfx_fail: Splash
 #endregion
 
 #region Public Variables
@@ -68,7 +71,10 @@ func _input(event: InputEvent) -> void:
 							Global.customer_drop(isOk)
 							if isOk:
 								Global.warning_message_event("Well done!")
+								vfx_done.play()
 								reset()
+							else:
+								vfx_fail.play()
 						
 						elif panel_trash.get_global_rect().has_point(mouse_position):
 							#Global.cup_dropped_on_trash.emit()
@@ -145,7 +151,7 @@ func reset() -> void:
 #region Signal Callbacks
 func _on_item_dropped_in_cup(item: Item) -> void:
 	print("Item: %s, dropped on cup: %s" % [item, item.data.type])
-	
+	vfx_splah.play()
 	var extras_textures: Array[Texture2D]
 	
 	match item.data.type:

@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://17w5iyucsao7"]
+[gd_scene load_steps=8 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Texture2D" uid="uid://b6mverkytic0j" path="res://Assets/Cup/Pahar cu pai.png" id="2_8onuc"]
+[ext_resource type="Texture2D" uid="uid://cuq5euwr0g70d" path="res://Assets/Cup/Pahar cu pai.png" id="2_8onuc"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
+[ext_resource type="PackedScene" uid="uid://qhxq437uxrcq" path="res://Assets/VFX/VFX_Order_Done.tscn" id="3_5qb83"]
+[ext_resource type="PackedScene" uid="uid://c4pockjr41peh" path="res://Assets/VFX/VFX_Order_Fail.tscn" id="4_xod6u"]
+[ext_resource type="PackedScene" uid="uid://cifpeewk8hk7e" path="res://Assets/VFX/VFX_Splash.tscn" id="5_yd5n8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nsjq"]
 
-[node name="Cup" type="PanelContainer"]
+[node name="Cup" type="PanelContainer" node_paths=PackedStringArray("vfx_splah", "vfx_done", "vfx_fail")]
 z_index = 1
 offset_right = 320.0
 offset_bottom = 448.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ob8vf")
 script = ExtResource("2_ple3i")
+vfx_splah = NodePath("VBoxContainer/VfxSplash")
+vfx_done = NodePath("VBoxContainer/VfxOrderDone")
+vfx_fail = NodePath("VBoxContainer/VfxOrderFail")
 
 [node name="LayerMilk" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -57,3 +63,27 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="VfxSplash" parent="VBoxContainer" instance=ExtResource("5_yd5n8")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="VfxOrderDone" parent="VBoxContainer" instance=ExtResource("3_5qb83")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VfxOrderFail" parent="VBoxContainer" instance=ExtResource("4_xod6u")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

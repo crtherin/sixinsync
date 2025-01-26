@@ -25,7 +25,9 @@ angular_velocity_max = 177.23
 gravity = Vector3(0, 98, 0)
 scale_curve = SubResource("CurveTexture_fw6q5")
 
-[node name="VfxOrderDone" type="Node" node_paths=PackedStringArray("particles")]
+[node name="VfxOrderDone" type="Control" node_paths=PackedStringArray("particles")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_55b3p")
 particles = NodePath("GPUParticles2D")
 

@@ -46,14 +46,17 @@ scale_min = 0.25
 scale_max = 0.25
 scale_curve = SubResource("CurveTexture_hhkbt")
 
-[node name="VfxSplash" type="Node" node_paths=PackedStringArray("particles")]
+[node name="VfxSplash" type="Control" node_paths=PackedStringArray("particles")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_7nxei")
 particles = NodePath("GPUParticles2D")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(569, 306)
+emitting = false
 amount = 5
 lifetime = 4.0
+one_shot = true
 speed_scale = 5.0
 explosiveness = 1.0
 texture = ExtResource("2_l4kt8")

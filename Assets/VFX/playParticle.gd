@@ -1,4 +1,4 @@
-extends Node
+class_name Splash extends Control
 
 @export var particles: GPUParticles2D
 signal playSound()
