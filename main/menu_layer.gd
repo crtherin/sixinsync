@@ -33,7 +33,7 @@ extends CanvasLayer
 @onready var StartMenu := %StartMenu as ColorRect
 @onready var EndMenu := %EndMenu as ColorRect
 @onready var GameOverMenu := %GameOverMenu as ColorRect
-@onready var CharonMenu
+@onready var CharonMenu := %CharonMenu as ColorRect
 
 @onready var TimerGame := %TimerGame as Timer
 #endregion
@@ -80,6 +80,21 @@ func set_pause_screen(state: bool) -> void:
 	else:
 		tween.tween_property(ColorMenuBackground, ^"modulate:a", 0.0, 0.25).from(1.0)
 		tween.tween_callback(ColorMenuBackground.hide)
+
+func set_charon_screen(state: bool) -> void:
+	var tween: Tween = create_tween()
+	
+	Global.is_paused = state
+	get_tree().paused = state
+	
+	if state:
+		CharonMenu.visible = true
+		tween.tween_property(CharonMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
+	
+	else:
+		tween.tween_property(CharonMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
+		tween.tween_callback(CharonMenu.hide)
+		
 		
 func set_start_screen(state: bool) -> void:	
 	Global.is_paused = state
@@ -114,15 +129,7 @@ func _on_button_retry_pressed():
 	TimerGame.start()
 
 func _charon():
-	Global.is_paused = true
-	get_tree().paused = true
-	
-	Global.warning_message_event("Charon came and took 100 gold!")
-	
-	#var tween: Tween = create_tween()
-	#
-	#tween.tween_property(CharonMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
-	#tween.tween_callback(CharonMenu.hide)
+	set_charon_screen(true)
 #endregion
 
 #region Static Methods
@@ -157,6 +164,9 @@ func _on_button_pressed(button: Button) -> void:
 	match button:
 		ButtonResume: set_pause_screen(false)
 		ButtonExit: get_tree().quit()
+
+func _on_button_resume_pressed() -> void:
+	set_charon_screen(false)
 
 func _time_out():
 	var gold = Global.getGold();
