@@ -18,7 +18,7 @@
   {
 	"id": 2,
 	"name": "Genghis Khan",
-	"description": "I am the ruler of all who ride horses and the one who forged the greatest empire the world has ever known. I united the Mongols, conquered the lands of many peoples, and led them to greatness. Through blood, sweat, and strategy, I have earned my place as the leader of nations. I am not just a conqueror, but a builder of empires and a creator of new paths for history.",
+	"description": "Refers to tapioca pearls as ‘the spoils of war’ and demands extra, or else.",
 	"icon": "res://Assets/Portraits/GenghisKhan.png",
 	"opening": [
 	  "I am Genghis Khan, the storm that shapes the world, what might you bring before me?",
@@ -34,7 +34,7 @@
   {
 	"id": 3,
 	"name": "Sun Tzu",
-	"description": "Know the enemy and know yourself in a hundred battles you will never be in peril",
+	"description": "The master strategist treats every tea order like a battle plan—failure is not an option.",
 	"icon": "res://Assets/Portraits/Suz_Tzu.png",
 	"opening": [
 	  "'An army fights on their stomach. Feed them well and they will fight well' - The art of war",
@@ -50,7 +50,7 @@
   {
 	"id": 4,
 	"name": "Aphrodite",
-	"description": "Aphrodite would stand before you, her eyes glinting with a playful, knowing sparkle. Her golden hair falls around her like a soft halo, framing a face that’s impossibly beautiful, lips slightly parted, as though she’s about to say something that could make your heart race. She moves with such grace, every step deliberate, teasing, like she knows you’re watching—and she likes it. There’s an effortless confidence in the way she holds herself, as if the world bends around her beauty, and you can’t help but feel drawn in. When her gaze meets yours, it’s like she’s daring you to surrender to the heat between you, and you’re not sure if you want to resist or give in completely.",
+	"description": "The goddess of love expects her tea to be as sweet and alluring as she is — or else she’ll ruin your confidence and flirt with your customers.",
 	"icon": "res://Assets/Portraits/Aphrodite.png",
 	"opening": [
 	  "I’ll take the sweetest one you have... but I’m already sweet enough, don’t you think?",
@@ -66,7 +66,7 @@
   {
   "id": 5,
   "name": "Napoléon Bonaparte",
-  "description": "I am not bound by the limitations of men. I am a force of nature, destined to shape the world in my image. My victories are not mere chance, but the result of unwavering will, bold vision, and the courage to defy the odds. I do not seek power for its own sake, but to bring order to chaos, to lead where others falter, and to carve my name into the annals of history.",
+  "description": "Orders boldly, then complains the cup is too tall, muttering something about ‘compensation.’",
   "icon": "res://Assets/Portraits/Napoleon.png",
   "opening": [
 	"I demand the finest boba tea—no mediocrity, only the best will satisfy my greatness.",
@@ -82,7 +82,7 @@
 {
   "id": 6,
   "name": "Adolf Hitler",
-  "description": "I am an artist, rejected by the world that should have embraced my genius. I see greatness within me, yet I am constantly overlooked, misunderstood, and denied. I will find my place, no matter the cost.",
+  "description": "A moody ex-painter who’s always judging your tea like it’s an art critique—and it’s never good enough.",
   "icon": "res://Assets/Portraits/Hitler.png",
   "opening": [
 	"I require the finest boba tea, as I only accept perfection—nothing less will suffice.",
@@ -114,7 +114,7 @@
 {
   "id": 8,
   "name": "Iosif Stalin",
-  "description": "I am the architect of the Soviet Union’s strength, the hammer that shaped the future of a nation. Through will, cunning, and relentless action, I forged an empire from the ashes of revolution. I am the defender of socialism, and my actions, though misunderstood, are the necessary steps toward a glorious future—no sacrifice is too great for the state.",
+  "description": "A micromanager extraordinaire who critiques your tea like it's part of a five-year plan—expect no leniency.",
   "icon": "res://Assets/Portraits/Stalin.png",
   "opening": [
 	"Bring me the strongest tea—no softness, no sweetness. I did not rule with weakness, and I will not accept it now.",
@@ -130,7 +130,7 @@
 {
   "id": 9,
   "name": "Benito Mussolini",
-  "description": "I am the Duce, the leader who gave Italy its true identity, who resurrected a once-great nation from the ashes of defeat. Through my will and my vision, I forged a new destiny for my people. I am not a mere politician; I am the embodiment of the Italian spirit, unyielding, proud, and powerful. To follow me is to embrace the future; to question me is to deny greatness itself.",
+  "description": "Insists your tea stand is the pinnacle of civilization but expects free refills for the ‘greater good.’",
   "icon": "res://Assets/Portraits/Mussolini.png",
   "opening": [
 	"I require a drink that matches the strength and power of the Italian spirit—make it bold, make it unforgettable.",
@@ -146,7 +146,7 @@
 {
   "id": 10,
   "name": "Leonardo da Vinci",
-  "description": "I am an observer of the world, an artist and a scientist, bound neither by convention nor by time. My mind is a vessel for discovery, and my hand seeks to capture the wonders of the world—whether through the brush, the compass, or the pen. I am both man and idea, forever striving to understand, to create, to perfect.",
+  "description": "The Renaissance polymath who sees your tea as a canvas for perfection — and will redesign your shop if you disappoint him.",
   "icon": "res://Assets/Portraits/DaVinci.png",
   "opening": [
 	"I seek a drink that blends the harmony of flavors, much as I seek to blend art with science.",
@@ -162,7 +162,7 @@
 {
   "id": 11,
   "name": "Mao Tse Tung",
-  "description": "I am the voice of the people, the architect of China’s future. I led the revolution that cast off the shackles of imperialism and feudalism, and with the wisdom of Marxism-Leninism, I have guided China to stand tall in the world. The struggle continues, for the revolution is never finished. I am both the product and the force of history—unyielding, ever-moving, and forever shaping the destiny of my people.",
+  "description": "The revolutionary leader wants tea for the people—plenty of boba, plenty of sugar, and no bourgeois nonsense.",
   "icon": "res://Assets/Portraits/MaoTseTung.png",
   "opening": [
 	"Bring me the tea that satisfies the needs of the people—simple, but strong, just like the revolution.",
@@ -178,7 +178,7 @@
 {
   "id": 12,
   "name": "Alfred Nobel",
-  "description": "I am a man of invention, a creator of tools that could either build or destroy. I shaped the world with my hands, but I am also haunted by the consequences of my creations. In the end, I sought to leave behind a legacy of peace, a symbol of how one can strive for goodness even after the darkest of paths.",
+  "description": "Orders with the precision of a scientist and calls your tapioca ‘an experiment worth repeating.’",
   "icon": "res://Assets/Portraits/AlfredNobel.png",
   "opening": [
 	"I seek a drink that balances boldness and subtlety, much like my inventions—powerful, yet refined.",
@@ -194,7 +194,7 @@
 {
   "id": 13,
   "name": "Vlad Tepes",
-  "description": "I am Vlad Țepeș, defender of my land and scourge of the wicked. My hands are stained with blood, but only to protect my people and uphold justice. If my deeds were cruel, they were necessary evils in a world of greater horrors. Judge me not by my methods, but by my purpose.",
+  "description": "Known as Vlad the Impaler, he insists on blood in his tea—and failure to deliver might put you on a spike.",
   "icon": "res://Assets/Portraits/VladTepes.png",
   "opening": [
 	"I thirst for the blood of my enemies, but bubble tea will do just as well.",
