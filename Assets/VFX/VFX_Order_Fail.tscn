@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4pockjr41peh"]
+
+[ext_resource type="Script" path="res://Assets/VFX/playParticle.gd" id="1_df3um"]
+[ext_resource type="Texture2D" uid="uid://bb3wnwiu8yqop" path="res://Assets/VFX/orderFail.png" id="2_pi6m6"]
+[ext_resource type="AudioStream" uid="uid://cqu7tnx2osvku" path="res://Assets/Sounds/Order/order_fail.wav" id="3_recma"]
+[ext_resource type="Script" path="res://Assets/VFX/playSoundForVFX.gd" id="4_eoawi"]
+
+[sub_resource type="Curve" id="Curve_nwo2v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5kjwt"]
+curve = SubResource("Curve_nwo2v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dqeby"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 0, 0)
+spread = 150.0
+initial_velocity_min = 93.76
+initial_velocity_max = 323.08
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 177.23
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_5kjwt")
+
+[node name="VfxOrderFail" type="Node" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_df3um")
+particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(569, 306)
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.28
+texture = ExtResource("2_pi6m6")
+process_material = SubResource("ParticleProcessMaterial_dqeby")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GPUParticles2D"]
+stream = ExtResource("3_recma")
+script = ExtResource("4_eoawi")
+
+[connection signal="playSound" from="." to="GPUParticles2D/AudioStreamPlayer" method="_on_gpu_particles_2d_draw"]

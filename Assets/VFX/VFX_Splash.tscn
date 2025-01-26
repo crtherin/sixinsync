@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://cifpeewk8hk7e"]
+
+[ext_resource type="Script" path="res://Assets/VFX/playParticle.gd" id="1_7nxei"]
+[ext_resource type="Texture2D" uid="uid://ba6cuc4wqebar" path="res://Assets/VFX/tear.png" id="2_l4kt8"]
+
+[sub_resource type="Curve" id="Curve_ainbb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o7c1w"]
+curve = SubResource("Curve_ainbb")
+
+[sub_resource type="Curve" id="Curve_ppfcb"]
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bipob"]
+curve = SubResource("Curve_ppfcb")
+
+[sub_resource type="Curve" id="Curve_gm3v0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.997416, 0.212512), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hhkbt"]
+curve = SubResource("Curve_gm3v0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_of6lo"]
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.0
+angle_curve = SubResource("CurveTexture_o7c1w")
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+angular_velocity_curve = SubResource("CurveTexture_bipob")
+radial_velocity_min = 50.0
+radial_velocity_max = 50.0
+gravity = Vector3(0, 50, 0)
+linear_accel_min = -20.0
+linear_accel_max = 20.0
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_hhkbt")
+
+[node name="VfxSplash" type="Node" node_paths=PackedStringArray("particles")]
+script = ExtResource("1_7nxei")
+particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(569, 306)
+amount = 5
+lifetime = 4.0
+speed_scale = 5.0
+explosiveness = 1.0
+texture = ExtResource("2_l4kt8")
+process_material = SubResource("ParticleProcessMaterial_of6lo")
