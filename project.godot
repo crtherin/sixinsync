@@ -17,3 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 Global="*res://main/global.gd"
+
+[display]
+
+window/size/mode=3

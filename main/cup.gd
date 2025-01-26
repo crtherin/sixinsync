@@ -166,14 +166,18 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 				selected_extras.append(item.data.type)
 				extras_textures.append(item.data.cup_texture)
 	
-	for child: Node in PanelExtrasLayers.get_children():
-		child.queue_free()
-	
 	for cup_texture: Texture2D in extras_textures:
+		var texture_name: String = String(cup_texture.resource_path.get_file().get_slice(".", 0))
+		
+		#if PanelExtrasLayers.has_node(texture_name):
+			#continue
+		
 		var texture_rect: TextureRect = TextureRect.new()
 		
+		texture_rect.name = StringName(texture_name)
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		texture_rect.texture = cup_texture
 		
 		PanelExtrasLayers.add_child(texture_rect)
 

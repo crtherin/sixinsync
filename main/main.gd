@@ -25,7 +25,7 @@ var customerLabel
 var timerLabel
 var goldLabel
 
-var round : int = 0
+var round_value : int = 0
 #endregion
 
 #region OnReady Variables
@@ -43,6 +43,7 @@ var round : int = 0
 @onready var LabelPanelQuestBackground := %LabelPanelQuestBackground as Label
 @onready var PanelCup := %PanelCup as PanelContainer
 @onready var MarginCup := %MarginCup as MarginContainer
+@onready var CupRef := %CupRef as Cup
 @onready var AspectRatioCup := %AspectRatioCup as AspectRatioContainer
 @onready var VBoxCustomer := %VBoxCustomer as VBoxContainer
 @onready var PanelStats := %PanelStats as PanelContainer
@@ -58,6 +59,8 @@ var round : int = 0
 
 #region Virtual Methods
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(Global.CURSOR_OPEN)
+	
 	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.json", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
 	customerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
 	timerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/TimerLabel")
@@ -75,7 +78,7 @@ func _ready() -> void:
  	
 
 
-func _process(delta):
+func _process(_delta):
 	if TimerGame.is_stopped() && gameRunning:
 		Global.time_out.emit()
 		
@@ -127,7 +130,7 @@ func set_next_customer() -> void:
 	for type: ItemData.Type in all_required_types:
 		var texture_rect: TextureRect = TextureRect.new()
 		
-		texture_rect.custom_minimum_size = Vector2.ONE * 40.0
+		texture_rect.custom_minimum_size = Vector2.ONE * 100.0
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		texture_rect.texture = ItemData.TEXTURES[type]
@@ -158,10 +161,21 @@ func set_next_customer() -> void:
 	gameRunning = true
 	
 	#Global.game_over.emit()
+	
+	for item: Item in get_items():
+		item.set_random_position()
+	
+	CupRef.reset()
 
 
 func get_items() -> Array[Item]:
-	return Array(ItemsContainer.get_children(), TYPE_OBJECT, &"TextureRect", Item)
+	var items: Array[Item]
+	
+	for child: Node in ItemsContainer.get_children():
+		if child is Item:
+			items.append(child as Item)
+	
+	return items
 #endregion
 
 #region Private Methods
@@ -183,8 +197,8 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 	print(isOk)
 	if isOk:
 		Global.gold_change_event(35)
-		round += 1
-		if (round % 3 == 0):
+		round_value += 1
+		if (round_value % 3 == 0):
 			print("Charon came and took 100 gold!")
 			Global.warning_message_event("Charon came and took 100 gold!")
 			Global.gold_change_event(-100)

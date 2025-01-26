@@ -43,7 +43,7 @@ func _ready() -> void:
 		return
 	
 	texture = data.item_texture
-	self_modulate = data.item_modulate
+	modulate = data.item_modulate
 	LabelTitle.text = data.title
 	LabelDescription.text = data.description
 	
@@ -84,7 +84,7 @@ func _physics_process(_delta: float) -> void:
 
 #region Public Methods
 func bring_to_front() -> void:
-	Array(get_tree().get_nodes_in_group(GROUP), TYPE_OBJECT, &"TextureRect", Item).map(func(item: Item) -> void: item.z_index = int (item == self))
+	Array(get_tree().get_nodes_in_group(GROUP), TYPE_OBJECT, &"TextureRect", Item).map(func(item: Item) -> void: item.z_index = 2 if item == self else 1)
 
 
 func set_random_position() -> void:
@@ -130,6 +130,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					is_pressed = true
 					PanelTooltip.visible = false
 					Global.item_is_dragging = true
+					
+					Input.set_custom_mouse_cursor(Global.CURSOR_CLOSED)
 		
 		else:
 			match mouse_button_event.button_index:
@@ -151,6 +153,8 @@ func _on_gui_input(event: InputEvent) -> void:
 					
 					initial_position = new_position
 					Global.item_is_dragging = false
+					
+					Input.set_custom_mouse_cursor(Global.CURSOR_OPEN)
 
 
 func _on_mouse_detection(entered: bool) -> void:

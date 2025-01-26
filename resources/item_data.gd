@@ -19,7 +19,7 @@ enum Type {
 const TEXTURES: Dictionary[Type, Texture2D] = {
 	Type.BOBA_TAPIOCA: preload("res://Assets/Items/Tapioca Pearls.png"),
 	Type.BOBA_POPPING: preload("res://Assets/Items/Blue Popping.png"),
-	Type.BOBA_SERAPHIC: preload("res://Assets/Items/Brown Popping.png"),
+	Type.BOBA_SERAPHIC: preload("res://Assets/Items/Spherical Perals.png"),
 	Type.TEA_BLACK: preload("res://Assets/Items/Black tea.png"),
 	Type.TEA_GREEN: preload("res://Assets/Items/Green tea.png"),
 	Type.TEA_OOLONG: preload("res://Assets/Items/Oolong tea.png"),
@@ -29,7 +29,7 @@ const TEXTURES: Dictionary[Type, Texture2D] = {
 	Type.EXTRAS_ICE: preload("res://Assets/Items/Ice.png"),
 	Type.EXTRAS_SUGAR: preload("res://Assets/Items/Sugar.png"),
 	Type.EXTRAS_SWEETENER: preload("res://Assets/Items/Sweetener.png"),
-	Type.EXTRAS_FRUIT_SYRUP: preload("res://Assets/Items/Fruits.png"),
+	Type.EXTRAS_FRUIT_SYRUP: preload("res://Assets/Items/Fruit SYrup.png"),
 	Type.EXTRAS_FRUIT_PIECES: preload("res://Assets/Items/Fruits.png"),
 	Type.EXTRAS_TEARS: preload("res://Assets/Items/Tears.png"),
 	Type.EXTRAS_BLOOD: preload("res://Assets/Items/Blood.png"),

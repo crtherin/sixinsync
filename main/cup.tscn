@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Texture2D" uid="uid://cjf0rxiheplna" path="res://Assets/Textures/Pahar Semi-final.png" id="2_8ydkj"]
+[ext_resource type="Texture2D" uid="uid://b6mverkytic0j" path="res://Assets/Cup/Pahar cu pai.png" id="2_8onuc"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]
@@ -23,6 +23,7 @@ stretch_mode = 6
 
 [node name="LayerTea" type="TextureRect" parent="."]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.537255)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 6
@@ -43,6 +44,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
 [node name="LayerCup" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("2_8ydkj")
+texture = ExtResource("2_8onuc")
 expand_mode = 1
 stretch_mode = 6
