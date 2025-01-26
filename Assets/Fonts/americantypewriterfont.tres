@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cyvvohb70kdqq"]
+
+[ext_resource type="FontFile" uid="uid://b3t4dorfmfbi8" path="res://Assets/Fonts/AmericanTypewriter.ttc" id="1_xnr2g"]
+
+[resource]
+base_font = ExtResource("1_xnr2g")

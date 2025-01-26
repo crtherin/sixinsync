@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bb34sqvoab5kx"]
+
+[ext_resource type="FontFile" uid="uid://bqnbxpepswdg1" path="res://Assets/Fonts/CS Roger Inner.otf" id="1_vud6i"]
+
+[resource]
+base_font = ExtResource("1_vud6i")
+variation_embolden = -0.3

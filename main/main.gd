@@ -26,6 +26,9 @@ var timerLabel
 var goldLabel
 
 var round_value : int = 0
+
+var charonRound
+var rand
 #endregion
 
 #region OnReady Variables
@@ -70,6 +73,9 @@ func _ready() -> void:
 	Global.cup_dropped_on_trash.connect(_on_cup_dropped_on_trash)
 	Global.gold_change.connect(_update_gold)
 	Global.game_start.connect(_start_game)
+	
+	rand = RandomNumberGenerator.new()
+	setCharonRound()
 	
 	showGold()
 	
@@ -121,7 +127,7 @@ func set_next_customer() -> void:
 	for child: Node in GridPanelQuestBackground.get_children():
 		child.queue_free()
 	
-	var all_required_types: Array = Global.current_quest.extras
+	var all_required_types: Array = Global.current_quest.extras.duplicate()
 	
 	all_required_types.append(Global.current_quest.tea)
 	all_required_types.append(Global.current_quest.milk)
@@ -179,6 +185,8 @@ func get_items() -> Array[Item]:
 #endregion
 
 #region Private Methods
+func setCharonRound():
+	charonRound = rand.randi_range(4,6)
 #endregion
 
 #region Static Methods
@@ -195,12 +203,14 @@ func _update_gold(amount):
 func _on_cup_dropped_on_customer(isOk: bool) -> void:
 	print("Dropped on customer")
 	print(isOk)
+	
 	if isOk:
 		Global.gold_change_event(35)
 		round_value += 1
-		if (round_value % 3 == 0):
+		if (round_value % charonRound == 0):
 			print("Charon came and took 100 gold!")
-			Global.warning_message_event("Charon came and took 100 gold!")
+			setCharonRound()
+			Global.charon_event()
 			Global.gold_change_event(-100)
 		else:
 			set_next_customer()
