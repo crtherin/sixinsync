@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cmbg6io8quw2j"]
+[gd_scene load_steps=85 format=3 uid="uid://cmbg6io8quw2j"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3ulu4"]
 [ext_resource type="PackedScene" uid="uid://x0lhdyewgdih" path="res://Assets/Sounds/Ambiance/ambiance.tscn" id="2_gqb0w"]
@@ -55,6 +55,9 @@
 [ext_resource type="Shader" path="res://resources/shaders/fire.gdshader" id="46_75of5"]
 [ext_resource type="Texture2D" uid="uid://cgeggsnqbr7q" path="res://Assets/Boba, Blood and Bankruptcy (1).png" id="48_8306v"]
 [ext_resource type="Texture2D" uid="uid://cw1d471ilg3uf" path="res://Assets/Portraits/charon.png" id="51_f7rxi"]
+[ext_resource type="PackedScene" uid="uid://qhxq437uxrcq" path="res://Assets/VFX/VFX_Order_Done.tscn" id="56_o0m43"]
+[ext_resource type="PackedScene" uid="uid://c4pockjr41peh" path="res://Assets/VFX/VFX_Order_Fail.tscn" id="57_dte6u"]
+[ext_resource type="PackedScene" uid="uid://cifpeewk8hk7e" path="res://Assets/VFX/VFX_Splash.tscn" id="58_dnx7k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5y5xe"]
 
@@ -1097,6 +1100,12 @@ theme_override_font_sizes/font_size = 64
 text = "AFSDFSD"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VfxOrderDone" parent="." instance=ExtResource("56_o0m43")]
+
+[node name="VfxOrderFail" parent="." instance=ExtResource("57_dte6u")]
+
+[node name="VfxSplash" parent="." instance=ExtResource("58_dnx7k")]
 
 [connection signal="pressed" from="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonStart" to="MenuLayer" method="_on_button_start_pressed"]
 [connection signal="pressed" from="MenuLayer/StartMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonExit" to="MenuLayer" method="_on_button_exit_pressed"]
