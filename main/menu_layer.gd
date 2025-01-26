@@ -33,6 +33,7 @@ extends CanvasLayer
 @onready var StartMenu := %StartMenu as ColorRect
 @onready var EndMenu := %EndMenu as ColorRect
 @onready var GameOverMenu := %GameOverMenu as ColorRect
+@onready var CharonMenu
 
 @onready var TimerGame := %TimerGame as Timer
 #endregion
@@ -50,6 +51,7 @@ func _ready() -> void:
 	Global.warning_message_requested.connect(_on_warning_message_requested)
 	Global.game_over.connect(_game_over)
 	Global.time_out.connect(_time_out)
+	Global.charon.connect(_charon)
 	
 	for button: Button in [ButtonResume, ButtonExit]:
 		button.pressed.connect(_on_button_pressed.bind(button))
@@ -110,7 +112,17 @@ func _on_button_retry_pressed():
 	tween.tween_callback(EndMenu.hide)
 	
 	TimerGame.start()
+
+func _charon():
+	Global.is_paused = true
+	get_tree().paused = true
 	
+	Global.warning_message_event("Charon came and took 100 gold!")
+	
+	#var tween: Tween = create_tween()
+	#
+	#tween.tween_property(CharonMenu, ^"modulate:a", 0.0, 0.25).from(1.0)
+	#tween.tween_callback(CharonMenu.hide)
 #endregion
 
 #region Static Methods
