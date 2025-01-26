@@ -1,4 +1,4 @@
-extends Node
+class_name MumbleManager extends Node
 
 @export var path: String
 @export var speed: float
@@ -7,6 +7,7 @@ var _streams: Array[Resource]
 
 func _ready():
 	var dir =DirAccess.open(path)
+	mumblers = []
 	if dir:
 		dir.list_dir_begin()
 		var file_names = dir.get_files()
@@ -17,8 +18,9 @@ func _ready():
 func mumble(text:String):
 	var mumbler = Mumbler.getInstance(text, path, _streams, speed)
 	self.add_child(mumbler)
-	mumbler.stringToMorsePop()
 	mumblers.append(mumbler)
+	mumbler.onFree.connect(_on_mumbler_free)
+	mumbler.stringToMorsePop()
 	
 func skip():
 	for mumbler in mumblers:
@@ -33,4 +35,5 @@ func _input(event: InputEvent) -> void:
 				KEY_0: mumble('Stalin e cel mai tare') #ForTestPurposes
 				KEY_SPACE: skip()
 				
-				
+func _on_mumbler_free(mumbler: Object):
+	mumblers.pop_at(mumblers.find(mumbler))

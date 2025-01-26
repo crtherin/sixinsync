@@ -149,8 +149,8 @@ func set_next_customer() -> void:
 		return
 	
 	TextureCustomer.texture = load(customer_data.icon)
-	LabelPanelQuestBackground.text = customer_data.opening[0]
-	
+	var line = customer_data.opening[randi_range(0,2)]
+	LabelPanelQuestBackground.show_bubble(line)
 	customerLabel.set_text(customer_data.description)
 	
 	
