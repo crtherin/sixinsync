@@ -19,6 +19,12 @@ signal warning_message_requested(text: String)
 signal game_over
 
 @warning_ignore("unused_signal")
+signal time_out
+
+@warning_ignore("unused_signal")
+signal game_start
+
+@warning_ignore("unused_signal")
 signal gold_change(amount: int)
 #endregion
 
@@ -119,6 +125,12 @@ func warning_message_event(text):
 	
 func game_over_event():
 	emit_signal("game_over")
+	
+func time_out_event():
+	emit_signal("time_out")	
+		
+func game_start_event():
+	emit_signal("game_start")
 #endregion
 
 #region SubClasses
@@ -130,7 +142,7 @@ func setCustomerDone(done: bool):
 	
 func addGold(amount: int):
 	gold += amount
-	if gold < 0:
+	if gold < 1:
 		print("game over")
 		game_over_event()
 		

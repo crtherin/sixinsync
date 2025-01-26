@@ -32,6 +32,7 @@ extends CanvasLayer
 
 @onready var StartMenu := %StartMenu as ColorRect
 @onready var EndMenu := %EndMenu as ColorRect
+@onready var GameOverMenu := %GameOverMenu as ColorRect
 
 @onready var TimerGame := %TimerGame as Timer
 #endregion
@@ -48,6 +49,7 @@ func _ready() -> void:
 	
 	Global.warning_message_requested.connect(_on_warning_message_requested)
 	Global.game_over.connect(_game_over)
+	Global.time_out.connect(_time_out)
 	
 	for button: Button in [ButtonResume, ButtonExit]:
 		button.pressed.connect(_on_button_pressed.bind(button))
@@ -79,8 +81,8 @@ func set_pause_screen(state: bool) -> void:
 		
 func set_start_screen(state: bool) -> void:	
 	Global.is_paused = state
-	get_tree().paused = state
-	set_pause_screen(state)
+	#get_tree().paused = state
+	#set_pause_screen(state)
 	
 	var tween: Tween = create_tween()
 	
@@ -91,12 +93,15 @@ func set_start_screen(state: bool) -> void:
 #region Private Methods
 func _on_button_start_pressed():
 	set_start_screen(false);
+	Global.game_start_event()
 	
 func _on_button_exit_pressed():
 	_on_button_pressed(ButtonExit)
 	
+func _on_button_quit_pressed():
+	get_tree().reload_current_scene()
+	
 func _on_button_retry_pressed():
-	#get_tree().reload_current_scene()
 	Global.is_paused = false
 	get_tree().paused = false
 	var tween: Tween = create_tween()
@@ -141,17 +146,29 @@ func _on_button_pressed(button: Button) -> void:
 		ButtonResume: set_pause_screen(false)
 		ButtonExit: get_tree().quit()
 
-func _game_over():
+func _time_out():
 	var gold = Global.getGold();
-	gold = int(gold%10);
+	gold = int(gold/4);
 	print_debug(gold)
 	Global.gold_change_event(-gold)
+	
 	Global.is_paused = true
 	get_tree().paused = true
 	EndMenu.set_process(true)
 	EndMenu.visible = true
+	
 	var tween: Tween = create_tween()
 	tween.tween_property(EndMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
+
+func _game_over():
+	Global.is_paused = true
+	get_tree().paused = true
+	GameOverMenu.set_process(true)
+	GameOverMenu.visible = true
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(GameOverMenu, ^"modulate:a", 1.0, 0.25).from(0.0)
+	
 #endregion
 
 #region SubClasses

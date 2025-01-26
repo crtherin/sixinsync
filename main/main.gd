@@ -66,27 +66,22 @@ func _ready() -> void:
 	Global.cup_dropped_on_customer.connect(_on_cup_dropped_on_customer)
 	Global.cup_dropped_on_trash.connect(_on_cup_dropped_on_trash)
 	Global.gold_change.connect(_update_gold)
+	Global.game_start.connect(_start_game)
 	
 	showGold()
 	
-	set_next_customer()
+	#set_next_customer()
 
  	
 
-func _update_gold(amount):
-	Global.addGold(amount)
-	showGold()
-
-func showGold():
-	var current = Global.getGold()
-	goldLabel.text = "Gold: " + str(current)
 
 func _process(delta):
 	if TimerGame.is_stopped() && gameRunning:
-		Global.game_over.emit()
+		Global.time_out.emit()
 		
 	var timeLeft = int(floor(TimerGame.get_time_left()))
 	timerLabel.text = "Time left: " + str(timeLeft)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -98,6 +93,11 @@ func _input(event: InputEvent) -> void:
 #endregion
 
 #region Public Methods
+func showGold():
+	var current = Global.getGold()
+	goldLabel.text = "Gold: " + str(current)
+	
+	
 func set_next_customer() -> void:
 	gameRunning = false
 	TimerGame.stop()
@@ -157,6 +157,7 @@ func set_next_customer() -> void:
 	TimerGame.start()
 	gameRunning = true
 	
+	#Global.game_over.emit()
 
 
 func get_items() -> Array[Item]:
@@ -170,20 +171,26 @@ func get_items() -> Array[Item]:
 #endregion
 
 #region Signal Callbacks
+func _start_game():
+	set_next_customer()
+
+func _update_gold(amount):
+	Global.addGold(amount)
+	showGold()
+
 func _on_cup_dropped_on_customer(isOk: bool) -> void:
 	print("Dropped on customer")
 	print(isOk)
 	if isOk:
-		Global.gold_change_event(30)
+		Global.gold_change_event(35)
 		round += 1
 		if (round % 3 == 0):
 			print("Charon came and took 100 gold!")
+			Global.warning_message_event("Charon came and took 100 gold!")
 			Global.gold_change_event(-100)
 		else:
 			set_next_customer()
-			
-		
-		
+				
 	else: 
 		Global.warning_message_event("Wrong BUBBLE TEA!")
 	
