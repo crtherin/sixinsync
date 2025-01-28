@@ -132,7 +132,7 @@ func _input(event: InputEvent) -> void:
 # Movement smoothing
 func _physics_process(_delta: float) -> void:
 	if is_pressed and not Engine.is_editor_hint():
-		var final_position: Vector2 = (get_global_mouse_position() - custom_minimum_size / 2.0)
+		var final_position: Vector2 = get_global_mouse_position() - custom_minimum_size / 2.0
 		
 		global_position = global_position.lerp(final_position, MOVE_SMOOTHING_WEIGHT)
 #endregion
