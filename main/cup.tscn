@@ -10,15 +10,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nsjq"]
 
-[node name="Cup" type="PanelContainer" node_paths=PackedStringArray("vfx_splah", "vfx_done", "vfx_fail")]
+[node name="Cup" type="PanelContainer"]
 z_index = 1
 offset_right = 320.0
 offset_bottom = 448.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ob8vf")
 script = ExtResource("2_ple3i")
-vfx_splah = NodePath("VBoxContainer/VfxSplash")
-vfx_done = NodePath("VBoxContainer/VfxOrderDone")
-vfx_fail = NodePath("VBoxContainer/VfxOrderFail")
 
 [node name="LayerMilk" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -44,7 +41,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PanelExtrasLayers" type="PanelContainer" parent="."]
+[node name="PanelExtrasLayersBack" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -58,31 +55,36 @@ texture = ExtResource("2_t8dfu")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="PanelExtrasLayersBack" type="PanelContainer" parent="."]
+[node name="PanelExtrasLayersFront" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxVfx" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="VfxPadding" type="Control" parent="VBoxVfx"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
-[node name="VfxSplash" parent="VBoxContainer" instance=ExtResource("5_yd5n8")]
+[node name="VfxSplash" parent="VBoxVfx" instance=ExtResource("5_yd5n8")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="VfxOrderDone" parent="VBoxContainer" instance=ExtResource("3_5qb83")]
+[node name="VfxOrderDone" parent="VBoxVfx" instance=ExtResource("3_5qb83")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VfxOrderFail" parent="VBoxContainer" instance=ExtResource("4_xod6u")]
+[node name="VfxOrderFail" parent="VBoxVfx" instance=ExtResource("4_xod6u")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 4

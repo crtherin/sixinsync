@@ -9,15 +9,17 @@ extends PanelContainer
 #endregion
 
 #region Constants
+const MOVE_SMOOTHING_WEIGHT: float = 0.1
+
+const TWEEN_REPOSITION_SPEED: float = 0.25
+const TWEEN_SCALE_MIN_OFFSET: float = 0.5
+const TWEEN_SCALE_SPEED: float = 0.15
 #endregion
 
 #region Export Variables
 @export var parent: MarginContainer
 @export var panel_customer: PanelContainer
 @export var panel_trash: PanelContainer
-@export var vfx_splah: Splash
-@export var vfx_done: Splash
-@export var vfx_fail: Splash
 #endregion
 
 #region Public Variables
@@ -34,111 +36,124 @@ var selected_extras: Array[ItemData.Type]
 #endregion
 
 #region OnReady Variables
+# Layers
 @onready var LayerCup := %LayerCup as TextureRect
 @onready var LayerBubbles := %LayerBubbles as TextureRect
 @onready var LayerTea := %LayerTea as TextureRect
 @onready var LayerMilk := %LayerMilk as TextureRect
-@onready var PanelExtrasLayers := %PanelExtrasLayers as PanelContainer
 @onready var PanelExtrasLayersBack := %PanelExtrasLayersBack as PanelContainer
+@onready var PanelExtrasLayersFront := %PanelExtrasLayersFront as PanelContainer
+
+# Vfx
+@onready var VBoxVfx := %VBoxVfx as VBoxContainer
+@onready var VfxPadding := %VfxPadding as Control
+@onready var VfxSplash := %VfxSplash as Splash
+@onready var VfxOrderDone := %VfxOrderDone as Splash
+@onready var VfxOrderFail := %VfxOrderFail as Splash
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
+	# Connections
 	Global.item_dropped_in_cup.connect(_on_item_dropped_in_cup)
 	gui_input.connect(_on_gui_input)
 	get_window().size_changed.connect(_on_window_size_changed)
 	
-	await get_tree().process_frame
+	# Wait two frames and register the current initial position
+	for __: int in 2:
+		await get_tree().process_frame
 	
-	initial_position = global_position
+	_on_window_size_changed()
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var mouse_button_event := event as InputEventMouseButton
 		
-		if not mouse_button_event.pressed:
+		if not mouse_button_event.pressed and is_pressed:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
+					# Reset the current position on mouse button release
 					var mouse_position: Vector2 = get_global_mouse_position()
+					var tween: Tween = create_tween()
+					var tweener: PropertyTweener = tween.tween_property(
+						self, ^"global_position", initial_position, TWEEN_REPOSITION_SPEED
+						)
 					
-					create_tween().tween_property(self, ^"global_position", initial_position, 0.25).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+					tweener.set_ease(Tween.EASE_OUT)
+					tweener.set_trans(Tween.TRANS_BACK)
 					
-					if Global.cup_is_dragging:
+					# Check if the cup is dropped on the cusomer
+					if panel_customer.get_global_rect().has_point(mouse_position):
+						var selection_is_ok: bool = check_selection()
 						
-						if panel_customer.get_global_rect().has_point(mouse_position):
-							var isOk = check_selection()
-							Global.customer_drop(isOk)
-							if isOk:
-								Global.warning_message_event("Well done!")
-								vfx_done.play()
-								reset()
-							else:
-								vfx_fail.play()
+						Global.cup_dropped_on_customer.emit(selection_is_ok)
 						
-						elif panel_trash.get_global_rect().has_point(mouse_position):
-							#Global.cup_dropped_on_trash.emit()
+						if selection_is_ok:
+							Global.warning_message_requested.emit("Well done!")
+							
+							VfxOrderDone.play()
 							reset()
+						
+						else:
+							VfxOrderFail.play()
 					
+					# Check if the cup is dropped on the trash
+					elif panel_trash.get_global_rect().has_point(mouse_position):
+						reset()
+					
+					# Local updates
 					is_pressed = false
-					Global.cup_is_dragging = false
 
-
+# Movement smoothing
 func _physics_process(_delta: float) -> void:
-	if is_pressed and not Engine.is_editor_hint():
-		global_position = global_position.lerp((get_global_mouse_position() - (size * scale) / 2.0), 0.1)
+	if is_pressed:
+		var final_position: Vector2 = get_global_mouse_position() - (size * scale) / 2.0
+		
+		global_position = global_position.lerp(final_position, MOVE_SMOOTHING_WEIGHT)
 #endregion
 
 #region Public Methods
 func check_selection() -> bool:
 	if Global.current_quest.tea != selected_tea:
-		print("wrong tea")
-		print(selected_tea)
-		print(Global.current_quest.tea)
+		print("Tea?! Current: %s | Quest: %s" % [selected_tea, Global.current_quest.tea])
 		return false
 	
 	if Global.current_quest.milk != selected_milk:
-		print("wrong milk")
-		print(selected_milk)
-		print(Global.current_quest.milk)
+		print("Milk?! Current: %s | Quest: %s" % [selected_milk, Global.current_quest.milk])
 		return false
 	
 	if Global.current_quest.bubble != selected_bubble:
-		print("wrong bublbe")
-		print(selected_bubble)
-		print(Global.current_quest.bubble)
+		print("Bubble?! Current: %s | Quest: %s" % [selected_bubble, Global.current_quest.bubble])
 		return false
 	
 	var extras_valid_count: int = 0
 	
 	for extras: ItemData.Type in selected_extras:
 		if extras in Global.current_quest.extras:
-			print(extras)
 			extras_valid_count += 1
 	
 	if extras_valid_count != Global.current_quest.extras.size():
-		print("wrong extras")
-		print(extras_valid_count)
-		print(Global.current_quest.extras, " / ", selected_extras)
+		print("Extras?! Current: %s | Quest: %s" % [selected_extras, Global.current_quest.extras])
 		return false
 	
 	return true
 
 
 func reset() -> void:
-	selected_tea = ItemData.Type.GENERIC_ITEM
-	selected_milk = ItemData.Type.GENERIC_ITEM
-	selected_bubble = ItemData.Type.GENERIC_ITEM
+	selected_tea = ItemData.Type.NONE
+	selected_milk = ItemData.Type.NONE
+	selected_bubble = ItemData.Type.NONE
 	selected_extras.clear()
 	
 	LayerTea.texture = null
 	LayerMilk.texture = null
 	LayerBubbles.texture = null
 	
-	for child: Node in PanelExtrasLayers.get_children():
+	for child: Node in PanelExtrasLayersBack.get_children():
 		child.queue_free()
 	
-	for child: Node in PanelExtrasLayersBack.get_children():
+	for child: Node in PanelExtrasLayersFront.get_children():
 		child.queue_free()
 #endregion
 
@@ -151,36 +166,45 @@ func reset() -> void:
 #region Signal Callbacks
 func _on_item_dropped_in_cup(item: Item) -> void:
 	print("Item: %s, dropped on cup: %s" % [item, item.data.type])
-	vfx_splah.play()
-	var extras_textures: Array[Texture2D]
 	
+	VfxSplash.play()
+	
+	# Store the extras textures in this cache to apply them later on dynamically-created nodes
+	var extras_textures_cache: Array[Texture2D]
+	
+	# Apply the matching layer texture based on the item type
 	match item.data.type:
+		# Tea types
 		ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG:
 			selected_tea = item.data.type
 			LayerTea.texture = item.data.cup_texture
 			
+		# Boba types
 		ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.BOBA_SERAPHIC:
 			selected_bubble = item.data.type
 			LayerBubbles.texture = item.data.cup_texture
 		
+		# Milk types
 		ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
 			selected_milk = item.data.type
 			LayerMilk.texture = item.data.cup_texture
 		
-		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_FRUIT_SYRUP:
-			if not item.data.type in selected_extras:
-				selected_extras.append(item.data.type)
-				extras_textures.append(item.data.cup_texture)
-		
+		# Extras types
+		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, \
+		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_FRUIT_SYRUP, \
 		ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD:
 			if not item.data.type in selected_extras:
 				selected_extras.append(item.data.type)
-				extras_textures.append(item.data.cup_texture)
+				extras_textures_cache.append(item.data.cup_texture)
 	
-	for cup_texture: Texture2D in extras_textures:
-		var texture_name: String = String(cup_texture.resource_path.get_file().get_slice(".", 0))
+	# Create the extras layers if they don't exist and apply the cached textures
+	for extras_texture: Texture2D in extras_textures_cache:
+		var texture_name: String = String(extras_texture.resource_path.get_file().get_slice(".", 0))
+		var parent_panel: PanelContainer = (
+			PanelExtrasLayersFront if item.data.cup_texture_show_above else PanelExtrasLayersBack
+			)
 		
-		if PanelExtrasLayers.has_node(texture_name) or PanelExtrasLayersBack.has_node(texture_name):
+		if parent_panel.has_node(texture_name):
 			continue
 		
 		var texture_rect: TextureRect = TextureRect.new()
@@ -188,14 +212,11 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 		texture_rect.name = StringName(texture_name)
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-		texture_rect.texture = cup_texture
+		texture_rect.texture = extras_texture
 		
-		match texture_name:
-			
-			"Blood Texture", "Tear Texture4", "Syrup texture": PanelExtrasLayersBack.add_child(texture_rect)
-			_: PanelExtrasLayers.add_child(texture_rect)
+		parent_panel.add_child(texture_rect)
 
-
+# Consider the cup grabbed only if this node is clicked
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var mouse_button_event := event as InputEventMouseButton
@@ -204,17 +225,18 @@ func _on_gui_input(event: InputEvent) -> void:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
 					is_pressed = true
-					Global.cup_is_dragging = true
 
-
+# Prevent the cup position t ogo out-of-bounds on window resizing
+# and reset the pivot offset to the center (it can get resized)
 func _on_window_size_changed() -> void:
-	await get_tree().process_frame
-	await get_tree().process_frame
+	for __: int in 2:
+		await get_tree().process_frame
 	
 	var viewport_size: Vector2 = get_viewport_rect().size
 	
 	global_position.x = clampf(global_position.x, 0.0, viewport_size.x - size.x)
 	global_position.y = clampf(global_position.y, 0.0, viewport_size.y - size.y)
+	pivot_offset = size / 2.0
 	
 	initial_position = global_position
 #endregion
@@ -223,11 +245,20 @@ func _on_window_size_changed() -> void:
 #endregion
 
 #region Setter Methods
+# Animate the scale on grabbing / dropping the cup
 func _set_pressed(arg: bool) -> void:
 	is_pressed = arg
 	
-	pivot_offset = size / 2.0
-	create_tween().tween_property(self, ^"scale", Vector2.ONE * (0.5 if is_pressed else 1.0), 0.15)
+	var scale_offset: float = TWEEN_SCALE_MIN_OFFSET if is_pressed else 1.0
+	var ease_type: Tween.EaseType = Tween.EASE_IN if is_pressed else Tween.EASE_OUT
+	
+	var tween: Tween = create_tween()
+	var tweener: PropertyTweener = tween.tween_property(
+		self, ^"scale", Vector2.ONE * scale_offset, TWEEN_SCALE_SPEED
+	)
+	
+	tweener.set_ease(ease_type)
+	tweener.set_trans(Tween.TRANS_BACK)
 #endregion
 
 #region Getter Methods
