@@ -1,8 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://be11ekbhpy8bm"]
+[gd_scene load_steps=7 format=3 uid="uid://be11ekbhpy8bm"]
 
 [ext_resource type="Script" path="res://main/item.gd" id="1_qlier"]
+[ext_resource type="Texture2D" uid="uid://cy4jf3wy4b573" path="res://Assets/Quest/pngtree-vector-western-meal-afternoon-tea-menu-background-image_265487.jpg" id="2_wp611"]
 
 [sub_resource type="AudioStream" id="AudioStream_72m5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukmov"]
+draw_center = false
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.128115, 0.128906, 0.0549561, 0.223529)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04la8"]
+bg_color = Color(0, 0, 0, 0.698039)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dr2g1"]
+draw_center = false
+border_width_bottom = 2
+border_color = Color(0.34375, 0.34375, 0.34375, 1)
 
 [node name="Item" type="TextureRect"]
 custom_minimum_size = Vector2(64, 64)
@@ -11,29 +33,70 @@ expand_mode = 1
 stretch_mode = 6
 script = ExtResource("1_qlier")
 
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStream_72m5r")
+
 [node name="PanelTooltip" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+offset_right = 240.0
+offset_bottom = 205.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ukmov")
 
-[node name="VBoxTooltip" type="VBoxContainer" parent="PanelTooltip"]
+[node name="PanelTooltipCorners" type="PanelContainer" parent="PanelTooltip"]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_04la8")
+
+[node name="NinePatchTooltip" type="NinePatchRect" parent="PanelTooltip/PanelTooltipCorners"]
+unique_name_in_owner = true
+modulate = Color(1, 0.901961, 0.556863, 1)
+layout_mode = 2
+texture = ExtResource("2_wp611")
+region_rect = Rect2(40, 40, 224, 328)
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="MarginTooltip" type="MarginContainer" parent="PanelTooltip"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="LabelTitle" type="Label" parent="PanelTooltip/VBoxTooltip"]
+[node name="VBoxTooltip" type="VBoxContainer" parent="PanelTooltip/MarginTooltip"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+mouse_filter = 2
+theme_override_constants/separation = 8
 
-[node name="LabelDescription" type="Label" parent="PanelTooltip/VBoxTooltip"]
+[node name="LabelTooltipTitle" type="Label" parent="PanelTooltip/MarginTooltip/VBoxTooltip"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.845791, 0.42537, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_dr2g1")
+text = "Title"
+
+[node name="LabelTooltipDescription" type="Label" parent="PanelTooltip/MarginTooltip/VBoxTooltip"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis felis at ante pellentesque rhoncus nec vitae mauris. Curabitur bibendum in sem nec molestie. Ut velit justo, dignissim finibus massa et, iaculis finibus neque."
 autowrap_mode = 3
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStream_72m5r")
