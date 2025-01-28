@@ -45,7 +45,6 @@ var charonTaxTotal : int = 0
 
 #region Public Variables
 var is_paused: bool
-var item_is_dragging: bool
 var cup_is_dragging: bool
 
 var current_quest: Dictionary = {
