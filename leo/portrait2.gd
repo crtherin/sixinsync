@@ -3,7 +3,7 @@ extends TextureButton
 @onready var chat_bubble = $"../ChatBubble"	
 @onready var customer = $".."
 
-var defaultIcon = preload("res://Assets/Godot_icon.svg")
+var defaultIcon = preload("res://Assets/Placeholders/Godot_icon.svg")
 
 func _ready():
 	texture_normal = defaultIcon
