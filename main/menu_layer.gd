@@ -40,12 +40,12 @@ extends CanvasLayer
 #region Virtual Methods
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	StartMenu.visible = true
+	#StartMenu.visible = true
 	EndMenu.set_process(false)
 	visible = true
 	LabelMenuWarning.visible = false
 	
-	set_pause_screen(true)
+	#set_pause_screen(true)
 	
 	Global.warning_message_requested.connect(_on_warning_message_requested)
 	Global.game_over.connect(_game_over)
