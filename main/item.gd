@@ -69,6 +69,7 @@ func _ready() -> void:
 	
 	LabelTooltipTitle.text = data.title
 	LabelTooltipDescription.text = data.description
+	PanelTooltip.size = Vector2.ZERO
 	
 	# Local updates
 	if Engine.is_editor_hint():

@@ -40,8 +40,8 @@ stream = SubResource("AudioStream_72m5r")
 [node name="PanelTooltip" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 240.0
-offset_bottom = 205.0
+offset_right = 260.0
+offset_bottom = 234.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ukmov")
 
