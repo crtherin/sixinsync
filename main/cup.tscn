@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Texture2D" uid="uid://cuq5euwr0g70d" path="res://Assets/Cup/Pahar cu pai.png" id="2_8onuc"]
 [ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
+[ext_resource type="Texture2D" uid="uid://b6mverkytic0j" path="res://Assets/CupTextures/Pahar cu pai.png" id="2_t8dfu"]
 [ext_resource type="PackedScene" uid="uid://qhxq437uxrcq" path="res://Assets/VFX/VFX_Order_Done.tscn" id="3_5qb83"]
 [ext_resource type="PackedScene" uid="uid://c4pockjr41peh" path="res://Assets/VFX/VFX_Order_Fail.tscn" id="4_xod6u"]
 [ext_resource type="PackedScene" uid="uid://cifpeewk8hk7e" path="res://Assets/VFX/VFX_Splash.tscn" id="5_yd5n8"]
@@ -54,7 +54,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7nsjq")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("2_8onuc")
+texture = ExtResource("2_t8dfu")
 expand_mode = 1
 stretch_mode = 6
 

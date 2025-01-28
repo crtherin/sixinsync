@@ -35,8 +35,8 @@ signal charon()
 #endregion
 
 #region Constants
-const CURSOR_OPEN: Texture2D = preload("res://Assets/CursorIcon/Hand_Open.png")
-const CURSOR_CLOSED: Texture2D = preload("res://Assets/CursorIcon/Hand_Closed.png")
+const CURSOR_OPEN: Texture2D = preload("res://Assets/Cursor/Hand_Open.png")
+const CURSOR_CLOSED: Texture2D = preload("res://Assets/Cursor/Hand_Closed.png")
 #endregion
 
 #region Export Variables
