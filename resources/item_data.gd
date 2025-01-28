@@ -7,25 +7,43 @@ extends Resource
 
 #region Enums
 enum Type {
-	GENERIC_ITEM,
+	NONE,
+	
+	# Boba Types
 	BOBA_TAPIOCA, BOBA_POPPING, BOBA_SERAPHIC,
+	
+	# Tea Types
 	TEA_BLACK, TEA_GREEN, TEA_OOLONG,
+	
+	# Milk Types
 	MILK_DIARY, MILK_ALMOND, MILK_SUCCUBUS,
-	EXTRAS_ICE, EXTRAS_SUGAR, EXTRAS_SWEETENER, EXTRAS_FRUIT_SYRUP, EXTRAS_FRUIT_PIECES, EXTRAS_TEARS, EXTRAS_BLOOD,
+	
+	# Extras Types
+	EXTRAS_ICE, EXTRAS_SUGAR, EXTRAS_SWEETENER, EXTRAS_FRUIT_SYRUP,
+	EXTRAS_FRUIT_PIECES, EXTRAS_TEARS, EXTRAS_BLOOD,
 	}
 #endregion
 
 #region Constants
-const TEXTURES: Dictionary[Type, Texture2D] = {
+const DEFAULT_GRAB_SOUND_FILE_PATH: String = "res://Assets/Sounds/Item/item_select.wav"
+
+const MAPPED_TEXTURES: Dictionary[Type, Texture2D] = {
+	# Boba Textures
 	Type.BOBA_TAPIOCA: preload("res://Assets/Items/BOB3.png"),
 	Type.BOBA_POPPING: preload("res://Assets/Items/BOB1.png"),
 	Type.BOBA_SERAPHIC: preload("res://Assets/Items/BOB2.png"),
+	
+	# Tea Textures
 	Type.TEA_BLACK: preload("res://Assets/Items/Black tea.png"),
 	Type.TEA_GREEN: preload("res://Assets/Items/Green tea.png"),
 	Type.TEA_OOLONG: preload("res://Assets/Items/Oolong tea.png"),
+	
+	# Milk Textures
 	Type.MILK_DIARY: preload("res://Assets/Items/Regular milk.png"),
 	Type.MILK_ALMOND: preload("res://Assets/Items/Almond milk.png"),
 	Type.MILK_SUCCUBUS: preload("res://Assets/Items/Sucubus.png"),
+	
+	# Extras Textures
 	Type.EXTRAS_ICE: preload("res://Assets/Items/Ice.png"),
 	Type.EXTRAS_SUGAR: preload("res://Assets/Items/Sugar.png"),
 	Type.EXTRAS_SWEETENER: preload("res://Assets/Items/Sweetener.png"),
@@ -37,15 +55,25 @@ const TEXTURES: Dictionary[Type, Texture2D] = {
 #endregion
 
 #region Export Variables
-@export var type: Type = Type.GENERIC_ITEM
+# Generic
+@export var type: Type = Type.NONE
+
+# Textures
 @export var item_texture: Texture2D
 @export var cup_texture: Texture2D
+@export var cup_texture_show_above: bool
+
+# Texts
 @export var title: String
 @export_multiline var description: String
+
+# Modulates
 @export var item_modulate: Color = Color.WHITE
 @export var cup_modulate: Color = Color.WHITE
-@export_file var sound_grab: String = 'res://Assets/Sounds/Item/item_select.wav'
-@export_file var sound_drop_on_cup: String
+
+# Sounds
+@export_file("*.wav") var sound_grab: String = DEFAULT_GRAB_SOUND_FILE_PATH
+@export_file("*.wav") var sound_drop_on_cup: String
 #endregion
 
 #region Public Variables
