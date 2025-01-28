@@ -22,10 +22,14 @@ buses/default_bus_layout="res://Assets/VFX/default_bus_layout.tres"
 
 Global="*res://main/global.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=800
+window/size/viewport_width=1800
+window/size/viewport_height=1000
 
 [dotnet]
 
