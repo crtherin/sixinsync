@@ -15,7 +15,6 @@ extends Control
 #endregion
 
 #region Public Variables
-var customers_data: Array[Dictionary]
 #endregion
 
 #region Private Variables
@@ -74,7 +73,6 @@ func _ready() -> void:
 	
 	TimerTimer.timeout.connect(_on_TimerTimer_timeout)
 	
-	customers_data = Array(JSON.parse_string(FileAccess.open("res://Assets/Text/dialogues.json", FileAccess.READ).get_as_text()), TYPE_DICTIONARY, &"", null)
 	customerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelCustomer/MarginCustomer/VBoxCustomer2/LabelPanelCustomer")
 	timerLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/TimerLabel")
 	goldLabel = get_node("PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/VBoxCustomer/PanelStats/MarginStats/HBoxStats/GoldLabel")
@@ -94,7 +92,8 @@ func _ready() -> void:
 	for _signal: Signal in [TextureTrash.mouse_entered, TextureTrash.mouse_exited]:
 		_signal.connect(_on_TextureTrash_mouse_detection.bind(_signal == TextureTrash.mouse_entered))
 	
-	#set_next_customer()
+	
+	set_next_customer()
 
 const TRASH_CLOSED: Texture2D = preload("res://Assets/TrashCan/Cos_Inchis_V2.png")
 const TRASH_OPENED: Texture2D = preload("res://Assets/TrashCan/Cos_deschis_V2.png")
@@ -127,7 +126,7 @@ func _input(event: InputEvent) -> void:
 
 #region Public Methods
 func showGold():
-	var current = Global.getGold()
+	var current = Global.gold
 	goldLabel.text = "Obol: " + str(current)
 	
 	
@@ -163,7 +162,7 @@ func set_next_customer() -> void:
 		texture_rect.custom_minimum_size = Vector2.ONE * 120.0
 		texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		texture_rect.texture = ItemData.TEXTURES[type]
+		texture_rect.texture = ItemData.MAPPED_TEXTURES[type]
 		
 		GridPanelQuestBackground.add_child(texture_rect)
 	
@@ -172,7 +171,7 @@ func set_next_customer() -> void:
 	var customer_id: float = float(randi_range(2, 13))
 	var customer_data: Dictionary
 	
-	for customer_data_entry: Dictionary in customers_data:
+	for customer_data_entry: Dictionary in Global.customers_data:
 		if customer_data_entry.id == customer_id:
 			customer_data = customer_data_entry
 			break
@@ -232,7 +231,7 @@ func _start_game():
 	set_next_customer()
 
 func _update_gold(amount):
-	Global.addGold(amount)
+	Global.gold += amount
 	
 	var tween: Tween = create_tween()
 	
@@ -255,25 +254,25 @@ func _on_cup_dropped_on_customer(isOk: bool) -> void:
 		if (round_value % charonRound == 0):
 			print("Charon came and took 100 gold!")
 			charonEventCounter += 1
-			Global.charonTaxTotal = -((charonEventCounter-1) * 3) + randi_range(15, 20)
+			Global.charon_tax_total = -((charonEventCounter-1) * 3) + randi_range(15, 20)
 			setCharonRound()
-			Global.charon_event()
-			Global.gold_change_event(Global.charonTaxTotal)
+			Global.charon.emit()
+			Global.gold_change.emit(Global.charon_tax_total)
 			if Global.gold < 0:
 				var resumebutton = get_node("$MenuLayer/CharonMenu/MarginMenuBackground/VBoxMenuBackground/VBoxMenuButtons/ButtonResume")
 				resumebutton.set_process(false);
 				await get_tree().create_timer(5).timeout 
 				var charonmenu = get_node("%CharonMenu")
 				charonmenu.visible = false
-				Global.game_over_event()
+				Global.game_over.emit()
 		else:
 			set_next_customer()
 				
 	else: 
-		Global.warning_message_event("Wrong BUBBLE TEA!")
+		Global.warning_message_requested.emit("Wrong BUBBLE TEA!")
 		obolsLost = (obolInCup/4)+2
-		Global.gold_change_event(-obolsLost)
-		Global.warning_message_event("Lost " + str(obolsLost) + " obols!")
+		Global.gold_change.emit(-obolsLost)
+		Global.warning_message_requested.emit("Lost " + str(obolsLost) + " obols!")
 	
 
 
@@ -294,7 +293,7 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 			obolInCup+=1
 
 func update_counter(int) -> void:
-	Global.gold_change_event(obolInCup)
+	Global.gold_change.emit(obolInCup)
 	obolInCup=0
 #endregion
 

@@ -110,7 +110,7 @@ func set_start_screen(state: bool) -> void:
 #region Private Methods
 func _on_button_start_pressed():
 	set_start_screen(false);
-	Global.game_start_event()
+	Global.game_start.emit()
 	
 func _on_button_exit_pressed():
 	_on_button_pressed(ButtonExit)
@@ -132,7 +132,7 @@ func _charon():
 	var label = get_node("CharonMenu/MarginMenuBackground/VBoxMenuBackground/LabelMenuTitle2")
 	var rand = RandomNumberGenerator.new()
 	var index = rand.randi_range(0,13)
-	var text = Global.getCurrentCustomer().evening[index] % [Global.charonTaxTotal]
+	var text = Global.charon_data.evening[index] % [Global.charon_tax_total]
 	text.replace
 	label.text = text
 	set_charon_screen(true)
@@ -175,12 +175,12 @@ func _on_button_resume_pressed() -> void:
 	set_charon_screen(false)
 
 func _time_out():
-	var gold = Global.getGold();
+	var gold = Global.gold
 	gold = int(gold/4);
 	print_debug(gold)
-	Global.gold_change_event(-gold)
+	Global.gold_change.emit(-gold)
 	
-	Global.warning_message_event("You lost the customer")
+	Global.warning_message_requested.emit("You lost the customer")
 
 func _game_over():
 	Global.is_paused = true
