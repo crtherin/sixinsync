@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://x0lhdyewgdih"]
 
-[ext_resource type="AudioStream" uid="uid://d300paf4oec7c" path="res://Assets/Sounds/Ambiance/base.wav" id="1_53jx4"]
-[ext_resource type="Script" path="res://main/drone.gd" id="2_fcq8v"]
-[ext_resource type="Script" path="res://main/oneshots.gd" id="3_l3qao"]
-[ext_resource type="AudioStream" uid="uid://bru4b1361memd" path="res://Assets/Sounds/Ambiance/Clock.WAV" id="4_x30sy"]
+[ext_resource type="AudioStream" uid="uid://bvpbomjc53ayk" path="res://Assets/Sounds/Ambiance/base.wav" id="1_53jx4"]
+[ext_resource type="Script" path="res://_old/main/drone.gd" id="2_fcq8v"]
+[ext_resource type="Script" path="res://_old/main/oneshots.gd" id="3_l3qao"]
+[ext_resource type="AudioStream" uid="uid://gbvuo4y88k12" path="res://Assets/Sounds/Ambiance/Clock.WAV" id="4_x30sy"]
+
 
 [node name="Ambiance" type="Node"]
 

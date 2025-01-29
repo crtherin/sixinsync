@@ -23,12 +23,12 @@ enum MainSceneType {START_INTRO, START_MENU, GAME, END_DEFEAT, END_VICTORY, CRED
 #region Constants
 const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.START_INTRO
 const MAPPED_MAIN_SCENE_PACKS: Dictionary[MainSceneType, PackedScene] = {
-	MainSceneType.START_INTRO: preload("res://main/main_scenes/start_intro/start_intro.tscn"),
-	MainSceneType.START_MENU: preload("res://main/main_scenes/start_menu/start_menu.tscn"),
-	MainSceneType.GAME: preload("res://main/main_scenes/game/game.tscn"),
-	MainSceneType.END_DEFEAT: preload("res://main/main_scenes/end_defeat/end_defeat.tscn"),
-	MainSceneType.END_VICTORY: preload("res://main/main_scenes/end_victory/end_victory.tscn"),
-	MainSceneType.CREDITS: preload("res://main/main_scenes/credits/credits.tscn"),
+	MainSceneType.START_INTRO: preload("res://Source/main_scenes/start_intro/start_intro.tscn"),
+	MainSceneType.START_MENU: preload("res://Source/main_scenes/start_menu/start_menu.tscn"),
+	MainSceneType.GAME: preload("res://Source/main_scenes/game/game.tscn"),
+	MainSceneType.END_DEFEAT: preload("res://Source/main_scenes/end_defeat/end_defeat.tscn"),
+	MainSceneType.END_VICTORY: preload("res://Source/main_scenes/end_victory/end_victory.tscn"),
+	MainSceneType.CREDITS: preload("res://Source/main_scenes/credits/credits.tscn"),
 }
 
 # Assets

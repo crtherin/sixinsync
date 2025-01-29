@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://mfufabuiws4r"]
 
-[ext_resource type="Script" path="res://resources/Mumble/mumble_manager.gd" id="1_ci74o"]
+[ext_resource type="Script" path="res://_old/main/Mumble/mumble_manager.gd" id="1_ci74o"]
+
 
 [node name="MumbleManager" type="Node"]
 script = ExtResource("1_ci74o")

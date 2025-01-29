@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ25"
-run/main_scene="res://main/startup.tscn"
+run/main_scene="res://Source/startup.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [audio]
@@ -20,7 +20,7 @@ buses/default_bus_layout="res://Assets/VFX/default_bus_layout.tres"
 
 [autoload]
 
-Global="*res://main/global.gd"
+Global="*res://Source/global.gd"
 
 [debug]
 

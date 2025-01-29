@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://be11ekbhpy8bm"]
 
-[ext_resource type="Script" path="res://main/item.gd" id="1_qlier"]
+[ext_resource type="Script" path="res://_old/main/item.gd" id="1_qlier"]
 [ext_resource type="Texture2D" uid="uid://cy4jf3wy4b573" path="res://Assets/Quest/pngtree-vector-western-meal-afternoon-tea-menu-background-image_265487.jpg" id="2_wp611"]
 
 [sub_resource type="AudioStream" id="AudioStream_72m5r"]

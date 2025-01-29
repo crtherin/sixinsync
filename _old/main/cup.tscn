@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://17w5iyucsao7"]
 
-[ext_resource type="Script" path="res://main/cup.gd" id="2_ple3i"]
+[ext_resource type="Script" path="res://_old/main/cup.gd" id="2_ple3i"]
 [ext_resource type="Texture2D" uid="uid://b6mverkytic0j" path="res://Assets/CupTextures/Pahar cu pai.png" id="2_t8dfu"]
 [ext_resource type="PackedScene" uid="uid://qhxq437uxrcq" path="res://Assets/VFX/VFX_Order_Done.tscn" id="3_5qb83"]
 [ext_resource type="PackedScene" uid="uid://c4pockjr41peh" path="res://Assets/VFX/VFX_Order_Fail.tscn" id="4_xod6u"]
