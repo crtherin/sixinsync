@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ho8vuqcbnbiy"]
+
+[ext_resource type="Script" path="res://main/main_scenes/start_intro/start_intro.gd" id="1_536ly"]
+[ext_resource type="Texture2D" uid="uid://cfgrnd3t720by" path="res://Assets/Menu/logo_large_color_dark.svg" id="2_81rp5"]
+[ext_resource type="Texture2D" uid="uid://cmgfcbexutp8c" path="res://Assets/Menu/logo_team.png" id="3_yxlol"]
+
+[sub_resource type="Gradient" id="Gradient_xwgux"]
+offsets = PackedFloat32Array(0, 0.504132, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0537398, 0.0537398, 0.292969, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v6wsv"]
+gradient = SubResource("Gradient_xwgux")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bi4vr"]
+texture = SubResource("GradientTexture2D_v6wsv")
+
+[node name="StartIntro" type="Node"]
+script = ExtResource("1_536ly")
+
+[node name="PanelBackground" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bi4vr")
+
+[node name="AspectBackground" type="AspectRatioContainer" parent="PanelBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 1
+
+[node name="TextureLogoGodot" type="TextureRect" parent="PanelBackground/AspectBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_81rp5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureLogoTeam" type="TextureRect" parent="PanelBackground/AspectBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_yxlol")
+expand_mode = 1
+stretch_mode = 5

@@ -1,0 +1,205 @@
+[gd_scene load_steps=14 format=3 uid="uid://bko8cxe66neip"]
+
+[ext_resource type="Script" path="res://main/main_scenes/start_menu/start_menu.gd" id="1_a86d8"]
+[ext_resource type="Shader" path="res://resources/shaders/fire.gdshader" id="2_nl1ad"]
+[ext_resource type="Texture2D" uid="uid://cgeggsnqbr7q" path="res://Assets/Menu/Boba, Blood and Bankruptcy (1).png" id="3_w1ab8"]
+[ext_resource type="Shader" path="res://resources/shaders/menu_blur.gdshader" id="4_mhssh"]
+
+[sub_resource type="Gradient" id="Gradient_sx7br"]
+offsets = PackedFloat32Array(0, 0.512397, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.417969, 0.281155, 0.147415, 1, 0.304688, 0, 0.0586575, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uivfh"]
+gradient = SubResource("Gradient_sx7br")
+fill = 1
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iiojm"]
+texture = SubResource("GradientTexture2D_uivfh")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iytf2"]
+fractal_type = 3
+domain_warp_amplitude = 90.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qyu8b"]
+noise = SubResource("FastNoiseLite_iytf2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3onpc"]
+shader = ExtResource("2_nl1ad")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_qyu8b")
+shader_parameter/bottom_color = Color(0.788235, 0, 0, 1)
+shader_parameter/middle_color = Color(0.69, 0.518471, 0.00388545, 1)
+shader_parameter/top_color = Color(0, 0, 0, 1)
+shader_parameter/fire_alpha = 0.499
+shader_parameter/fire_speed = Vector2(-0.01, 0.001)
+shader_parameter/fire_aperture = 3.0
+
+[sub_resource type="Gradient" id="Gradient_vf07f"]
+offsets = PackedFloat32Array(0, 0.411765, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.721569, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iu2lv"]
+gradient = SubResource("Gradient_vf07f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shu13"]
+shader = ExtResource("4_mhssh")
+shader_parameter/amount = 2.5
+
+[node name="start_menu" type="Node"]
+script = ExtResource("1_a86d8")
+
+[node name="PanelBackground" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iiojm")
+
+[node name="ColorBackgroundShader" type="ColorRect" parent="PanelBackground"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_3onpc")
+layout_mode = 2
+
+[node name="VBoxBackground" type="VBoxContainer" parent="PanelBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AspectBackground" type="AspectRatioContainer" parent="PanelBackground/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 1
+
+[node name="HBoxBackground" type="HBoxContainer" parent="PanelBackground/VBoxBackground/AspectBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureLogo" type="TextureRect" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_w1ab8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureLogoShadow" type="TextureRect" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground/TextureLogo"]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_iu2lv")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MarginButtons" type="MarginContainer" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 150
+
+[node name="VBoxButtons" type="VBoxContainer" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground/MarginButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ButtonNewGame" type="Button" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground/MarginButtons/VBoxButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="ButtonCredits" type="Button" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground/MarginButtons/VBoxButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="ButtonExit" type="Button" parent="PanelBackground/VBoxBackground/AspectBackground/HBoxBackground/MarginButtons/VBoxButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="MarginVersion" type="MarginContainer" parent="PanelBackground/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelVersion" type="Label" parent="PanelBackground/VBoxBackground/MarginVersion"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 20
+text = "Version 0.0.1 | 2025"
+horizontal_alignment = 2
+
+[node name="ColorExitShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_shu13")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxExitBackground" type="VBoxContainer" parent="ColorExitShader"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="LabelExit" type="Label" parent="ColorExitShader/VBoxExitBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 40
+text = "Are you sure you want to exit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxExitButtons" type="HBoxContainer" parent="ColorExitShader/VBoxExitBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ButtonExitNo" type="Button" parent="ColorExitShader/VBoxExitBackground/HBoxExitButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "No"
+
+[node name="ButtonExitYes" type="Button" parent="ColorExitShader/VBoxExitBackground/HBoxExitButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Yes"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clgylts57upo8"]
+
+[ext_resource type="Script" path="res://main/main_scenes/end_victory/end_victory.gd" id="1_yqfa4"]
+
+[node name="EndVictory" type="Node"]
+script = ExtResource("1_yqfa4")

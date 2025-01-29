@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcbu8nvlb7sju"]
+
+[ext_resource type="Script" path="res://main/main_scenes/end_defeat/end_defeat.gd" id="1_oh2pc"]
+
+[node name="EndDefeat" type="Node"]
+script = ExtResource("1_oh2pc")
