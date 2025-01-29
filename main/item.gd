@@ -57,7 +57,6 @@ var drop_on_cup_stream: AudioStreamWAV
 #region Virtual Methods
 func _ready() -> void:
 	if data == null:
-		push_error("No data resource was provided!")
 		return
 	
 	# Apply data properties
