@@ -21,7 +21,7 @@ enum MainSceneType {START_INTRO, START_MENU, GAME, END_DEFEAT, END_VICTORY, CRED
 #endregion
 
 #region Constants
-const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.CREDITS
+const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.START_INTRO
 const MAPPED_MAIN_SCENE_PACKS: Dictionary[MainSceneType, PackedScene] = {
 	MainSceneType.START_INTRO: preload("res://main/main_scenes/start_intro/start_intro.tscn"),
 	MainSceneType.START_MENU: preload("res://main/main_scenes/start_menu/start_menu.tscn"),
