@@ -33,7 +33,7 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
 
-[node name="LayerBubbles" type="TextureRect" parent="."]
+[node name="LayerBoba" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

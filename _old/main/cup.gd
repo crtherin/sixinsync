@@ -28,7 +28,7 @@ var initial_position: Vector2
 
 var selected_tea: ItemData.Type
 var selected_milk: ItemData.Type
-var selected_bubble: ItemData.Type
+var selected_boba: ItemData.Type
 var selected_extras: Array[ItemData.Type]
 #endregion
 
@@ -37,11 +37,11 @@ var selected_extras: Array[ItemData.Type]
 
 #region OnReady Variables
 # Layers
-@onready var LayerCup := %LayerCup as TextureRect
-@onready var LayerBubbles := %LayerBubbles as TextureRect
-@onready var LayerTea := %LayerTea as TextureRect
 @onready var LayerMilk := %LayerMilk as TextureRect
+@onready var LayerTea := %LayerTea as TextureRect
+@onready var LayerBoba := %LayerBoba as TextureRect
 @onready var PanelExtrasLayersBack := %PanelExtrasLayersBack as PanelContainer
+@onready var LayerCup := %LayerCup as TextureRect
 @onready var PanelExtrasLayersFront := %PanelExtrasLayersFront as PanelContainer
 
 # Vfx
@@ -86,7 +86,7 @@ func _input(event: InputEvent) -> void:
 					# Check if the cup is dropped on the cusomer
 					if panel_customer.get_global_rect().has_point(mouse_position):
 						var selection_is_ok: bool = Global.current_order.check_validity(
-							selected_tea, selected_milk, selected_bubble, selected_extras
+							selected_tea, selected_milk, selected_boba, selected_extras
 						)
 						
 						Global.cup_dropped_on_customer.emit(selection_is_ok)
@@ -119,12 +119,12 @@ func _physics_process(_delta: float) -> void:
 func reset() -> void:
 	selected_tea = ItemData.Type.NONE
 	selected_milk = ItemData.Type.NONE
-	selected_bubble = ItemData.Type.NONE
+	selected_boba = ItemData.Type.NONE
 	selected_extras.clear()
 	
 	LayerTea.texture = null
 	LayerMilk.texture = null
-	LayerBubbles.texture = null
+	LayerBoba.texture = null
 	
 	for child: Node in PanelExtrasLayersBack.get_children():
 		child.queue_free()
@@ -157,8 +157,8 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 			
 		# Boba types
 		ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.BOBA_SERAPHIC:
-			selected_bubble = item.data.type
-			LayerBubbles.texture = item.data.cup_texture
+			selected_boba = item.data.type
+			LayerBoba.texture = item.data.cup_texture
 		
 		# Milk types
 		ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS:
