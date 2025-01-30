@@ -134,29 +134,12 @@ func set_next_customer() -> void:
 	gameRunning = false
 	TimerGame.stop()
 	
-	Global.current_quest.tea = [ItemData.Type.TEA_BLACK, ItemData.Type.TEA_GREEN, ItemData.Type.TEA_OOLONG].pick_random()
-	Global.current_quest.milk = [ItemData.Type.MILK_DIARY, ItemData.Type.MILK_ALMOND, ItemData.Type.MILK_SUCCUBUS].pick_random()
-	Global.current_quest.bubble = [ItemData.Type.BOBA_TAPIOCA, ItemData.Type.BOBA_POPPING, ItemData.Type.BOBA_SERAPHIC].pick_random()
-	Global.current_quest.extras.clear()
-	
-	var extras: Array = [
-		ItemData.Type.EXTRAS_ICE, ItemData.Type.EXTRAS_SUGAR, ItemData.Type.EXTRAS_SWEETENER, ItemData.Type.EXTRAS_FRUIT_SYRUP,
-		ItemData.Type.EXTRAS_FRUIT_PIECES, ItemData.Type.EXTRAS_TEARS, ItemData.Type.EXTRAS_BLOOD
-		]
-	
-	for __: int in randi_range(1, 3):
-		Global.current_quest.extras.append(extras.pop_at(randi_range(1, extras.size() - 1)))
+	Global.current_order = Order.create_random_order(1, 3)
 	
 	for child: Node in GridPanelQuestBackground.get_children():
 		child.queue_free()
 	
-	var all_required_types: Array = Global.current_quest.extras.duplicate()
-	
-	all_required_types.append(Global.current_quest.tea)
-	all_required_types.append(Global.current_quest.milk)
-	all_required_types.append(Global.current_quest.bubble)
-	
-	for type: ItemData.Type in all_required_types:
+	for type: ItemData.Type in Global.current_order.get_every_required_item():
 		var texture_rect: TextureRect = TextureRect.new()
 		
 		texture_rect.custom_minimum_size = Vector2.ONE * 120.0

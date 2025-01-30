@@ -85,7 +85,9 @@ func _input(event: InputEvent) -> void:
 					
 					# Check if the cup is dropped on the cusomer
 					if panel_customer.get_global_rect().has_point(mouse_position):
-						var selection_is_ok: bool = check_selection()
+						var selection_is_ok: bool = Global.current_order.check_validity(
+							selected_tea, selected_milk, selected_bubble, selected_extras
+						)
 						
 						Global.cup_dropped_on_customer.emit(selection_is_ok)
 						
@@ -114,32 +116,6 @@ func _physics_process(_delta: float) -> void:
 #endregion
 
 #region Public Methods
-func check_selection() -> bool:
-	if Global.current_quest.tea != selected_tea:
-		print("Tea?! Current: %s | Quest: %s" % [selected_tea, Global.current_quest.tea])
-		return false
-	
-	if Global.current_quest.milk != selected_milk:
-		print("Milk?! Current: %s | Quest: %s" % [selected_milk, Global.current_quest.milk])
-		return false
-	
-	if Global.current_quest.bubble != selected_bubble:
-		print("Bubble?! Current: %s | Quest: %s" % [selected_bubble, Global.current_quest.bubble])
-		return false
-	
-	var extras_valid_count: int = 0
-	
-	for extras: ItemData.Type in selected_extras:
-		if extras in Global.current_quest.extras:
-			extras_valid_count += 1
-	
-	if extras_valid_count != Global.current_quest.extras.size():
-		print("Extras?! Current: %s | Quest: %s" % [selected_extras, Global.current_quest.extras])
-		return false
-	
-	return true
-
-
 func reset() -> void:
 	selected_tea = ItemData.Type.NONE
 	selected_milk = ItemData.Type.NONE

@@ -45,18 +45,13 @@ const TEXTS_CREDITS: String = "res://Assets/Text/credits.json"
 #endregion
 
 #region Public Variables
+# Current game session variables
 var is_paused: bool
 var gold: int
 var charon_tax_total: int
-var customer_done: bool
+var current_order: Order
 
-var current_quest: Dictionary = {
-	"tea": -1,
-	"milk": -1,
-	"bubble": -1,
-	"extras": [],
-}
-
+# Parsed JSON data
 var customers_data: Array[Dictionary]
 var charon_data: Dictionary
 var credits_data: Array
