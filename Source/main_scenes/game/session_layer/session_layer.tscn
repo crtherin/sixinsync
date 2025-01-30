@@ -1,0 +1,144 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxsujsucxhj7u"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/session_layer.gd" id="1_o6fgi"]
+[ext_resource type="PackedScene" uid="uid://doghhidspqpwq" path="res://Source/main_scenes/game/session_layer/background_texture/background_texture.tscn" id="2_27lsi"]
+[ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://_old/main/cup.tscn" id="3_fc03g"]
+[ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://Assets/styles/style_panel_background.tres" id="3_i8y16"]
+[ext_resource type="PackedScene" uid="uid://cuutwi53x5vju" path="res://Source/main_scenes/game/session_layer/items_table/items_table.tscn" id="3_kcngt"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/hover_panel.gd" id="4_685sg"]
+[ext_resource type="PackedScene" uid="uid://cnygnybtq3iad" path="res://Source/main_scenes/game/session_layer/tool_bar/tool_bar.tscn" id="5_2f2kj"]
+[ext_resource type="PackedScene" uid="uid://cunvh7wbiu7jm" path="res://Source/main_scenes/game/session_layer/orders_menu/orders_menu.tscn" id="5_hlfl2"]
+[ext_resource type="PackedScene" uid="uid://dkcg68aaa0rfa" path="res://Source/main_scenes/game/session_layer/tools/tool_trash.tscn" id="6_mi7tr"]
+[ext_resource type="PackedScene" uid="uid://badyw0fb1w85g" path="res://Source/main_scenes/game/session_layer/customer_panel/customer_panel.tscn" id="9_50osb"]
+[ext_resource type="PackedScene" uid="uid://d1uc6l3bfthsn" path="res://Source/main_scenes/game/session_layer/customer_intro/customer_intro.tscn" id="9_ssvfb"]
+
+[node name="SessionLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_o6fgi")
+
+[node name="VBoxBackground" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelTopLayer" type="PanelContainer" parent="VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TopLayerTextureRef" parent="VBoxBackground/PanelTopLayer" instance=ExtResource("2_27lsi")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxTopLayerBackground" type="VBoxContainer" parent="VBoxBackground/PanelTopLayer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelToolBar" type="PanelContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_i8y16")
+script = ExtResource("4_685sg")
+
+[node name="ToolBarRef" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/PanelToolBar" instance=ExtResource("5_2f2kj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxTopLayer" type="HBoxContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxTopLayerLeft" type="VBoxContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelOrders" type="PanelContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/VBoxTopLayerLeft"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_i8y16")
+script = ExtResource("4_685sg")
+
+[node name="OrdersMenuRef" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/VBoxTopLayerLeft/PanelOrders" instance=ExtResource("5_hlfl2")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelTools" type="PanelContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/VBoxTopLayerLeft"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_i8y16")
+script = ExtResource("4_685sg")
+
+[node name="HBoxTools" type="HBoxContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/VBoxTopLayerLeft/PanelTools"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ToolTrashRef" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/VBoxTopLayerLeft/PanelTools/HBoxTools" instance=ExtResource("6_mi7tr")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelCup" type="PanelContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_i8y16")
+script = ExtResource("4_685sg")
+
+[node name="AspectRatioCup" type="AspectRatioContainer" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/PanelCup"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 1
+
+[node name="CupRef" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer/PanelCup/AspectRatioCup" node_paths=PackedStringArray("panel_customer", "panel_trash") instance=ExtResource("3_fc03g")]
+unique_name_in_owner = true
+layout_mode = 2
+panel_customer = NodePath("../../../CustomerPanelRef")
+panel_trash = NodePath("../../../VBoxTopLayerLeft/PanelTools/HBoxTools/ToolTrashRef")
+
+[node name="CustomerPanelRef" parent="VBoxBackground/PanelTopLayer/VBoxTopLayerBackground/HBoxTopLayer" instance=ExtResource("9_50osb")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="PanelBottomLayer" type="PanelContainer" parent="VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_i8y16")
+script = ExtResource("4_685sg")
+
+[node name="ItemsTableRef" parent="VBoxBackground/PanelBottomLayer" instance=ExtResource("3_kcngt")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CustomerIntroRef" parent="." instance=ExtResource("9_ssvfb")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

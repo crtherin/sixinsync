@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dgytks8pnlirc"]
+
+[ext_resource type="Texture2D" uid="uid://dpd3bd7gxk1bm" path="res://Assets/CupTextures/Sweetener Texture.png" id="1_m1idk"]
+[ext_resource type="Texture2D" uid="uid://boepfmpof3l8r" path="res://Assets/Items/Sweetener.png" id="2_wnagu"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_fc5ag"]
+
+[resource]
+script = ExtResource("3_fc5ag")
+type = 12
+item_texture = ExtResource("2_wnagu")
+cup_texture = ExtResource("1_m1idk")
+cup_texture_show_above = false
+title = "Sweetener"
+description = "Chemical promises of guilt-free indulgence."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

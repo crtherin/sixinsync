@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1uc6l3bfthsn"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/customer_intro/customer_intro.gd" id="1_yprpx"]
+[ext_resource type="Shader" path="res://Assets/shaders/customer_intro.gdshader" id="2_tra24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58par"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="Gradient" id="Gradient_m0f7a"]
+offsets = PackedFloat32Array(0, 0.918367, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.848986, 0.163625, 0.603922, 1, 0.847059, 0.164706, 0.580392)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q10t2"]
+gradient = SubResource("Gradient_m0f7a")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq88w"]
+shader = ExtResource("2_tra24")
+shader_parameter/gradient = SubResource("GradientTexture2D_q10t2")
+shader_parameter/spread = 0.5
+shader_parameter/cutoff = 0.2
+shader_parameter/size = 0.75
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 10.0
+shader_parameter/ray2_density = 1.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/core_intensity = 2.0
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[node name="CustomerIntro" type="PanelContainer"]
+z_index = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_58par")
+script = ExtResource("1_yprpx")
+
+[node name="ColorBackgroundShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_bq88w")
+layout_mode = 2
+
+[node name="VBoxBackground" type="VBoxContainer" parent="ColorBackgroundShader"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="TextureCustomer" type="TextureRect" parent="ColorBackgroundShader/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelOpening" type="Label" parent="ColorBackgroundShader/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.726563, 0.726563, 0.726563, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxButtons" type="HBoxContainer" parent="ColorBackgroundShader/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonRefuse" type="Button" parent="ColorBackgroundShader/VBoxBackground/HBoxButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Refuse"
+
+[node name="ButtonAccept" type="Button" parent="ColorBackgroundShader/VBoxBackground/HBoxButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 32
+text = "Accept"

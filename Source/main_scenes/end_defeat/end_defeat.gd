@@ -24,6 +24,9 @@ extends MainScene
 #endregion
 
 #region Virtual Methods
+func _ready() -> void:
+	# Defaults
+	process_mode = Node.PROCESS_MODE_ALWAYS
 #endregion
 
 #region Public Methods

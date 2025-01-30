@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://d13pajanmc7jr"]
+
+[ext_resource type="Texture2D" uid="uid://dt7hxy5uu7klo" path="res://Assets/CupTextures/Black Tea Texture.png" id="1_rpgeq"]
+[ext_resource type="Texture2D" uid="uid://bhs5rcj3nimvj" path="res://Assets/Items/Black tea.png" id="2_q8pgj"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_fdubp"]
+
+[resource]
+script = ExtResource("3_fdubp")
+type = 4
+item_texture = ExtResource("2_q8pgj")
+cup_texture = ExtResource("1_rpgeq")
+cup_texture_show_above = false
+title = "Black Tea"
+description = "Caffeinated war juice that laughs in the face of your weak morning constitution."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

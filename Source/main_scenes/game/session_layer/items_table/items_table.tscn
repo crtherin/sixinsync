@@ -1,0 +1,159 @@
+[gd_scene load_steps=21 format=3 uid="uid://cuutwi53x5vju"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/items_table.gd" id="1_nkba3"]
+[ext_resource type="Texture2D" uid="uid://cr3ug6ooy3x21" path="res://Assets/Backdrop/masa v2.png" id="2_hjaxm"]
+[ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://Source/main_scenes/game/session_layer/items_table/item.tscn" id="3_7sf6v"]
+[ext_resource type="Resource" uid="uid://d13pajanmc7jr" path="res://Source/main_scenes/game/session_layer/items_table/items/tea_black.tres" id="5_oedaj"]
+[ext_resource type="Resource" uid="uid://dwbns6m3d4efu" path="res://Source/main_scenes/game/session_layer/items_table/items/tea_green.tres" id="7_miigx"]
+[ext_resource type="Resource" uid="uid://dsdtr20abnncw" path="res://Source/main_scenes/game/session_layer/items_table/items/tea_oolong.tres" id="9_era5c"]
+[ext_resource type="Resource" uid="uid://d1ua5r1arxhg" path="res://Source/main_scenes/game/session_layer/items_table/items/boba_popping.tres" id="11_2tn13"]
+[ext_resource type="Resource" uid="uid://b5q41x3u2kf0p" path="res://Source/main_scenes/game/session_layer/items_table/items/boba_tapioca.tres" id="13_2e4xk"]
+[ext_resource type="Resource" uid="uid://cqxn8c0ayyqgq" path="res://Source/main_scenes/game/session_layer/items_table/items/boba_seraphic.tres" id="15_0mixp"]
+[ext_resource type="Resource" uid="uid://4ue3khaywmhl" path="res://Source/main_scenes/game/session_layer/items_table/items/milk_diary.tres" id="17_fqk2w"]
+[ext_resource type="Resource" uid="uid://cw5de5amajv08" path="res://Source/main_scenes/game/session_layer/items_table/items/milk_almond.tres" id="19_11vmj"]
+[ext_resource type="Resource" uid="uid://b6anq6cn4c6ic" path="res://Source/main_scenes/game/session_layer/items_table/items/milk_succubus.tres" id="21_py7d8"]
+[ext_resource type="Resource" uid="uid://cqmstvlx50vp5" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_ice.tres" id="23_uahjc"]
+[ext_resource type="Resource" uid="uid://dgytks8pnlirc" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_sweetener.tres" id="25_3jqr5"]
+[ext_resource type="Resource" uid="uid://camp2rjvgsbei" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_fruit_syrup.tres" id="27_h5s1q"]
+[ext_resource type="Resource" uid="uid://dmmrxcw1ske1m" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_fruit_pieces.tres" id="29_seieu"]
+[ext_resource type="Resource" uid="uid://dh8tgj7canp2f" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_tears.tres" id="31_xbdue"]
+[ext_resource type="Resource" uid="uid://dk1f1qru7fo87" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_sugar.tres" id="33_3swqw"]
+[ext_resource type="Resource" uid="uid://crpjbjql3slks" path="res://Source/main_scenes/game/session_layer/items_table/items/extras_blood.tres" id="35_jkyc3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luwsi"]
+texture = ExtResource("2_hjaxm")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[node name="ItemsTable" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_luwsi")
+script = ExtResource("1_nkba3")
+
+[node name="ItemsContainer" type="Control" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ItemTeaBlack" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("5_oedaj")
+
+[node name="ItemTeaGreen" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("7_miigx")
+
+[node name="ItemTeaOolong" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("9_era5c")
+
+[node name="ItemBobaPopping" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("11_2tn13")
+
+[node name="ItemBobaTapioca" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("13_2e4xk")
+
+[node name="ItemBobaSeraphic" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("15_0mixp")
+
+[node name="ItemMilkDiary" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("17_fqk2w")
+
+[node name="ItemMilkAlmond" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("19_11vmj")
+
+[node name="ItemMilkSuccubus" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("21_py7d8")
+
+[node name="ItemExtrasIce" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("23_uahjc")
+
+[node name="ItemExtrasSweetener" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("25_3jqr5")
+
+[node name="ItemExtrasFruitSyrup" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("27_h5s1q")
+
+[node name="ItemExtrasFruitPieces" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("29_seieu")
+
+[node name="ItemExtrasTears" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("31_xbdue")
+
+[node name="ItemExtrasSugar" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("33_3swqw")
+
+[node name="ItemExtrasBlood" parent="ItemsContainer" instance=ExtResource("3_7sf6v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 0
+stretch_mode = 5
+data = ExtResource("35_jkyc3")

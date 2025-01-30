@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://_old/main/cup.tscn" id="2_iii1x"]
 [ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://_old/main/Mumble/MumbleManager.tscn" id="2_p07ov"]
 [ext_resource type="Texture2D" uid="uid://2nowiqcsis7y" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="2_ruee8"]
-[ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://_old/main/item.tscn" id="2_voga1"]
+[ext_resource type="PackedScene" uid="uid://be11ekbhpy8bm" path="res://Source/main_scenes/game/session_layer/items_table/item.tscn" id="2_voga1"]
 [ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://Assets/styles/style_panel_background.tres" id="3_rvo85"]
-[ext_resource type="Script" path="res://_old/main/game_panel.gd" id="4_764ad"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/hover_panel.gd" id="4_764ad"]
 [ext_resource type="Texture2D" uid="uid://cy4jf3wy4b573" path="res://Assets/Quest/pngtree-vector-western-meal-afternoon-tea-menu-background-image_265487.jpg" id="5_5xd03"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/items/item_data.gd" id="5_kqg30"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="5_kqg30"]
 [ext_resource type="Shader" path="res://Assets/shaders/menu_blur.gdshader" id="6_7xfdu"]
 [ext_resource type="Texture2D" uid="uid://cr3ug6ooy3x21" path="res://Assets/Backdrop/masa v2.png" id="6_a7pu4"]
 [ext_resource type="Script" path="res://_old/main/menu_layer.gd" id="6_bv12s"]
@@ -61,12 +61,12 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5y5xe"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hq4r7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iwf8b"]
 noise = SubResource("FastNoiseLite_5y5xe")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7rnwf"]
 shader = ExtResource("46_75of5")
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_hq4r7")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_iwf8b")
 shader_parameter/bottom_color = Color(0, 0.7, 1, 1)
 shader_parameter/middle_color = Color(0.61, 0.69, 0.61, 1)
 shader_parameter/top_color = Color(0, 0, 0, 1)
@@ -81,7 +81,7 @@ texture = ExtResource("5_5xd03")
 offsets = PackedFloat32Array(0, 0.753488, 1)
 colors = PackedColorArray(1, 0.939394, 0.666667, 1, 0.683594, 0.585938, 0.354004, 0.462745, 0.682353, 0.584314, 0.352941, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_68n2t"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iixsh"]
 gradient = SubResource("Gradient_kpsiu")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
@@ -89,7 +89,7 @@ fill_to = Vector2(0.5, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xx7mh"]
-texture = SubResource("GradientTexture2D_68n2t")
+texture = SubResource("GradientTexture2D_iixsh")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdo3y"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -458,10 +458,9 @@ stretch_mode = 3
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xx7mh")
 
-[node name="CupRef" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup" node_paths=PackedStringArray("parent", "panel_customer", "panel_trash") instance=ExtResource("2_iii1x")]
+[node name="CupRef" parent="PanelBackground/MarginBackground/VBoxBackground/TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup" node_paths=PackedStringArray("panel_customer", "panel_trash") instance=ExtResource("2_iii1x")]
 unique_name_in_owner = true
 layout_mode = 2
-parent = NodePath("../..")
 panel_customer = NodePath("../../../../VBoxCustomer/PanelCustomer")
 panel_trash = NodePath("../../../../../../PanelItems/ItemsContainer/PanelTrash")
 
@@ -611,165 +610,117 @@ texture = ExtResource("8_qqval")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemTeaBlack" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemTeaBlack" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("7_xs27y")
 stretch_mode = 5
 data = SubResource("Resource_06676")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemTeaGreen" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemTeaGreen" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("10_6aoxy")
 stretch_mode = 5
 data = SubResource("Resource_hwbyv")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemTeaOolong" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemTeaOolong" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("11_uu5rh")
 stretch_mode = 5
 data = SubResource("Resource_x1mcm")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemBobaPopping" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemBobaPopping" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("24_hdrjn")
 stretch_mode = 5
 data = SubResource("Resource_mu4l8")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemBobaTapioca" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemBobaTapioca" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("27_vqbxk")
 stretch_mode = 5
 data = SubResource("Resource_l6451")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemBobaSeraphic" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemBobaSeraphic" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("30_e2jrh")
 stretch_mode = 5
 data = SubResource("Resource_w4mwo")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemMilkDiary" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemMilkDiary" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("14_v25u3")
 stretch_mode = 5
 data = SubResource("Resource_lvbqu")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemMilkAlmond" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemMilkAlmond" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("15_b7tqs")
 stretch_mode = 5
 data = SubResource("Resource_yfr8b")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemMilkSuccubus" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemMilkSuccubus" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("16_s3qa4")
 stretch_mode = 5
 data = SubResource("Resource_blxrq")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasIce" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasIce" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("13_1j04h")
 stretch_mode = 5
 data = SubResource("Resource_v54or")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasSweetener" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasSweetener" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("18_yrfon")
 stretch_mode = 5
 data = SubResource("Resource_o48e5")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasFruitSyrup" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasFruitSyrup" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("35_qrmoo")
 stretch_mode = 5
 data = SubResource("Resource_mteei")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasFruitPieces" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasFruitPieces" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("19_0ysxf")
 stretch_mode = 5
 data = SubResource("Resource_1hkci")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasTears" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasTears" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("20_4lct8")
 stretch_mode = 5
 data = SubResource("Resource_xns5c")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasSugar" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasSugar" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("18_1uwul")
 stretch_mode = 5
 data = SubResource("Resource_pl324")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
-[node name="ItemExtrasBlood" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" node_paths=PackedStringArray("parent", "cup", "panel_trash") instance=ExtResource("2_voga1")]
+[node name="ItemExtrasBlood" parent="PanelBackground/MarginBackground/VBoxBackground/PanelItems/ItemsContainer" instance=ExtResource("2_voga1")]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 texture = ExtResource("9_iiu6p")
 stretch_mode = 5
 data = SubResource("Resource_yvba3")
-parent = NodePath("..")
-cup = NodePath("../../../TexureBackground/HBoxGameArea/PanelCup/MarginCup/AspectRatioCup/CupRef")
-panel_trash = NodePath("../PanelTrash")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

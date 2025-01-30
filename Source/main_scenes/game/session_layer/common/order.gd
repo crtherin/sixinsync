@@ -17,6 +17,7 @@ const DEFAULT_RANDOM_ORDER_NAME: String = "Chaotic Aberration"
 
 #region Public Variables
 var name: String: get = _get_name
+
 var tea: ItemData.Type = ItemData.Type.NONE
 var milk: ItemData.Type = ItemData.Type.NONE
 var boba: ItemData.Type = ItemData.Type.NONE
@@ -46,7 +47,7 @@ func check_validity(
 	boba_type: ItemData.Type, extras_types: Array[ItemData.Type]
 	) -> bool:
 		if tea_type != tea or milk_type != milk or boba_type != boba:
-			print_debug(
+			print(
 				"Tea: %s/%s | Milk: %s/%s | Boba: %s/%s" %
 				[tea_type, tea, milk_type, milk, boba_type, boba]
 				)
@@ -59,7 +60,7 @@ func check_validity(
 				valid_extras_count += int(extras_type in extras)
 			
 			if valid_extras_count != extras.size():
-				print_debug("Extras: %s/%s" % [extras_types, extras])
+				print("Extras: %s/%s" % [extras_types, extras])
 				return false
 		
 		return true

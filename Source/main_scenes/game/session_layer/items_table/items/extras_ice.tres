@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cqmstvlx50vp5"]
+
+[ext_resource type="Texture2D" uid="uid://cb8qen8rjrmob" path="res://Assets/CupTextures/Ice Cube Textures.png" id="1_3xgdj"]
+[ext_resource type="Texture2D" uid="uid://dvh13mjwrwcen" path="res://Assets/Items/Ice.png" id="2_vo5lj"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_prxs3"]
+
+[resource]
+script = ExtResource("3_prxs3")
+type = 10
+item_texture = ExtResource("2_vo5lj")
+cup_texture = ExtResource("1_3xgdj")
+cup_texture_show_above = false
+title = "Ice"
+description = "Frozen water's existential crisis."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"

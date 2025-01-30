@@ -9,17 +9,19 @@ extends PanelContainer
 #endregion
 
 #region Constants
+const GROUP: StringName = &"cup_node"
+
 const MOVE_SMOOTHING_WEIGHT: float = 0.1
 
 const TWEEN_REPOSITION_SPEED: float = 0.25
 const TWEEN_SCALE_MIN_OFFSET: float = 0.5
 const TWEEN_SCALE_SPEED: float = 0.15
+const TWEEN_MODULATE_SPEED: float = 0.15
 #endregion
 
 #region Export Variables
-@export var parent: MarginContainer
 @export var panel_customer: PanelContainer
-@export var panel_trash: PanelContainer
+@export var panel_trash: ToolTrash
 #endregion
 
 #region Public Variables
@@ -54,6 +56,9 @@ var selected_extras: Array[ItemData.Type]
 
 #region Virtual Methods
 func _ready() -> void:
+	# Defaults
+	add_to_group(GROUP)
+	
 	# Connections
 	Global.item_dropped_in_cup.connect(_on_item_dropped_in_cup)
 	gui_input.connect(_on_gui_input)
@@ -83,8 +88,17 @@ func _input(event: InputEvent) -> void:
 					tweener.set_ease(Tween.EASE_OUT)
 					tweener.set_trans(Tween.TRANS_BACK)
 					
-					# Check if the cup is dropped on the cusomer
+					# Fade-in the background gradient
+					tween.parallel().tween_property(
+						self, ^"self_modulate", Color.WHITE, TWEEN_MODULATE_SPEED
+						)
+					
+					# Check if the cup is dropped on the customer
 					if panel_customer.get_global_rect().has_point(mouse_position):
+						if Global.current_order == null:
+							is_pressed = false
+							return
+						
 						var selection_is_ok: bool = Global.current_order.check_validity(
 							selected_tea, selected_milk, selected_boba, selected_extras
 						)
@@ -141,7 +155,7 @@ func reset() -> void:
 
 #region Signal Callbacks
 func _on_item_dropped_in_cup(item: Item) -> void:
-	print("Item: %s, dropped on cup: %s" % [item, item.data.type])
+	print("Item dropped on cup: %s" % item)
 	
 	VfxSplash.play()
 	
@@ -201,6 +215,11 @@ func _on_gui_input(event: InputEvent) -> void:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
 					is_pressed = true
+					
+					# Fade-out the background gradient
+					create_tween().tween_property(
+						self, ^"self_modulate", Color.TRANSPARENT, TWEEN_MODULATE_SPEED
+						)
 
 # Prevent the cup position t ogo out-of-bounds on window resizing
 # and reset the pivot offset to the center (it can get resized)
@@ -235,6 +254,8 @@ func _set_pressed(arg: bool) -> void:
 	
 	tweener.set_ease(ease_type)
 	tweener.set_trans(Tween.TRANS_BACK)
+	
+	Global.is_grabbing_cup = is_pressed
 #endregion
 
 #region Getter Methods

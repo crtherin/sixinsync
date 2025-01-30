@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://17w5iyucsao7"]
+[gd_scene load_steps=10 format=3 uid="uid://17w5iyucsao7"]
 
 [ext_resource type="Script" path="res://_old/main/cup.gd" id="2_ple3i"]
 [ext_resource type="Texture2D" uid="uid://b6mverkytic0j" path="res://Assets/CupTextures/Pahar cu pai.png" id="2_t8dfu"]
@@ -6,7 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://c4pockjr41peh" path="res://Assets/VFX/VFX_Order_Fail.tscn" id="4_xod6u"]
 [ext_resource type="PackedScene" uid="uid://cifpeewk8hk7e" path="res://Assets/VFX/VFX_Splash.tscn" id="5_yd5n8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ob8vf"]
+[sub_resource type="Gradient" id="Gradient_kpsiu"]
+offsets = PackedFloat32Array(0, 0.753488, 1)
+colors = PackedColorArray(1, 0.939394, 0.666667, 1, 0.683594, 0.585938, 0.354004, 0.462745, 0.682353, 0.584314, 0.352941, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iixsh"]
+gradient = SubResource("Gradient_kpsiu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58k0p"]
+texture = SubResource("GradientTexture2D_iixsh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nsjq"]
 
@@ -14,7 +26,8 @@
 z_index = 1
 offset_right = 320.0
 offset_bottom = 448.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ob8vf")
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_58k0p")
 script = ExtResource("2_ple3i")
 
 [node name="LayerMilk" type="TextureRect" parent="."]

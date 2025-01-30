@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b6anq6cn4c6ic"]
+
+[ext_resource type="Texture2D" uid="uid://vwt1kh02vsdp" path="res://Assets/CupTextures/Succubus.png" id="1_i31yx"]
+[ext_resource type="Texture2D" uid="uid://2bk204p3qvwj" path="res://Assets/Items/Sucubus.png" id="2_t1ouj"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_hld5j"]
+
+[resource]
+script = ExtResource("3_hld5j")
+type = 9
+item_texture = ExtResource("2_t1ouj")
+cup_texture = ExtResource("1_i31yx")
+cup_texture_show_above = false
+title = "Succubus Milk"
+description = "Demonic milk with an otherworldly essence, potentially soul-stealing."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

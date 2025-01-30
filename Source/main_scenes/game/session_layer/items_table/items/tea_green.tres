@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dwbns6m3d4efu"]
+
+[ext_resource type="Texture2D" uid="uid://bceulinnbrbly" path="res://Assets/CupTextures/Green Tea Texture.png" id="1_3v22r"]
+[ext_resource type="Texture2D" uid="uid://cbeo7detejmu6" path="res://Assets/Items/Green tea.png" id="2_myvb6"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_215sg"]
+
+[resource]
+script = ExtResource("3_215sg")
+type = 5
+item_texture = ExtResource("2_myvb6")
+cup_texture = ExtResource("1_3v22r")
+cup_texture_show_above = false
+title = "Green Tea"
+description = "Hipster leaf water masquerading as a health elixir."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

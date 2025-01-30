@@ -1,6 +1,6 @@
 #@tool
-class_name EndVictory
-extends MainScene
+class_name TopLayerTexture
+extends TextureRect
 
 #region Signals
 #endregion
@@ -21,12 +21,10 @@ extends MainScene
 #endregion
 
 #region OnReady Variables
+@onready var ColorBackgroundShader := %ColorBackgroundShader as ColorRect
 #endregion
 
 #region Virtual Methods
-func _ready() -> void:
-	# Defaults
-	process_mode = Node.PROCESS_MODE_ALWAYS
 #endregion
 
 #region Public Methods

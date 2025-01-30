@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://2unhvb0q08h3"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/pause_layer/pause_layer.gd" id="1_6nwen"]
+[ext_resource type="Shader" path="res://Assets/shaders/menu_blur.gdshader" id="2_fbsda"]
+[ext_resource type="Texture2D" uid="uid://cgeggsnqbr7q" path="res://Assets/Menu/Boba, Blood and Bankruptcy (1).png" id="3_c6kbt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysdwu"]
+shader = ExtResource("2_fbsda")
+shader_parameter/amount = 2.5
+
+[node name="PauseLayer" type="CanvasLayer"]
+script = ExtResource("1_6nwen")
+
+[node name="ColorBackgroundShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ysdwu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginBackground" type="MarginContainer" parent="ColorBackgroundShader"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxBackground" type="HBoxContainer" parent="ColorBackgroundShader/MarginBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="TextureLogo" type="TextureRect" parent="ColorBackgroundShader/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("3_c6kbt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxButtons" type="VBoxContainer" parent="ColorBackgroundShader/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 64
+
+[node name="ButtonResume" type="Button" parent="ColorBackgroundShader/MarginBackground/VBoxBackground/VBoxButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="ButtonExitMenu" type="Button" parent="ColorBackgroundShader/MarginBackground/VBoxBackground/VBoxButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit to Main Menu"
+
+[node name="ButtonExitGame" type="Button" parent="ColorBackgroundShader/MarginBackground/VBoxBackground/VBoxButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+
+[node name="ColorExit" type="ColorRect" parent="ColorBackgroundShader"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="VBoxExitBackground" type="VBoxContainer" parent="ColorBackgroundShader/ColorExit"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="LabelExit" type="Label" parent="ColorBackgroundShader/ColorExit/VBoxExitBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxExitButtons" type="HBoxContainer" parent="ColorBackgroundShader/ColorExit/VBoxExitBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ButtonExitNo" type="Button" parent="ColorBackgroundShader/ColorExit/VBoxExitBackground/HBoxExitButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "No"
+
+[node name="ButtonExitYes" type="Button" parent="ColorBackgroundShader/ColorExit/VBoxExitBackground/HBoxExitButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Yes"

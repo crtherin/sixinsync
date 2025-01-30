@@ -1,6 +1,6 @@
 #@tool
-class_name EndVictory
-extends MainScene
+class_name ToolBar
+extends MarginContainer
 
 #region Signals
 #endregion
@@ -21,12 +21,14 @@ extends MainScene
 #endregion
 
 #region OnReady Variables
+@onready var HFlowBackground := %HFlowBackground as HFlowContainer
+@onready var ButtonMenu := %ButtonMenu as Button
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
-	# Defaults
-	process_mode = Node.PROCESS_MODE_ALWAYS
+	for button: Button in [ButtonMenu]:
+		button.pressed.connect(_on_button_pressed.bind(button))
 #endregion
 
 #region Public Methods
@@ -39,6 +41,10 @@ func _ready() -> void:
 #endregion
 
 #region Signal Callbacks
+func _on_button_pressed(button: Button) -> void:
+	match button:
+		ButtonMenu:
+			Global.pause_requested.emit()
 #endregion
 
 #region SubClasses

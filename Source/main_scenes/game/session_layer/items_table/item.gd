@@ -1,4 +1,4 @@
-@tool
+#@tool
 class_name Item
 extends TextureRect
 
@@ -25,9 +25,6 @@ const TOOLTIP_VERTICAL_POSITION_OFFSET: float = 150.0
 
 #region Export Variables
 @export var data: ItemData
-@export var parent: Control
-@export var cup: Cup
-@export var panel_trash: PanelContainer
 #endregion
 
 #region Public Variables
@@ -39,6 +36,8 @@ var drop_on_cup_stream: AudioStreamWAV
 #endregion
 
 #region Private Variables
+var _parent: Control
+var _cup: Cup
 #endregion
 
 #region OnReady Variables
@@ -56,26 +55,38 @@ var drop_on_cup_stream: AudioStreamWAV
 
 #region Virtual Methods
 func _ready() -> void:
-	if data == null:
-		return
+	# Detect the parent and the cup nodes
+	var actual_parent: Node = get_parent()
+	var found_cup_nodes: Array[Node] = get_tree().get_nodes_in_group(Cup.GROUP)
+	
+	# Verify the required references
+	if (
+		(data == null)
+		or (actual_parent is not Control)
+		or (found_cup_nodes.is_empty() or found_cup_nodes[0] is not Cup)
+		):
+			set_process_input(false)
+			set_physics_process(false)
+			return
+	
+	_parent = actual_parent as Control
+	_cup = found_cup_nodes[0] as Cup
+	
+	# Defaults
+	add_to_group(GROUP)
+	_hide_tooltip()
 	
 	# Apply data properties
 	texture = data.item_texture
 	modulate = data.item_modulate
 	
-	grab_stream = load(data.sound_grab)
-	drop_on_cup_stream = load(data.sound_drop_on_cup)
+	grab_stream = load(data.sound_grab) as AudioStreamWAV
+	drop_on_cup_stream = load(data.sound_drop_on_cup) as AudioStreamWAV
 	
 	LabelTooltipTitle.text = data.title
 	LabelTooltipDescription.text = data.description
+	
 	PanelTooltip.size = Vector2.ZERO
-	
-	# Local updates
-	if Engine.is_editor_hint():
-		return
-	
-	add_to_group(GROUP)
-	_hide_tooltip()
 	
 	# Signal connections
 	gui_input.connect(_on_gui_input)
@@ -88,7 +99,7 @@ func _ready() -> void:
 	for __: int in 2:
 		await get_tree().process_frame
 	
-	pivot_offset = custom_minimum_size / 2.0
+	pivot_offset = size / 2.0
 	set_random_position()
 
 # Set `is_pressed` to false from the global `_input` call to detach the item
@@ -101,7 +112,7 @@ func _input(event: InputEvent) -> void:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
 					# Calculate the initial position
-					var limits_low: Vector2 = Vector2(0.0,  parent.global_position.y)
+					var limits_low: Vector2 = Vector2(0.0,  _parent.global_position.y)
 					var limits_high: Vector2 = _get_screen_limits()
 					
 					initial_position.x = clampf(global_position.x, limits_low.x, limits_high.x)
@@ -127,13 +138,18 @@ func _input(event: InputEvent) -> void:
 					
 					# Local updates
 					is_pressed = false
+					Global.is_grabbing_item = false
 
 # Movement smoothing
 func _physics_process(_delta: float) -> void:
 	if is_pressed and not Engine.is_editor_hint():
-		var final_position: Vector2 = get_global_mouse_position() - custom_minimum_size / 2.0
+		var final_position: Vector2 = get_global_mouse_position() - size / 2.0
 		
 		global_position = global_position.lerp(final_position, MOVE_SMOOTHING_WEIGHT)
+
+
+func _to_string() -> String:
+	return str(self) if data == null else str(data)
 #endregion
 
 #region Public Methods
@@ -160,7 +176,7 @@ func get_random_position() -> Vector2:
 	
 	return Vector2(
 		randf_range(0.0, screen_limits.x),
-		randf_range(parent.global_position.y, screen_limits.y)
+		randf_range(_parent.global_position.y, screen_limits.y)
 		)
 #endregion
 
@@ -171,8 +187,11 @@ func _clamp_global_position() -> void:
 	
 	var screen_limits: Vector2 = _get_screen_limits()
 	
+	if _parent.global_position.y - screen_limits.y >= 0:
+		return
+	
 	global_position.x = clampf(global_position.x, 0.0, screen_limits.x)
-	global_position.y = clampf(global_position.y, parent.global_position.y, screen_limits.y)
+	global_position.y = clampf(global_position.y, _parent.global_position.y, screen_limits.y)
 	
 	initial_position = global_position
 
@@ -181,8 +200,8 @@ func _get_screen_limits() -> Vector2:
 	var viewport_size: Vector2 = get_viewport_rect().size
 	
 	return Vector2(
-		viewport_size.x - custom_minimum_size.x,
-		viewport_size.y - custom_minimum_size.y
+		viewport_size.x - size.x,
+		viewport_size.y - size.y
 	)
 
 
@@ -230,12 +249,13 @@ func _on_gui_input(event: InputEvent) -> void:
 					# Local updates
 					_hide_tooltip()
 					is_pressed = true
+					Global.is_grabbing_item = true
 		
 		else:
 			match mouse_button_event.button_index:
 				MOUSE_BUTTON_LEFT:
-					# Check if the mouse cursor is above the cup rect
-					if cup.get_global_rect().has_point(get_global_mouse_position()):
+					# Check if the mouse cursor is above the _cup rect
+					if _cup.get_global_rect().has_point(get_global_mouse_position()):
 						Global.item_dropped_in_cup.emit(self)
 						
 						# Play the drop sound

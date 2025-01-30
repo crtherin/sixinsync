@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://d1ua5r1arxhg"]
+
+[ext_resource type="Texture2D" uid="uid://j21ngxe41y0u" path="res://Assets/CupTextures/BOB1.png" id="1_0dwg6"]
+[ext_resource type="Texture2D" uid="uid://cm1t15lj0l88m" path="res://Assets/Items/BOB1.png" id="2_e3ovb"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_000le"]
+
+[resource]
+script = ExtResource("3_000le")
+type = 2
+item_texture = ExtResource("2_e3ovb")
+cup_texture = ExtResource("1_0dwg6")
+cup_texture_show_above = false
+title = "Boba Popping"
+description = "Flavor grenades waiting to explode in your unsuspecting mouth."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"

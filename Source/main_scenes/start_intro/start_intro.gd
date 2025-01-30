@@ -38,6 +38,9 @@ var _tween: Tween = create_tween()
 
 #region Virtual Methods
 func _ready() -> void:
+	# Defaults
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	TextureLogoGodot.modulate.a = 0.0
 	TextureLogoTeam.modulate.a = 0.0
 	

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://camp2rjvgsbei"]
+
+[ext_resource type="Texture2D" uid="uid://cvdrk57yn47qt" path="res://Assets/CupTextures/Syrup texture.png" id="1_l4ry3"]
+[ext_resource type="Texture2D" uid="uid://33e6i3dr8c1c" path="res://Assets/Items/Fruit SYrup.png" id="2_688ln"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_jvvub"]
+
+[resource]
+script = ExtResource("3_jvvub")
+type = 13
+item_texture = ExtResource("2_688ln")
+cup_texture = ExtResource("1_l4ry3")
+cup_texture_show_above = true
+title = "Fruit Syrup"
+description = "Chemical promises of guilt-free indulgence."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

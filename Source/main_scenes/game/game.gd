@@ -21,6 +21,8 @@ extends MainScene
 #endregion
 
 #region OnReady Variables
+@onready var GameSessionLayer := %GameSessionLayer as SessionLayer
+@onready var GamePauseLayer := %GamePauseLayer as PauseLayer
 #endregion
 
 #region Virtual Methods

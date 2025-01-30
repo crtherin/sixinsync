@@ -14,6 +14,7 @@ signal game_over
 signal time_out
 signal gold_change(amount: int)
 signal charon
+signal pause_requested
 #endregion
 
 #region Enums
@@ -21,7 +22,8 @@ enum MainSceneType {START_INTRO, START_MENU, GAME, END_DEFEAT, END_VICTORY, CRED
 #endregion
 
 #region Constants
-const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.START_INTRO
+const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.GAME
+
 const MAPPED_MAIN_SCENE_PACKS: Dictionary[MainSceneType, PackedScene] = {
 	MainSceneType.START_INTRO: preload("res://Source/main_scenes/start_intro/start_intro.tscn"),
 	MainSceneType.START_MENU: preload("res://Source/main_scenes/start_menu/start_menu.tscn"),
@@ -47,9 +49,14 @@ const TEXTS_CREDITS: String = "res://Assets/Text/credits.json"
 #region Public Variables
 # Current game session variables
 var is_paused: bool
+var is_grabbing_item: bool
+var is_grabbing_cup: bool
+
 var gold: int
 var charon_tax_total: int
+
 var current_order: Order
+var current_customer: Customer
 
 # Parsed JSON data
 var customers_data: Array[Dictionary]
@@ -108,13 +115,17 @@ func change_main_scene(type: MainSceneType) -> void:
 
 
 func reset_game_session() -> void:
-	is_paused = false
 	get_tree().paused = false
+	
+	is_paused = false
+	is_grabbing_item = false
+	is_grabbing_cup = false
 	
 	gold = 0
 	charon_tax_total = 0
 	
 	current_order = null
+	current_customer = null
 #endregion
 
 #region Private Methods

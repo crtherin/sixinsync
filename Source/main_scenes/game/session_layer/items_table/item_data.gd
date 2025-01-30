@@ -94,6 +94,8 @@ const ALL_EXTRAS: Array[Type] = [
 #endregion
 
 #region Virtual Methods
+func _to_string() -> String:
+	return "<ItemData[%s][%d]>" % [title, type]
 #endregion
 
 #region Public Methods

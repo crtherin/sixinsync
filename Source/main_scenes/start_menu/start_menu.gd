@@ -59,6 +59,8 @@ const TWEEN_EXIT_MODULATE_SPEED: float = 0.25
 #region Virtual Methods
 func _ready() -> void:
 	# Defaults
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	TextureLogo.modulate.a = 0.0
 	ColorExitShader.visible = false
 	ColorExitShader.modulate.a = 0.0

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://cunvh7wbiu7jm"]
+
+[ext_resource type="Texture2D" uid="uid://cy4jf3wy4b573" path="res://Assets/Quest/pngtree-vector-western-meal-afternoon-tea-menu-background-image_265487.jpg" id="1_4g850"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/orders_menu/orders_menu.gd" id="1_fxprv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjsk5"]
+texture = ExtResource("1_4g850")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[node name="OrdersMenu" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0.698039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_wjsk5")
+script = ExtResource("1_fxprv")
+
+[node name="MarginBackground" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxBackground" type="VBoxContainer" parent="MarginBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LabelTitle" type="Label" parent="MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 22
+
+[node name="ScrollBackground" type="ScrollContainer" parent="MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridBackground" type="GridContainer" parent="MarginBackground/VBoxBackground/ScrollBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+mouse_filter = 2
+theme_override_constants/h_separation = -10
+theme_override_constants/v_separation = -5
+columns = 4

@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://badyw0fb1w85g"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/customer_panel/customer_panel.gd" id="1_igddp"]
+[ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://Assets/styles/style_panel_background.tres" id="2_wdc2i"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/hover_panel.gd" id="3_fn0ol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gdxw"]
+
+[node name="CustomerPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4gdxw")
+script = ExtResource("1_igddp")
+
+[node name="VBoxBackground" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="PanelCustomer" type="PanelContainer" parent="VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("2_wdc2i")
+script = ExtResource("3_fn0ol")
+
+[node name="VBoxCustomer" type="VBoxContainer" parent="VBoxBackground/PanelCustomer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LabelCustomer" type="Label" parent="VBoxBackground/PanelCustomer/VBoxCustomer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 22
+
+[node name="MarginCustomer" type="MarginContainer" parent="VBoxBackground/PanelCustomer/VBoxCustomer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="TextureCustomer" type="TextureRect" parent="VBoxBackground/PanelCustomer/VBoxCustomer/MarginCustomer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelDescription" type="PanelContainer" parent="VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_wdc2i")
+script = ExtResource("3_fn0ol")
+
+[node name="ScrollDescription" type="ScrollContainer" parent="VBoxBackground/PanelDescription"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginDescription" type="MarginContainer" parent="VBoxBackground/PanelDescription/ScrollDescription"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelDescription" type="Label" parent="VBoxBackground/PanelDescription/ScrollDescription/MarginDescription"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 3

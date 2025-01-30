@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cqxn8c0ayyqgq"]
+
+[ext_resource type="Texture2D" uid="uid://b5h3qw6u77e0n" path="res://Assets/CupTextures/BOB2.png" id="1_uk7e7"]
+[ext_resource type="Texture2D" uid="uid://ds0u1wmehxltr" path="res://Assets/Items/BOB2.png" id="2_to67y"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_qq882"]
+
+[resource]
+script = ExtResource("3_qq882")
+type = 3
+item_texture = ExtResource("2_to67y")
+cup_texture = ExtResource("1_uk7e7")
+cup_texture_show_above = false
+title = "Seraphic Spheres Boba"
+description = "Heavenly orbs that sing hymns and judge your drink selection."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_bobas.wav"

@@ -1,6 +1,6 @@
 #@tool
-class_name EndVictory
-extends MainScene
+class_name ItemsTable
+extends PanelContainer
 
 #region Signals
 #endregion
@@ -21,15 +21,19 @@ extends MainScene
 #endregion
 
 #region OnReady Variables
+@onready var ItemsContainer := %ItemsContainer as Control
 #endregion
 
 #region Virtual Methods
-func _ready() -> void:
-	# Defaults
-	process_mode = Node.PROCESS_MODE_ALWAYS
 #endregion
 
 #region Public Methods
+func randomize_all_items_positions() -> void:
+	get_all_items().map(func(item: Item) -> void: item.set_random_position.call_deferred())
+
+
+func get_all_items() -> Array[Item]:
+	return Array(ItemsContainer.get_children(), TYPE_OBJECT, &"TextureRect", Item)
 #endregion
 
 #region Private Methods

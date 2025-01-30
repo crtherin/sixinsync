@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dsdtr20abnncw"]
+
+[ext_resource type="Texture2D" uid="uid://dd6foxq0fevf0" path="res://Assets/CupTextures/Oolong Tea Texture.png" id="1_l83ih"]
+[ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="2_wr5lq"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_vjahi"]
+
+[resource]
+script = ExtResource("3_vjahi")
+type = 6
+item_texture = ExtResource("2_wr5lq")
+cup_texture = ExtResource("1_l83ih")
+cup_texture_show_above = false
+title = "Oolong Tea"
+description = "The tea that couldn't decide if it wanted to be black or green, so it became an identity crisis in a cup."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

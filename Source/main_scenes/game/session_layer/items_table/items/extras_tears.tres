@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dh8tgj7canp2f"]
+
+[ext_resource type="Texture2D" uid="uid://hj5rlaq61dp5" path="res://Assets/CupTextures/Tear Texture4.png" id="1_42dqi"]
+[ext_resource type="Texture2D" uid="uid://e54t2oknlnfe" path="res://Assets/Items/Tears.png" id="2_7gili"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_qufeu"]
+
+[resource]
+script = ExtResource("3_qufeu")
+type = 15
+item_texture = ExtResource("2_7gili")
+cup_texture = ExtResource("1_42dqi")
+cup_texture_show_above = true
+title = "Tears"
+description = "Liquid manifestation of emotional bankruptcy, now available in beverage form."
+item_modulate = Color(1, 1, 1, 1)
+cup_modulate = Color(1, 1, 1, 1)
+sound_grab = "res://Assets/Sounds/Item/item_select.wav"
+sound_drop_on_cup = "res://Assets/Sounds/Item/drop_liquid.wav"

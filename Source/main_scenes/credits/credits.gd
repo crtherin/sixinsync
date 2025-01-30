@@ -50,6 +50,8 @@ var _current_line_index: int
 
 #region Virtual Methods
 func _ready() -> void:
+	# Defaults
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	_credits_copy = Global.credits_data.duplicate(true)
 
 
