@@ -52,6 +52,14 @@ const MAPPED_TEXTURES: Dictionary[Type, Texture2D] = {
 	Type.EXTRAS_TEARS: preload("res://Assets/Items/Tears.png"),
 	Type.EXTRAS_BLOOD: preload("res://Assets/Items/Blood.png"),
 }
+
+const ALL_BOBAS: Array[Type] = [Type.BOBA_TAPIOCA, Type.BOBA_POPPING, Type.BOBA_SERAPHIC]
+const ALL_TEAS: Array[Type] = [Type.TEA_BLACK, Type.TEA_GREEN, Type.TEA_OOLONG]
+const ALL_MILKS: Array[Type] = [Type.MILK_DIARY, Type.MILK_ALMOND, Type.MILK_SUCCUBUS]
+const ALL_EXTRAS: Array[Type] = [
+	Type.EXTRAS_ICE, Type.EXTRAS_SUGAR, Type.EXTRAS_SWEETENER, Type.EXTRAS_FRUIT_SYRUP,
+	Type.EXTRAS_FRUIT_PIECES, Type.EXTRAS_TEARS, Type.EXTRAS_BLOOD,
+	]
 #endregion
 
 #region Export Variables
