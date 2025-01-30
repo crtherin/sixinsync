@@ -102,6 +102,16 @@ func change_main_scene(type: MainSceneType) -> void:
 	
 	_current_main_scene = main_scene_pack.instantiate() as MainScene
 	startup_scene.add_child(_current_main_scene)
+
+
+func reset_game_session() -> void:
+	is_paused = false
+	get_tree().paused = false
+	
+	gold = 0
+	charon_tax_total = 0
+	
+	current_order = null
 #endregion
 
 #region Private Methods
