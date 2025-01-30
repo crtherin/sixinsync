@@ -67,6 +67,9 @@ var _current_main_scene: MainScene
 
 #region Virtual Methods
 func _ready():
+	# Ignore the paused state in this script
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	# Parse and store the JSON files
 	var file_customers: String = FileAccess.open(TEXTS_CUSTOMERS, FileAccess.READ).get_as_text()
 	var file_charon: String = FileAccess.open(TEXTS_CHARON, FileAccess.READ).get_as_text()
