@@ -34,16 +34,16 @@ var _exit_mode_is_menu: bool
 
 # Buttons
 @onready var VBoxButtons := %VBoxButtons as VBoxContainer
-@onready var ButtonResume := %ButtonResume as Button
-@onready var ButtonExitMenu := %ButtonExitMenu as Button
-@onready var ButtonExitGame := %ButtonExitGame as Button
+@onready var ButtonResume := %ButtonResume as GameButton
+@onready var ButtonExitMenu := %ButtonExitMenu as GameButton
+@onready var ButtonExitGame := %ButtonExitGame as GameButton
 
 # Exit Confirmation
 @onready var ColorExit := %ColorExit as ColorRect
 @onready var LabelExit := %LabelExit as Label
 @onready var HBoxExitButtons := %HBoxExitButtons as HBoxContainer
-@onready var ButtonExitNo := %ButtonExitNo as Button
-@onready var ButtonExitYes := %ButtonExitYes as Button
+@onready var ButtonExitNo := %ButtonExitNo as GameButton
+@onready var ButtonExitYes := %ButtonExitYes as GameButton
 #endregion
 
 #region Virtual Methods
@@ -59,11 +59,11 @@ func _ready() -> void:
 	# Connections
 	Global.pause_requested.connect(_set_paused.bind(true))
 	
-	var all_buttons: Array[Button] = [
+	var all_buttons: Array[GameButton] = [
 		ButtonResume, ButtonExitMenu, ButtonExitGame, ButtonExitNo, ButtonExitYes,
 		]
 	
-	all_buttons.map(func(button: Button) -> void:
+	all_buttons.map(func(button: GameButton) -> void:
 		button.pressed.connect(_on_button_pressed.bind(button))
 		)
 
@@ -87,7 +87,6 @@ func _set_paused(mode: bool) -> void:
 		return
 	
 	Global.is_paused = mode
-	Engine.time_scale = float(not mode)
 	get_tree().paused = mode
 	visible = mode
 	
@@ -114,7 +113,7 @@ func _show_exit_confirmation(state: bool) -> void:
 #endregion
 
 #region Signal Callbacks
-func _on_button_pressed(button: Button) -> void:
+func _on_button_pressed(button: GameButton) -> void:
 	match button:
 		ButtonResume:
 			_set_paused(false)

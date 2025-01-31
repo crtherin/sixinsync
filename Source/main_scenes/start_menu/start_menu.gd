@@ -40,9 +40,9 @@ const TWEEN_EXIT_MODULATE_SPEED: float = 0.25
 # Buttons
 @onready var MarginButtons := %MarginButtons as MarginContainer
 @onready var VBoxButtons := %VBoxButtons as VBoxContainer
-@onready var ButtonNewGame := %ButtonNewGame as Button
-@onready var ButtonCredits := %ButtonCredits as Button
-@onready var ButtonExit := %ButtonExit as Button
+@onready var ButtonNewGame := %ButtonNewGame as GameButton
+@onready var ButtonCredits := %ButtonCredits as GameButton
+@onready var ButtonExit := %ButtonExit as GameButton
 
 # Version
 @onready var MarginVersion := %MarginVersion as MarginContainer
@@ -52,8 +52,8 @@ const TWEEN_EXIT_MODULATE_SPEED: float = 0.25
 @onready var ColorExitShader := %ColorExitShader as ColorRect
 @onready var LabelExit := %LabelExit as Label
 @onready var HBoxExitButtons := %HBoxExitButtons as HBoxContainer
-@onready var ButtonExitNo := %ButtonExitNo as Button
-@onready var ButtonExitYes := %ButtonExitYes as Button
+@onready var ButtonExitNo := %ButtonExitNo as GameButton
+@onready var ButtonExitYes := %ButtonExitYes as GameButton
 #endregion
 
 #region Virtual Methods
@@ -65,12 +65,12 @@ func _ready() -> void:
 	ColorExitShader.visible = false
 	ColorExitShader.modulate.a = 0.0
 	
-	var all_buttons: Array[Button] = [
+	var all_buttons: Array[GameButton] = [
 		ButtonNewGame, ButtonCredits, ButtonExit,
 		ButtonExitNo, ButtonExitYes,
 		]
 	
-	all_buttons.map(func(button: Button) -> void:
+	all_buttons.map(func(button: GameButton) -> void:
 		button.pressed.connect(_on_button_pressed.bind(button))
 		)
 	
@@ -109,7 +109,7 @@ func _show_exit_confirmation(state: bool) -> void:
 #endregion
 
 #region Signal Callbacks
-func _on_button_pressed(button: Button) -> void:
+func _on_button_pressed(button: GameButton) -> void:
 	match button:
 		ButtonNewGame: Global.change_main_scene(Global.MainSceneType.GAME)
 		ButtonCredits: Global.change_main_scene(Global.MainSceneType.CREDITS)

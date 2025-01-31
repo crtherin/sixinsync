@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1uc6l3bfthsn"]
+[gd_scene load_steps=9 format=3 uid="uid://d1uc6l3bfthsn"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/customer_intro/customer_intro.gd" id="1_yprpx"]
+[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/session_layer/mumbeler/mumbeler_manager.tscn" id="2_86qvn"]
 [ext_resource type="Shader" path="res://Assets/shaders/customer_intro.gdshader" id="2_tra24"]
+[ext_resource type="Script" path="res://Source/common/game_button.gd" id="3_l2m4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58par"]
 bg_color = Color(0, 0, 0, 0.6)
@@ -42,6 +44,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_58par")
 script = ExtResource("1_yprpx")
+
+[node name="MumbleManagerRef" parent="." instance=ExtResource("2_86qvn")]
+unique_name_in_owner = true
 
 [node name="ColorBackgroundShader" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -94,6 +99,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 32
 text = "Refuse"
+script = ExtResource("3_l2m4n")
 
 [node name="ButtonAccept" type="Button" parent="ColorBackgroundShader/VBoxBackground/HBoxButtons"]
 unique_name_in_owner = true
@@ -102,3 +108,4 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 32
 text = "Accept"
+script = ExtResource("3_l2m4n")

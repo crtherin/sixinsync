@@ -106,8 +106,6 @@ func _input(event: InputEvent) -> void:
 						Global.cup_dropped_on_customer.emit(selection_is_ok)
 						
 						if selection_is_ok:
-							Global.warning_message_requested.emit("Well done!")
-							
 							VfxOrderDone.play()
 							reset()
 						
@@ -116,6 +114,7 @@ func _input(event: InputEvent) -> void:
 					
 					# Check if the cup is dropped on the trash
 					elif panel_trash.get_global_rect().has_point(mouse_position):
+						Global.gold_to_receive = 0
 						reset()
 					
 					# Local updates
@@ -205,6 +204,9 @@ func _on_item_dropped_in_cup(item: Item) -> void:
 		texture_rect.texture = extras_texture
 		
 		parent_panel.add_child(texture_rect)
+	
+	# Increment the global gold to receive counter based on the item data value
+	Global.gold_to_receive += item.data.value
 
 # Consider the cup grabbed only if this node is clicked
 func _on_gui_input(event: InputEvent) -> void:

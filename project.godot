@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GGJ25"
+config/name="Blood, Boba and Bankruptcy"
+config/description="GGJ25 Project"
+config/version="0.0.1"
 run/main_scene="res://Source/startup.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 
 [audio]
 
@@ -20,7 +24,7 @@ buses/default_bus_layout="res://Assets/VFX/default_bus_layout.tres"
 
 [autoload]
 
-Global="*res://Source/global.gd"
+Global="*res://Source/common/global.gd"
 
 [debug]
 
@@ -30,6 +34,7 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1800
 window/size/viewport_height=1000
+window/size/mode=4
 
 [dotnet]
 

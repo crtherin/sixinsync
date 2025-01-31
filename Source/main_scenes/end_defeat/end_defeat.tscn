@@ -1,6 +1,93 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcbu8nvlb7sju"]
+[gd_scene load_steps=7 format=3 uid="uid://dcbu8nvlb7sju"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/end_defeat/end_defeat.gd" id="1_oh2pc"]
+[ext_resource type="Texture2D" uid="uid://c4d8mu35iyh17" path="res://Assets/Backdrop/game_over_1.png" id="2_b82gh"]
+[ext_resource type="Script" path="res://Source/common/game_button.gd" id="3_7dw7a"]
+
+[sub_resource type="Gradient" id="Gradient_biutg"]
+offsets = PackedFloat32Array(0, 0.821293, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.460076, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xh74p"]
+gradient = SubResource("Gradient_biutg")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5j467"]
+texture = SubResource("GradientTexture2D_xh74p")
 
 [node name="EndDefeat" type="Node"]
 script = ExtResource("1_oh2pc")
+
+[node name="TextureBackground" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b82gh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="PanelVignette" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_5j467")
+
+[node name="VBoxBackground" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="LabelTitle" type="Label" parent="VBoxBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.639216, 0, 0.168627, 0.878431)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 150
+text = "Tea-total Disaster!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDescription" type="Label" parent="VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "You spilled the pearls, oversteamed the milk, and the customers have revolted. Time to hang up the apron… for now!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonConfirm" type="Button" parent="VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Retry or Retire?"
+script = ExtResource("3_7dw7a")

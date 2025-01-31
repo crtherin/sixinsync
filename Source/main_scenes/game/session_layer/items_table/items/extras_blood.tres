@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cvd0qopg3lm1o" path="res://Assets/CupTextures/Blood Texture.png" id="1_wkyei"]
 [ext_resource type="Texture2D" uid="uid://ddioeg428j430" path="res://Assets/Items/Blood.png" id="2_41u04"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_gbmfl"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_gbmfl"]
 
 [resource]
 script = ExtResource("3_gbmfl")
 type = 16
+value = 1
 item_texture = ExtResource("2_41u04")
 cup_texture = ExtResource("1_wkyei")
 cup_texture_show_above = true

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dd6foxq0fevf0" path="res://Assets/CupTextures/Oolong Tea Texture.png" id="1_l83ih"]
 [ext_resource type="Texture2D" uid="uid://h48djyotwf6l" path="res://Assets/Items/Oolong tea.png" id="2_wr5lq"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_vjahi"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_vjahi"]
 
 [resource]
 script = ExtResource("3_vjahi")
 type = 6
+value = 3
 item_texture = ExtResource("2_wr5lq")
 cup_texture = ExtResource("1_l83ih")
 cup_texture_show_above = false

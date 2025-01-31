@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnygnybtq3iad"]
+[gd_scene load_steps=5 format=3 uid="uid://cnygnybtq3iad"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/tool_bar/tool_bar.gd" id="1_2r1vk"]
+[ext_resource type="Texture2D" uid="uid://i3012b1aqmo" path="res://Assets/Clock/clock_1.png" id="2_30vcr"]
+[ext_resource type="Texture2D" uid="uid://bp625715idvhi" path="res://Assets/Banknote/BankNote.png" id="3_xhdl8"]
+[ext_resource type="Script" path="res://Source/common/game_button.gd" id="4_02v7k"]
 
 [node name="ToolBar" type="MarginContainer"]
 anchors_preset = 15
@@ -8,20 +11,98 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 4
 script = ExtResource("1_2r1vk")
 
-[node name="HFlowBackground" type="HFlowContainer" parent="."]
+[node name="HFlowBackground" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="HBoxTimer" type="HBoxContainer" parent="HFlowBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureTimer" type="TextureRect" parent="HFlowBackground/HBoxTimer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture = ExtResource("2_30vcr")
+expand_mode = 1
+
+[node name="LabelTimer" type="Label" parent="HFlowBackground/HBoxTimer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxGold" type="HBoxContainer" parent="HFlowBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureGold" type="TextureRect" parent="HFlowBackground/HBoxGold"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 45)
+layout_mode = 2
+texture = ExtResource("3_xhdl8")
+expand_mode = 1
+
+[node name="LabelGold" type="Label" parent="HFlowBackground/HBoxGold"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxRound" type="HBoxContainer" parent="HFlowBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TextureRound" type="TextureRect" parent="HFlowBackground/HBoxRound"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+expand_mode = 1
+
+[node name="LabelRound" type="Label" parent="HFlowBackground/HBoxRound"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 1
 
 [node name="ButtonMenu" type="Button" parent="HFlowBackground"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 10
+size_flags_vertical = 4
 mouse_filter = 1
 theme_override_font_sizes/font_size = 32
 text = "Menu"
+script = ExtResource("4_02v7k")

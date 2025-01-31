@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://doghhidspqpwq"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/background_texture/background_texture.gd" id="1_cegcv"]
-[ext_resource type="Texture2D" uid="uid://c5hf7s5qmxiy4" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.04.44.jpeg" id="1_l14f8"]
+[ext_resource type="Texture2D" uid="uid://2nowiqcsis7y" path="res://Assets/Backdrop/WhatsApp Image 2025-01-25 at 14.08.39.jpeg" id="1_rqf7x"]
 [ext_resource type="Shader" path="res://Assets/shaders/fire.gdshader" id="3_bawtw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_klyay"]
@@ -26,7 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_l14f8")
+texture = ExtResource("1_rqf7x")
 expand_mode = 1
 stretch_mode = 6
 script = ExtResource("1_cegcv")

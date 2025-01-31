@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2me352puep36"]
+[gd_scene load_steps=5 format=3 uid="uid://b2me352puep36"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/game.gd" id="1_srxps"]
 [ext_resource type="PackedScene" uid="uid://bxsujsucxhj7u" path="res://Source/main_scenes/game/session_layer/session_layer.tscn" id="2_j2apf"]
 [ext_resource type="PackedScene" uid="uid://2unhvb0q08h3" path="res://Source/main_scenes/game/pause_layer/pause_layer.tscn" id="3_jic3b"]
+[ext_resource type="PackedScene" uid="uid://dgn5iwdxaquhq" path="res://Source/main_scenes/game/charon_layer/charon_layer.tscn" id="3_tisgi"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_srxps")
 
-[node name="GameSessionLayer" parent="." instance=ExtResource("2_j2apf")]
+[node name="SessionLayerRef" parent="." instance=ExtResource("2_j2apf")]
 unique_name_in_owner = true
 
-[node name="GamePauseLayer" parent="." instance=ExtResource("3_jic3b")]
+[node name="CharonLayerRef" parent="." instance=ExtResource("3_tisgi")]
+unique_name_in_owner = true
+
+[node name="PauseLayerRef" parent="." instance=ExtResource("3_jic3b")]
 unique_name_in_owner = true

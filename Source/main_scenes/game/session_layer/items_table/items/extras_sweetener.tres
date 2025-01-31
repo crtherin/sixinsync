@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dpd3bd7gxk1bm" path="res://Assets/CupTextures/Sweetener Texture.png" id="1_m1idk"]
 [ext_resource type="Texture2D" uid="uid://boepfmpof3l8r" path="res://Assets/Items/Sweetener.png" id="2_wnagu"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_fc5ag"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_fc5ag"]
 
 [resource]
 script = ExtResource("3_fc5ag")
 type = 12
+value = 1
 item_texture = ExtResource("2_wnagu")
 cup_texture = ExtResource("1_m1idk")
 cup_texture_show_above = false

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cb8qen8rjrmob" path="res://Assets/CupTextures/Ice Cube Textures.png" id="1_3xgdj"]
 [ext_resource type="Texture2D" uid="uid://dvh13mjwrwcen" path="res://Assets/Items/Ice.png" id="2_vo5lj"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_prxs3"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_prxs3"]
 
 [resource]
 script = ExtResource("3_prxs3")
 type = 10
+value = 1
 item_texture = ExtResource("2_vo5lj")
 cup_texture = ExtResource("1_3xgdj")
 cup_texture_show_above = false

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dk855st5cu6cw" path="res://Assets/CupTextures/fruits texture.png" id="1_4th50"]
 [ext_resource type="Texture2D" uid="uid://cjnmltxew8twn" path="res://Assets/Items/Fruits.png" id="2_f1xjg"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_neouf"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_neouf"]
 
 [resource]
 script = ExtResource("3_neouf")
 type = 14
+value = 1
 item_texture = ExtResource("2_f1xjg")
 cup_texture = ExtResource("1_4th50")
 cup_texture_show_above = false

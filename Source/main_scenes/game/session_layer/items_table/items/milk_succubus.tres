@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://vwt1kh02vsdp" path="res://Assets/CupTextures/Succubus.png" id="1_i31yx"]
 [ext_resource type="Texture2D" uid="uid://2bk204p3qvwj" path="res://Assets/Items/Sucubus.png" id="2_t1ouj"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_hld5j"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_hld5j"]
 
 [resource]
 script = ExtResource("3_hld5j")
 type = 9
+value = 3
 item_texture = ExtResource("2_t1ouj")
 cup_texture = ExtResource("1_i31yx")
 cup_texture_show_above = false

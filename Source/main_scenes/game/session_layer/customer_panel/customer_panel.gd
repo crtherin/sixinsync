@@ -47,7 +47,7 @@ var _tween: Tween
 #endregion
 
 #region Public Methods
-func update_with_customer(customer: Customer) -> void:
+func update_customer_panel(customer: Customer) -> void:
 	if _tween != null:
 		_tween.kill()
 	

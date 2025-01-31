@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://b5h3qw6u77e0n" path="res://Assets/CupTextures/BOB2.png" id="1_uk7e7"]
 [ext_resource type="Texture2D" uid="uid://ds0u1wmehxltr" path="res://Assets/Items/BOB2.png" id="2_to67y"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_qq882"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_qq882"]
 
 [resource]
 script = ExtResource("3_qq882")
 type = 3
+value = 3
 item_texture = ExtResource("2_to67y")
 cup_texture = ExtResource("1_uk7e7")
 cup_texture_show_above = false

@@ -4,17 +4,21 @@ extends Node
 
 #region Signals
 # Ignore the `unused_signal` warning from the project settings
-
 signal item_dropped_in_cup(item: Item)
 signal cup_dropped_on_customer(state: bool)
 signal cup_dropped_on_trash
+
+signal gold_changed(amount: int)
+
+signal charon_requested
+signal pause_requested
+signal next_customer_requested
+
+# TODO Or TOREMOVE
 signal warning_message_requested(text: String)
 signal game_start
 signal game_over
 signal time_out
-signal gold_change(amount: int)
-signal charon
-signal pause_requested
 #endregion
 
 #region Enums
@@ -22,7 +26,8 @@ enum MainSceneType {START_INTRO, START_MENU, GAME, END_DEFEAT, END_VICTORY, CRED
 #endregion
 
 #region Constants
-const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.GAME
+# Main scenes
+const DEFAULT_MAIN_SCENE_TYPE: MainSceneType = MainSceneType.START_INTRO
 
 const MAPPED_MAIN_SCENE_PACKS: Dictionary[MainSceneType, PackedScene] = {
 	MainSceneType.START_INTRO: preload("res://Source/main_scenes/start_intro/start_intro.tscn"),
@@ -41,6 +46,12 @@ const CURSOR_CLOSED: Texture2D = preload("res://Assets/Cursor/Hand_Closed.png")
 const TEXTS_CUSTOMERS: String = "res://Assets/Text/dialogues.json"
 const TEXTS_CHARON: String = "res://Assets/Text/charon.json"
 const TEXTS_CREDITS: String = "res://Assets/Text/credits.json"
+
+# Game session
+const TIMER_BOUNDS: Vector2 = Vector2(30.0, 60.0)
+const EXTRAS_COUNT_BOUNDS: Vector2i = Vector2i(0, 3)
+const CHARON_ROUND_BOUNDS: Vector2i = Vector2i(3, 5)
+const CHARON_TAX_TOTAL_BOUNDS: Vector2i = Vector2i(15, 20)
 #endregion
 
 #region Export Variables
@@ -53,10 +64,18 @@ var is_grabbing_item: bool
 var is_grabbing_cup: bool
 
 var gold: int
+var gold_to_receive: int
+
+var charon_round: int
 var charon_tax_total: int
+var charon_event_counter: int
+
+var timer: Timer
 
 var current_order: Order
 var current_customer: Customer
+var current_time_interval: float
+var current_round: int
 
 # Parsed JSON data
 var customers_data: Array[Dictionary]
@@ -77,6 +96,12 @@ func _ready():
 	# Ignore the paused state in this script
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	# Set the timer node
+	timer = Timer.new()
+	timer.one_shot = true
+	timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
+	add_child(timer)
+	
 	# Parse and store the JSON files
 	var file_customers: String = FileAccess.open(TEXTS_CUSTOMERS, FileAccess.READ).get_as_text()
 	var file_charon: String = FileAccess.open(TEXTS_CHARON, FileAccess.READ).get_as_text()
@@ -96,6 +121,7 @@ func _ready():
 	credits_data = parsed_credits
 	
 	# Set the default main scene
+	reset_game_session()
 	change_main_scene(DEFAULT_MAIN_SCENE_TYPE)
 #endregion
 
@@ -110,6 +136,9 @@ func change_main_scene(type: MainSceneType) -> void:
 	if main_scene_pack == null:
 		return
 	
+	match type:
+		MainSceneType.GAME: reset_game_session()
+	
 	_current_main_scene = main_scene_pack.instantiate() as MainScene
 	startup_scene.add_child(_current_main_scene)
 
@@ -122,10 +151,26 @@ func reset_game_session() -> void:
 	is_grabbing_cup = false
 	
 	gold = 0
+	gold_to_receive = 0
+	
+	charon_round = 0
 	charon_tax_total = 0
+	charon_event_counter = 0
+	
+	timer.stop()
 	
 	current_order = null
 	current_customer = null
+	current_round = 0
+
+
+func reset_charon_round() -> void:
+	charon_round = randi_range(CHARON_ROUND_BOUNDS.x, CHARON_ROUND_BOUNDS.y)
+
+
+func adjust_gold(value: int) -> void:
+	gold += value
+	gold_changed.emit(value)
 #endregion
 
 #region Private Methods

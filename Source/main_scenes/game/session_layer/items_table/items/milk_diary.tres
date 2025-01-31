@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://v7rw7juje7s0" path="res://Assets/CupTextures/Regular Milk Texture V1.png" id="1_hheor"]
 [ext_resource type="Texture2D" uid="uid://cis2sadgil5dw" path="res://Assets/Items/Regular milk.png" id="2_rpwt4"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_416s0"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_416s0"]
 
 [resource]
 script = ExtResource("3_416s0")
 type = 7
+value = 2
 item_texture = ExtResource("2_rpwt4")
 cup_texture = ExtResource("1_hheor")
 cup_texture_show_above = false

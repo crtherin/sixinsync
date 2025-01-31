@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dt7hxy5uu7klo" path="res://Assets/CupTextures/Black Tea Texture.png" id="1_rpgeq"]
 [ext_resource type="Texture2D" uid="uid://bhs5rcj3nimvj" path="res://Assets/Items/Black tea.png" id="2_q8pgj"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_fdubp"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_fdubp"]
 
 [resource]
 script = ExtResource("3_fdubp")
 type = 4
+value = 2
 item_texture = ExtResource("2_q8pgj")
 cup_texture = ExtResource("1_rpgeq")
 cup_texture_show_above = false

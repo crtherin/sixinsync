@@ -37,7 +37,7 @@ func _ready() -> void:
 #region Public Methods
 func set_hovered(state: bool) -> void:
 	var tween: Tween = create_tween()
-	var modulate_value: int = TWEEN_MODULATE_VALLUE if state else 1.0
+	var modulate_value: float = TWEEN_MODULATE_VALLUE if state else 1.0
 	
 	tween.tween_property(self, ^"self_modulate:v", modulate_value, TWEEN_MODULATE_SPEED)
 #endregion

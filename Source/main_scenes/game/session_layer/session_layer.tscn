@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxsujsucxhj7u"]
+[gd_scene load_steps=13 format=3 uid="uid://bxsujsucxhj7u"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/session_layer.gd" id="1_o6fgi"]
+[ext_resource type="PackedScene" uid="uid://x0lhdyewgdih" path="res://Source/main_scenes/game/session_layer/ambiance/ambiance.tscn" id="2_1d4ex"]
 [ext_resource type="PackedScene" uid="uid://doghhidspqpwq" path="res://Source/main_scenes/game/session_layer/background_texture/background_texture.tscn" id="2_27lsi"]
-[ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://_old/main/cup.tscn" id="3_fc03g"]
+[ext_resource type="PackedScene" uid="uid://17w5iyucsao7" path="res://Source/main_scenes/game/session_layer/cup/cup.tscn" id="3_fc03g"]
 [ext_resource type="StyleBox" uid="uid://o3kv75dkek20" path="res://Assets/styles/style_panel_background.tres" id="3_i8y16"]
 [ext_resource type="PackedScene" uid="uid://cuutwi53x5vju" path="res://Source/main_scenes/game/session_layer/items_table/items_table.tscn" id="3_kcngt"]
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/hover_panel.gd" id="4_685sg"]
@@ -21,6 +22,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_o6fgi")
+
+[node name="Ambiance" parent="." instance=ExtResource("2_1d4ex")]
+unique_name_in_owner = true
 
 [node name="VBoxBackground" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

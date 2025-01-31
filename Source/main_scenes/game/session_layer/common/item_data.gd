@@ -65,6 +65,7 @@ const ALL_EXTRAS: Array[Type] = [
 #region Export Variables
 # Generic
 @export var type: Type = Type.NONE
+@export var value: int
 
 # Textures
 @export var item_texture: Texture2D

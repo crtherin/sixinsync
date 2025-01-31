@@ -2,7 +2,7 @@ class_name Mumbler extends Node
 
 @export var skip: bool = false
 signal onFree(object)
-var _alpha_path: String
+#var _alpha_path: String
 var player: AudioStreamPlayer
 enum _alpha {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 var _streams: Array[Resource]
@@ -14,7 +14,7 @@ func _ready() -> void:
 	_regex = RegEx.new()
 	_regex.compile('([A-Z])')
 
-static func getInstance(text: String, path: String, streams: Array[Resource], pich: float) -> Mumbler:
+static func getInstance(text: String, _path: String, streams: Array[Resource], pich: float) -> Mumbler:
 	var mumbler = Mumbler.new()
 	mumbler._streams = streams
 	mumbler._current_text = text.to_upper()
@@ -30,8 +30,8 @@ func stringToMorsePop() -> void:
 	#_charToSound(_current_text[_currnet_index])
 	_on_audio_stream_player_finished()
 		
-func _charToSound(char: String) -> void:
-	player.stream = _streams[_alpha.get(char)]
+func _charToSound(character: String) -> void:
+	player.stream = _streams[_alpha.get(character)]
 	player.play()
 
 func _on_audio_stream_player_finished() -> void:

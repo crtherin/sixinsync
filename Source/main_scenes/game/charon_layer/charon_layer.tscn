@@ -1,0 +1,148 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgn5iwdxaquhq"]
+
+[ext_resource type="Script" path="res://Source/main_scenes/game/charon_layer/charon_layer.gd" id="1_63h67"]
+[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/session_layer/mumbeler/mumbeler_manager.tscn" id="2_gmpg3"]
+[ext_resource type="Texture2D" uid="uid://cw1d471ilg3uf" path="res://Assets/Portraits/charon.png" id="3_tgpym"]
+[ext_resource type="Script" path="res://Source/common/game_button.gd" id="4_7w1al"]
+[ext_resource type="Shader" path="res://Assets/shaders/charon_water.gdshader" id="4_fy1ph"]
+
+[sub_resource type="Gradient" id="Gradient_akeyf"]
+offsets = PackedFloat32Array(0, 0.326996, 1)
+colors = PackedColorArray(0.223529, 0.286275, 0.121569, 1, 0.222834, 0.269531, 0.0866855, 0.990502, 0, 0, 0, 0.643137)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_skptl"]
+gradient = SubResource("Gradient_akeyf")
+fill = 1
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoy5c"]
+texture = SubResource("GradientTexture2D_skptl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6um2h"]
+noise_type = 0
+frequency = 0.0128
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3fr08"]
+noise = SubResource("FastNoiseLite_6um2h")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aqv3r"]
+noise = SubResource("FastNoiseLite_6um2h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eikxy"]
+shader = ExtResource("4_fy1ph")
+shader_parameter/horizon = 0.647
+shader_parameter/noise = SubResource("NoiseTexture2D_3fr08")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_aqv3r")
+shader_parameter/wave_frequency = 5.031
+shader_parameter/wave_magnitude = 0.076
+shader_parameter/tides_magnitude = 0.176
+shader_parameter/noise_wave = 2.0
+shader_parameter/tides_speed = 0.503
+shader_parameter/wave_speed = 1.761
+shader_parameter/shine_position = 0.352
+shader_parameter/shine_itensity = 0.057
+shader_parameter/shine_width = 0.05
+shader_parameter/shine_color = Color(0.419608, 0.662745, 0.843137, 0)
+shader_parameter/water_color = Color(0.254902, 0.501961, 0.611765, 0)
+
+[sub_resource type="Gradient" id="Gradient_6ijl0"]
+offsets = PackedFloat32Array(0.524715, 0.836502, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.533333, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ky6p4"]
+gradient = SubResource("Gradient_6ijl0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttwlm"]
+texture = SubResource("GradientTexture2D_ky6p4")
+expand_margin_left = 64.0
+expand_margin_top = 64.0
+expand_margin_right = 64.0
+expand_margin_bottom = 64.0
+
+[node name="CharonLayer" type="CanvasLayer"]
+script = ExtResource("1_63h67")
+
+[node name="MumbleManagerRef" parent="." instance=ExtResource("2_gmpg3")]
+unique_name_in_owner = true
+
+[node name="PanelBackground" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eoy5c")
+
+[node name="ColorShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_eikxy")
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginBackground" type="MarginContainer" parent="ColorShader"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxBackground" type="VBoxContainer" parent="ColorShader/MarginBackground"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="PanelShadow" type="PanelContainer" parent="ColorShader/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ttwlm")
+
+[node name="TextureCharon" type="TextureRect" parent="ColorShader/MarginBackground/VBoxBackground/PanelShadow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+texture = ExtResource("3_tgpym")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelCharon" type="Label" parent="ColorShader/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ButtonConfirm" type="Button" parent="ColorShader/MarginBackground/VBoxBackground"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Fine!"
+script = ExtResource("4_7w1al")

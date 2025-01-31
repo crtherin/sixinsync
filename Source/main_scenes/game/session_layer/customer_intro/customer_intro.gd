@@ -28,6 +28,8 @@ var _tween: Tween
 #endregion
 
 #region OnReady Variables
+@onready var MumbleManagerRef := %MumbleManagerRef as MumbleManager
+
 @onready var ColorBackgroundShader := %ColorBackgroundShader as ColorRect
 @onready var VBoxBackground := %VBoxBackground as VBoxContainer
 @onready var TextureCustomer := %TextureCustomer as TextureRect
@@ -35,15 +37,15 @@ var _tween: Tween
 
 # Buttons
 @onready var HBoxButtons := %HBoxButtons as HBoxContainer
-@onready var ButtonRefuse := %ButtonRefuse as Button
-@onready var ButtonAccept := %ButtonAccept as Button
+@onready var ButtonRefuse := %ButtonRefuse as GameButton
+@onready var ButtonAccept := %ButtonAccept as GameButton
 #endregion
 
 #region Virtual Methods
 func _ready() -> void:
 	_reset()
 	
-	for button: Button in [ButtonAccept, ButtonRefuse]:
+	for button: GameButton in [ButtonAccept, ButtonRefuse]:
 		button.pressed.connect(_on_button_pressed.bind(button))
 
 
@@ -55,6 +57,14 @@ func _input(event: InputEvent) -> void:
 			match key_input.keycode:
 				KEY_ESCAPE, KEY_SPACE, KEY_ENTER when _tween != null:
 					_tween.set_speed_scale(TWEEN_SKIP_SPEED_SCALE)
+	
+	elif event is InputEventMouseButton:
+		var mouse_button_input := event as InputEventMouseButton
+		
+		if mouse_button_input.pressed:
+			match mouse_button_input.button_index:
+				MOUSE_BUTTON_LEFT when _tween != null:
+					_tween.set_speed_scale(TWEEN_SKIP_SPEED_SCALE)
 #endregion
 
 #region Public Methods
@@ -62,9 +72,12 @@ func show_customer_intro(customer: Customer) -> void:
 	_reset()
 	
 	visible = true
+	HBoxButtons.visible = false
 	
 	TextureCustomer.texture = customer.texture
 	LabelOpening.text = customer.description
+	
+	MumbleManagerRef.mumble(customer.description)
 	
 	_tween = create_tween()
 	
@@ -73,9 +86,12 @@ func show_customer_intro(customer: Customer) -> void:
 	_tween.tween_property(self, ^"modulate:a", 1.0, TWEEN_SELF_MODULATE_SPEED)
 	_tween.parallel().tween_property(LabelOpening, ^"visible_ratio", 1.0, tween_label_speed)
 	
-	_tween.chain().tween_property(
+	_tween.chain().tween_callback(HBoxButtons.show).set_delay(TWEEN_BUTTONS_MODULATE_DELAY)
+	_tween.parallel().tween_property(
 		HBoxButtons, ^"modulate:a", 1.0, TWEEN_BUTTONS_MODULATE_SPEED
-	).set_delay(TWEEN_BUTTONS_MODULATE_DELAY)
+	)
+	
+	_tween.tween_callback(MumbleManagerRef.skip)
 #endregion
 
 #region Private Methods
@@ -94,7 +110,7 @@ func _reset() -> void:
 #endregion
 
 #region Signal Callbacks
-func _on_button_pressed(button: Button) -> void:
+func _on_button_pressed(button: GameButton) -> void:
 	match button:
 		ButtonAccept:
 			accepted.emit(true)

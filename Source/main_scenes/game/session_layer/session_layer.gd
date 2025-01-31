@@ -21,6 +21,9 @@ extends Control
 #endregion
 
 #region OnReady Variables
+# Audio
+@onready var Ambiance := %Ambiance as Node
+
 # Background
 @onready var VBoxBackground := %VBoxBackground as VBoxContainer
 
@@ -59,7 +62,14 @@ extends Control
 #region Virtual Methods
 func _ready() -> void:
 	# Connections
+	Global.cup_dropped_on_customer.connect(_on_Global_cup_dropped_on_customer)
+	Global.timer.timeout.connect(_process_end_of_round)
+	Global.next_customer_requested.connect(set_next_customer)
 	CustomerIntroRef.accepted.connect(_on_CustomerIntroRef_accepted)
+	
+	# Start game loop
+	Global.reset_charon_round()
+	set_next_customer()
 
 
 func _input(event: InputEvent) -> void:
@@ -69,11 +79,15 @@ func _input(event: InputEvent) -> void:
 		if key_input.pressed:
 			match key_input.keycode:
 				KEY_Q: set_next_customer()
+				KEY_W: Global.charon_requested.emit()
+				KEY_E: Global.adjust_gold(10)
+				KEY_R: Global.adjust_gold(-10)
 #endregion
 
 #region Public Methods
 func set_next_customer() -> void:
-	# Reset cup and items
+	# Reset timer, cup and items
+	Global.timer.stop()
 	ItemsTableRef.randomize_all_items_positions()
 	CupRef.reset()
 	
@@ -82,21 +96,57 @@ func set_next_customer() -> void:
 	CustomerIntroRef.show_customer_intro(Global.current_customer)
 	
 	# Generate new order
-	Global.current_order = Order.create_random_order(1, 3)
+	Global.current_order = Order.create_random_order(
+		Global.EXTRAS_COUNT_BOUNDS.x, Global.EXTRAS_COUNT_BOUNDS.y
+		)
 	OrdersMenuRef.update_menu_with_order(Global.current_order)
 #endregion
 
 #region Private Methods
+func _process_end_of_round() -> void:
+	Global.current_round += 1
+	Global.gold_to_receive = 0
+	
+	if Global.current_round % Global.charon_round == 0:
+		Global.charon_requested.emit()
+	
+	else:
+		# Game over on time out
+		if Global.gold < 0:
+			Global.change_main_scene(Global.MainSceneType.END_DEFEAT)
+		
+		else:
+			set_next_customer()
 #endregion
 
 #region Static Methods
 #endregion
 
 #region Signal Callbacks
+func _on_Global_cup_dropped_on_customer(customer_is_pleased: bool) -> void:
+	if customer_is_pleased:
+		Global.gold_to_receive += randi() % 4
+		Global.adjust_gold(Global.gold_to_receive)
+		
+		_process_end_of_round()
+		
+	else:
+		Global.adjust_gold(-(int(Global.gold_to_receive / 4.0) + 2))
+		
+		# Game over on failed order delivery
+		if Global.gold < 0:
+			Global.change_main_scene(Global.MainSceneType.END_DEFEAT)
+
+
 func _on_CustomerIntroRef_accepted(state: bool) -> void:
+	# Reset the game loop if the customer is accepted
 	if state:
-		CustomerPanelRef.update_with_customer(Global.current_customer)
+		Global.current_time_interval = randf_range(Global.TIMER_BOUNDS.x, Global.TIMER_BOUNDS.y)
+		Global.timer.start(Global.current_time_interval)
+		
+		CustomerPanelRef.update_customer_panel(Global.current_customer)
 	
+	# Cycle the next (random) customer
 	else:
 		set_next_customer()
 #endregion

@@ -2,11 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://hj5rlaq61dp5" path="res://Assets/CupTextures/Tear Texture4.png" id="1_42dqi"]
 [ext_resource type="Texture2D" uid="uid://e54t2oknlnfe" path="res://Assets/Items/Tears.png" id="2_7gili"]
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/items_table/item_data.gd" id="3_qufeu"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/common/item_data.gd" id="3_qufeu"]
 
 [resource]
 script = ExtResource("3_qufeu")
 type = 15
+value = 1
 item_texture = ExtResource("2_7gili")
 cup_texture = ExtResource("1_42dqi")
 cup_texture_show_above = true
