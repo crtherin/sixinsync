@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cyeengn3tjtqr"]
 
-[ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/mumbeler/mumbeler.gd" id="1_k3yic"]
+[ext_resource type="Script" path="res://Source/main_scenes/game/common/mumbeler/mumbeler.gd" id="1_k3yic"]
 
 
 [node name="Mumbeler" type="Node"]

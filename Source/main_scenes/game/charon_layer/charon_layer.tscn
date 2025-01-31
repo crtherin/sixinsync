@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dgn5iwdxaquhq"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/charon_layer/charon_layer.gd" id="1_63h67"]
-[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/session_layer/mumbeler/mumbeler_manager.tscn" id="2_gmpg3"]
+[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/common/mumbeler/mumbeler_manager.tscn" id="2_gmpg3"]
 [ext_resource type="Texture2D" uid="uid://cw1d471ilg3uf" path="res://Assets/Portraits/charon.png" id="3_tgpym"]
 [ext_resource type="Script" path="res://Source/common/game_button.gd" id="4_7w1al"]
 [ext_resource type="Shader" path="res://Assets/shaders/charon_water.gdshader" id="4_fy1ph"]

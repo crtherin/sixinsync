@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d1uc6l3bfthsn"]
 
 [ext_resource type="Script" path="res://Source/main_scenes/game/session_layer/customer_intro/customer_intro.gd" id="1_yprpx"]
-[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/session_layer/mumbeler/mumbeler_manager.tscn" id="2_86qvn"]
+[ext_resource type="PackedScene" uid="uid://mfufabuiws4r" path="res://Source/main_scenes/game/common/mumbeler/mumbeler_manager.tscn" id="2_86qvn"]
 [ext_resource type="Shader" path="res://Assets/shaders/customer_intro.gdshader" id="2_tra24"]
 [ext_resource type="Script" path="res://Source/common/game_button.gd" id="3_l2m4n"]
 
