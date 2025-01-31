@@ -6,19 +6,12 @@ extends Node
 # Ignore the `unused_signal` warning from the project settings
 signal item_dropped_in_cup(item: Item)
 signal cup_dropped_on_customer(state: bool)
-signal cup_dropped_on_trash
 
 signal gold_changed(amount: int)
 
 signal charon_requested
 signal pause_requested
 signal next_customer_requested
-
-# TODO Or TOREMOVE
-signal warning_message_requested(text: String)
-signal game_start
-signal game_over
-signal time_out
 #endregion
 
 #region Enums
